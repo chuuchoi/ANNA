@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection Observer Replay</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+      *{
+        box-sizing: border-box;
+      }
+        html, body {
+            font-family: pretendard, cursive, Arial, sans-serif;
+            letter-spacing: -0.03em;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            scroll-snap-type: y mandatory;
+        }
+        button{
+          letter-spacing: -0.03em;
+          font-family: pretendard, cursive;
+        }
+        .container {
+          /* scroll-snap-align: start; */
+          position: relative;
+          background-color: red;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .box {
+          scroll-snap-align: start;
+            width: 1400px;
+            height: 100vh;
+            background-color: steelblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            opacity: 0.1;
+            transform: translateY(0px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            position: relative;
+        }
+        .ct {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200vh;
+            background: transparent;
+            z-index: 1;
+            display: none;
+          /* animation: fade-in 0.6s ease; */
+        }
+        .ct.show {
+            display: block;
+            z-index: 2;
+        }
+        /* .ct:nth-child(1){
+          position: sticky;
+          height: 200vh;
+        } */
+        /* .ct:last-child{
+          position: sticky;
+          height: 100vh;
+        } */
+
+        .mc2{
+          scroll-snap-align: start;
+          background-image: url('/bgim0.png');
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          z-index: 4;
+          display: flex;
+          flex-direction: column;
+          background-color: aliceblue;
+          width: 100%;
+          padding-top: 60px;
+          min-height: 100vh;
+        }
+        .mc2dim{
+          mix-blend-mode: darken;
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          width:50%;
+          margin: auto;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.3);
+          transition: all 2s linear;
+        }
+        .header{
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding-left: 30px;
+          background-color: transparent;
+          position: fixed;
+          width: 100%;
+          height: 60px;
+          z-index: 10;
+        }
+        .footer{
+          scroll-snap-align: start;
+          position: relative;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: brown;
+          width: 100%;
+          height: 472px;
+          z-index: 9;
+        }
+        .vct{
+          z-index: 1;
+          position: fixed;
+          line-height: 0;
+          width: 100%;
+          height: 100%;
+          video{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+        .mcnt{
+          position: sticky;
+          top: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 24px;
+          font-size: 24px;
+          font-weight: 500;
+          background-color: rgba(0, 0, 0, 0.3);
+          color: #f0f0f0;
+          height: 100vh;
+          z-index: 4;
+          user-select: none;
+        }
+        .btn-p0{
+          position: relative;
+          cursor: pointer;
+          color: #f0f0f0;
+          padding: 16px 40px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 461px;
+          height: 95px;
+          background-color: transparent;
+          border: 1px solid white;
+          border-radius: 100px;
+          font-weight: 700;
+          font-size: 32px;
+          overflow: hidden;
+          transition: all 0.4s ease;
+          svg{
+            path{
+              transition: all 0.4s ease;
+            }
+          }
+          &:hover{
+            color: black;
+            &::before{
+              transform: translateX(0);
+            }
+            svg{
+              path{
+                stroke: black;
+              }
+            }
+          }
+          &::before{
+            content: '';
+            background-color: white;
+            position: absolute;
+            border-radius: 100px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transform: translateX(-105%);
+            transition: all 0.4s ease;
+          }
+        }
+
+        .swiper {
+          width: 100%;
+        }
+        .swiper-button-prev,
+        .swiper-button-next{
+          width: 50px;
+          height: 50px;
+          &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            background: #FFFFFF;
+            opacity: 0.5;
+          }
+        }
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            display: none;
+        }
+        .swiper-button-next svg, .swiper-button-prev svg {
+          opacity: 1;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          transform-origin: center;
+        }
+        /* .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+          opacity: 1;
+          &::before{
+            opacity: 0.1;
+          }
+        } */
+        .navbtns{
+          z-index: 10;
+          position: fixed;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          right: 100px;
+          height: 100%;
+          background-color: transparent;
+          pointer-events: none;
+          opacity: 1;
+          transition: all 0.4s ease-in-out;
+          gap: 23px;
+          button{
+            position: relative;
+            cursor: pointer;
+            pointer-events: all;
+            width: 16px;
+            height: 16px;
+            padding: 0px;
+            background-color: transparent;
+            border: none;
+            &:hover{
+              &::after{
+                width: 8px;
+                height: 8px;
+                background-color: white;
+              }
+            }
+            &::after{
+              content: '';
+              position: relative;
+              display: block;
+              margin: auto;
+              top: 0px;
+              left: 0px;
+              width: 6px;
+              height: 6px;
+              background-color: #ACACAC;
+              transition: all 0.4s ease;
+            }
+          }
+          button.on{
+            &::after{
+              width: 8px;
+              height: 8px;
+              background-color: white;
+            }
+          }
+        }
+        .navbtns.off{
+          opacity: 0;
+          button{
+            pointer-events: none;
+          }
+        }
+        .animText{
+          overflow: hidden;
+          span{
+            transform: translateY(110%);
+            display: block;
+            animation: slide-up 0.4s cubic-bezier(0.18, 0.06, 0.2, 1) forwards;
+          }
+          img{
+            transform: translateY(110%);
+            animation: slide-up 0.4s cubic-bezier(0.18, 0.06, 0.2, 1) forwards;
+          }
+        }
+        .fadein{
+          animation: fade-in 0.6s ease;
+        }
+        .swiperdeco{
+          pointer-events: none;
+          position: fixed;
+          width: 241px;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: linear-gradient(90deg, rgba(11, 13, 22, 0) 0%, #0B0D16 99.99%);
+          z-index: 1;
+          transform: rotate(-180deg);
+        }
+        .swiperdeco.right{
+          left: auto;
+          right: 0;
+          background: linear-gradient(-90deg, rgba(11, 13, 22, 0) 0%, #0B0D16 99.99%);
+        }
+        @keyframes fade-in {
+          from{transform: translateY(40px); opacity: 0;}
+          to{transform: translateY(0px);}
+        }
+        @keyframes slide-up {
+          from{transform: translateY(110%); opacity: 0;}
+          to{transform: translateY(0px); opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+  <div class="header" > 
+    <img src="logo.svg" width="130"/>
+    <span style="color: white; margin-left: 10px;">홈</span>
+    <span style="color: white;">회사소개</span>
+    <span style="color: white;">종합성능 시험평가</span>
+    <span style="color: white;">기술검증</span>
+    <span style="color: white;">연구개발</span>
+  </div>
+
+  <div class="vct">
+    <div class="mc2dim" ></div>
+    <video id="bgv" src="bgv.mp4" autoplay loop muted></video>
+  </div>
+  <div class="navbtns">
+    <button onclick="moveToSec(1)"></button>
+    <button onclick="moveToSec(2)"></button>
+    <button onclick="moveToSec(3)"></button>
+    <button onclick="moveToSec(4)"></button>
+    <button onclick="moveToSec(5)"></button>
+    <button onclick="moveToSec(6)"></button>
+  </div>
+
+
+
+</body>
+</html>
