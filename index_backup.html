@@ -107,6 +107,7 @@
         } */
 
         .mc2{
+          scroll-snap-align: start;
           background-image: url('./resources/bgim0.png');
           background-size: cover;
           background-position: center;
@@ -127,8 +128,7 @@
           top: 0;
           width:100%;
           height: 100%;
-          background-color: rgba(0, 0, 0, 0.7);
-          animation: fade-in-mc2 800ms ease-in-out;
+          background-color: rgba(0, 0, 0, 0.7)
         }
         .vdim{
           z-index: 2;
@@ -137,7 +137,7 @@
           top: 0;
           width:100%;
           height: 100%;
-          background-color: rgba(0, 0, 0, 0.6);
+          background-color: rgba(0, 0, 0, 0.6)
         }
         .header{
           display: flex;
@@ -524,10 +524,6 @@
             animation: upbtnanim 800ms ease-in-out infinite forwards;
           }
         }
-        @keyframes fade-in-mc2 {
-          from{opacity: 0;}
-          to{opacity: 1;}
-        }
         @keyframes fade-in {
           from{transform: translateY(40px); opacity: 0;}
           to{transform: translateY(0px); opacity: 1;}
@@ -567,7 +563,7 @@
   </div>
 
     <div class="container">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 500vh;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%;">
         <div class="ct c1" >
           <div class="vct">
             <div class="vdim"></div>
@@ -797,51 +793,43 @@
 
           </div>
         </div>
-
-        <div class="ct c5" style="position: sticky;">
-          <div class="mc2">
-            <div class="mc2dim"></div>
-            <div class="animText" style=" margin-bottom: 11px;">
-              <span style="animation-delay: 600ms; font-family: Paperlogy-8ExtraBold; color: #5F7DFF; line-height: 19px;">ANNA Inc.</span>
-            </div>
-            <div class="animText" style=" margin-bottom: 69px;">
-              <span style="animation-delay: 600ms; font-family: Paperlogy-8ExtraBold; font-size: 64px; line-height: 75px; color: white;">CONTACT US</span><br/>
-            </div>
-      
-            <div class="fadein" style="animation-delay: 900ms; display: flex; width: 1206px;">
-              <div style="background-color: black; width: 591px; height: 383px; border-radius: 15px; overflow: hidden;">
-                <!-- 지도를 표시할 div 입니다 -->
-                <!-- <div id="map" style="width:100%;height:100%;"></div> -->
-      <!-- * 카카오맵 - 지도퍼가기 -->
-      <!-- 1. 지도 노드 -->
-      <div id="daumRoughmapContainer1687960018711" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:100%;"> </div>
-              </div>
-              <div style="color: #D6D6D6; margin-left: 51px; display: flex; flex-direction: column; justify-content: center; gap: 39px;">
-                <div style="display: flex; align-items: flex-start; gap: 23px;">
-                  <img src="resources/contact0.svg" width="18" style="margin: 0px 3px;">
-                  <span>070-7811-4803</span>
-                </div>
-                <div style="display: flex; align-items: flex-start; gap: 23px;">
-                  <img src="resources/contact1.svg" width="25" style="margin-top: 5px;">
-                  <span>shlee@byanna.io</span>
-                </div>
-                <div style="display: flex; align-items: flex-start; gap: 23px;">
-                  <img src="resources/contact2.svg" width="24" style="margin-top: 6px;">
-                  <span>인천광역시 연수구 컨벤시아대로 204<br/>
-                    인천스타트업파크, 516호
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       
       <div class="box c1">Box 1</div>
       <div class="box c2">Box 2</div>
       <div class="box c3">Box 3</div>
       <div class="box c4">Box 4</div>
-      <div class="box c5" style="max-height: 968px;">Box 5</div>
+    </div>
+    <div class="mc2">
+      <div class="mc2dim"></div>
+      <span style="font-family: Paperlogy-8ExtraBold; color: #5F7DFF; line-height: 19px; margin-bottom: 11px;">ANNA Inc.</span>
+      <span style="font-family: Paperlogy-8ExtraBold; font-size: 64px; line-height: 75px; color: white; margin-bottom: 69px;">CONTACT US</span><br/>
+
+      <div style="display: flex; width: 1206px;">
+        <div style="background-color: black; width: 591px; height: 383px; border-radius: 15px; overflow: hidden;">
+          <!-- 지도를 표시할 div 입니다 -->
+          <!-- <div id="map" style="width:100%;height:100%;"></div> -->
+<!-- * 카카오맵 - 지도퍼가기 -->
+<!-- 1. 지도 노드 -->
+<div id="daumRoughmapContainer1687960018711" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:100%;"> </div>
+        </div>
+        <div style="color: #D6D6D6; margin-left: 51px; display: flex; flex-direction: column; justify-content: center; gap: 39px;">
+          <div style="display: flex; align-items: flex-start; gap: 23px;">
+            <img src="resources/contact0.svg" width="18" style="margin: 0px 3px;">
+            <span>070-7811-4803</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 23px;">
+            <img src="resources/contact1.svg" width="25" style="margin-top: 5px;">
+            <span>shlee@byanna.io</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 23px;">
+            <img src="resources/contact2.svg" width="24" style="margin-top: 6px;">
+            <span>인천광역시 연수구 컨벤시아대로 204<br/>
+              인천스타트업파크, 516호
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="footer">
       <div class="upbtn" style="margin-top: 54px;" onclick="(()=>{window.scroll({top:0,left:0,behavior:'smooth'})})()">
@@ -859,7 +847,6 @@
       </p>
       <p style="color: #757575; user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
     </div>
-
 
     <script>
         // 감시할 대상 가져오기
@@ -956,11 +943,9 @@
             const btns = Array.from(navbtnsElement.children)
             const numOfSections = 6
             const footerHeight = document.querySelector('.footer').offsetHeight
-            let scrollTolerance = footerHeight/2
-            scrollTolerance = 40
             
             // 🔹 최하단 감지
-            if (scrollTop + windowHeight >= documentHeight - scrollTolerance) {
+            if (scrollTop + windowHeight >= documentHeight - (footerHeight/2)) {
                 // console.log('scrolled to last');
                 btns.forEach((element, idx) => {
                   if(idx == btns.length-1) element.classList.add('on')
