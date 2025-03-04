@@ -2,6 +2,14 @@
   --point-color:#5F7DFF;
   --gray-10:#D6D6D6;
   --gray-40:#757575;
+  --gray-50:#525252;
+  --gray-main:#292929;
+}
+@font-face {
+  font-family: 'Paperlogy-8ExtraBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
 }
 *{
   box-sizing: border-box;

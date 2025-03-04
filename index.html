@@ -6,20 +6,13 @@
     <title>주식회사 애나</title>
     <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="global.css"/>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
     <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-    <!-- pretendard 폰트 설치 -->
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
     <style>
-    @font-face {
-    font-family: 'Paperlogy-8ExtraBold';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
-    font-weight: 800;
-    font-style: normal;
-    }
         html, body {
             height: 100%;
             scroll-snap-type: y mandatory;
@@ -895,6 +888,7 @@
             };
         }
         function checkScrollPosition() {
+          console.log('checkScroll')
             let scrollTop = window.scrollY; // 현재 스크롤 위치
             let windowHeight = window.innerHeight; // 브라우저 창 높이
             let documentHeight = document.documentElement.scrollHeight; // 문서 전체 높이
