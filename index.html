@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주식회사 애나</title>
     <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="global.css"/>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
@@ -18,43 +20,20 @@
     font-weight: 800;
     font-style: normal;
     }
-      *{
-        box-sizing: border-box;
-      }
         html, body {
-            font-family: pretendard, cursive, Arial, sans-serif;
-            letter-spacing: -0.03em;
             height: 100%;
-            margin: 0;
-            padding: 0;
             scroll-snap-type: y mandatory;
           }
-          /* 전체 페이지에서 스크롤바 숨기기 */
-          html,body {
-            -ms-overflow-style: none; /* IE 및 Edge에서 스크롤바 숨김 */
-            scrollbar-width: none; /* Firefox에서 스크롤바 숨김 */
-          }
-          html,body{
-            &::-webkit-scrollbar {
-            /* Webkit 브라우저(Chrome, Safari)에서 스크롤바 숨기기 */
-              display: none;
-            }
+        /* 전체 페이지에서 스크롤바 숨기기 */
+        html,body {
+          -ms-overflow-style: none; /* IE 및 Edge에서 스크롤바 숨김 */
+          scrollbar-width: none; /* Firefox에서 스크롤바 숨김 */
+        }
+        html,body{
           &::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-            background-color: #f0f0f0;
+          /* Webkit 브라우저(Chrome, Safari)에서 스크롤바 숨기기 */
+            display: none;
           }
-          &::-webkit-scrollbar-thumb {
-            background-color: #ff0000;
-          }
-        }
-        p{margin: 0;}
-        button{
-          letter-spacing: -0.03em;
-          font-family: pretendard, cursive;
-        }
-        span{
-          line-height: 150%;
         }
 
         .container {
@@ -96,6 +75,13 @@
         .ct.show {
             display: block;
             z-index: 2;
+        }
+        .ct.c2{
+          display: block;
+          visibility: hidden;
+        }
+        .ct.c2.show{
+          visibility: visible;
         }
         /* .ct:nth-child(1){
           position: sticky;
@@ -139,38 +125,8 @@
           height: 100%;
           background-color: rgba(0, 0, 0, 0.6);
         }
-        .header{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 37px;
-          user-select: none;
-          background-color: transparent;
-          position: fixed;
-          width: 100%;
-          height: 90px;
-          z-index: 10;
-          transition: all 300ms cubic-bezier(0.26, 0.65, 0.15, 1);
-          >img{
-            position: absolute;
-            left: 47.6px;
-          }
-          a{
-            cursor: pointer; text-decoration: none;
-            color: white;
-          }
-        }
         .footer{
           scroll-snap-align: start;
-          position: relative;
-          color: white;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          background-color: #0f0f0f;
-          width: 100%;
-          height: 472px;
-          z-index: 9;
         }
         .vct{
           z-index: 1;
@@ -316,6 +272,10 @@
               padding: 18px 36px;
               color: white;
               margin: auto;
+              /* @media screen and (max-width :768px){
+                padding: 8px 6px;
+                font-size: 14px;
+              } */
             }
           }
         }
@@ -400,7 +360,7 @@
             }
           }
           button.on{
-            background-color: #5F7DFF;
+            background-color: var(--point-color);
             &::after{
               width: 8px;
               height: 8px;
@@ -491,7 +451,7 @@
           width: 130px;
           margin-top: 40px;
           span{
-            color: #D6D6D6; font-size: 16px;
+            color: var(--gray-10); font-size: 16px;
           }
           svg{
             position: absolute; left: 0; bottom: 0;
@@ -507,21 +467,6 @@
             path{
               stroke-dashoffset: -300px;
             }
-          }
-        }
-        .upbtn{
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 40px;
-          height: 40px;
-          border-radius: 40px;
-          border: 2px solid white;
-        }
-        .upbtn:hover{
-          svg{
-            animation: upbtnanim 800ms ease-in-out infinite forwards;
           }
         }
         @keyframes fade-in-mc2 {
@@ -546,11 +491,16 @@
 <body>
   <div class="header" > 
     <img src="resources/logo.svg" width="130"/>
-    <a href="./test.html">회사소개</a>
+    <a href="./about.html">회사소개</a>
     <a href="./test1.html">종합성능 시험평가</a>
     <a href="./test2.html">기술검증</a>
     <a href="./test1.html">연구개발</a>
     <a href="./test.html">고객지원</a>
+    <div style="position: absolute; right: 38px; width: 70px; height: 70px; display: flex; flex-direction: column; gap: 7px; align-items: center; justify-content: center;">
+      <div style="width: 45px; height: 1px; background-color: white;"></div>
+      <div style="width: 45px; height: 1px; background-color: white;"></div>
+      <div style="width: 45px; height: 1px; background-color: white;"></div>
+    </div>
   </div>
 
   <div class="vct">
@@ -610,14 +560,13 @@
               <img src="resources/s2title.svg"/>
             </div>
             <div class="animText" style="z-index: 2; margin-bottom: 24px;">
-              <span style=" font-size: 20px; animation-delay: 400ms; text-align: center; color: #D6D6D6;">국제 표준 규격에 기반하여 SW 기반 제품에 대한 공인 시험평가 및 기술 검증을 시행하고,<br/> 제품의 성능을 정량적으로 평가하여 SW 제품의 기술적 무결성 확인을 지원하는 국제 공인 시험평가 및 기술 검증 기관입니다.</span>
+              <span style=" font-size: 20px; animation-delay: 400ms; text-align: center; color: var(--gray-10);">국제 표준 규격에 기반하여 SW 기반 제품에 대한 공인 시험평가 및 기술 검증을 시행하고,<br/> 제품의 성능을 정량적으로 평가하여 SW 제품의 기술적 무결성 확인을 지원하는 국제 공인 시험평가 및 기술 검증 기관입니다.</span>
             </div>
               <div class="swiper fadein" style="animation-delay: 800ms;">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
-                    <img src="resources/im0.png" class="slideimg" >
+                    <img src="resources/im0.png" class="slideimg" />
                     <div><div><span># 종합 SW시험평가</span></div></div>
-                  </img>
                   </div>
                   <div class="swiper-slide">
                     <img src="resources/im1.png" class="slideimg" />
@@ -663,13 +612,13 @@
           <div class="mcnt" style="gap: 62px;">
             <div style="display: flex; position: relative; left: -110px; width: 1400px;">
               <div class="animText">
-                <span style="color: #5F7DFF; font-weight: 700; margin-right: 23px;">01</span>
+                <span style="color: var(--point-color); font-weight: 700; margin-right: 23px;">01</span>
               </div>
               <div class="animText">
                 <span style="color: white; font-weight: 700; font-size: 44px; margin-right: 107px;">종합성능 시험평가</span>
               </div>
               <div class="animText">
-                <span style="color: #D6D6D6; font-size: 20px; animation-delay: 400ms;">
+                <span style="color: var(--gray-10); font-size: 20px; animation-delay: 400ms;">
                   주식회사 애나는 국제 표준에 따른 품질 경영시스템과 시험능력을 갖춘 국제공인 시험평가 기관입니다.
                 </span>  
               </div>
@@ -680,7 +629,7 @@
                 <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">
                   종합 SW 시험평가
                 </span>
-                <span style="color: #D6D6D6; font-size: 14px;">
+                <span style="color: var(--gray-10); font-size: 14px;">
                   종합 SW 시험평가는 SW 및 Data 관련<br/>
                   전분야의 제품을KS X ISO/IFC<br/>
                   25023:2016 표준에 의거한 소프트웨어<br/>
@@ -699,7 +648,7 @@
                 <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">
                   메타버스 시험평가
                 </span>
-                <span style="color: #D6D6D6; font-size: 14px;">
+                <span style="color: var(--gray-10); font-size: 14px;">
                   2015년부터 메타버스 콘텐츠에 대한 성능<br/>
                   시험평가를 위한 품질 측정 용건 및 방법을 업계 최초로 개발 및 적용한 메타버스 전문<br/> 
                   시험기관으로 메타버스 콘텐츠 및 관련<br/>
@@ -717,7 +666,7 @@
               <div class="fadein" style="animation-delay: 1200ms; position: relative; top: 25px; display: flex; flex-direction: column; width: 286px;">
                 <img src="resources/dtim2.png" width="201px" style="align-self: center; margin-bottom: 42px;">
                 <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">AI 시험평가</span>
-                <span style="color: #D6D6D6; font-size: 14px;">
+                <span style="color: var(--gray-10); font-size: 14px;">
                   인공지능 솔루션의 학습 데이터, 알고리즘<br/>
                   등을 성능지표 및 ISO/IEC 25023의거한<br/>
                   소프트웨어 품질 시험과 인공지능 학습 데이터를 ISO/IEC 25024 표준에 의거한<br/>
@@ -739,13 +688,13 @@
           <div class="mcnt" style="gap: 62px;">
             <div style="display: flex; position: relative; left: -110px; width: 1400px;">
               <div class="animText">
-                <span style="color: #5F7DFF; font-weight: 700; margin-right: 23px;">02</span>
+                <span style="color: var(--point-color); font-weight: 700; margin-right: 23px;">02</span>
               </div>
               <div class="animText">
                 <span style="color: white; font-weight: 700; font-size: 44px; margin-right: 107px;">기술검증</span>
               </div>
               <div class="animText">
-                <span style="color: #D6D6D6; font-size: 20px; animation-delay: 400ms;">
+                <span style="color: var(--gray-10); font-size: 20px; animation-delay: 400ms;">
                   주식회사 애나는 기술기반의 제품 및 서비스에 대한 품질 강화를 목적으로 기술 검증에 대해 연구합니다.<br/>
                   특히 인공지능(A), 블록체인(Blockchain)의 기술 품질 방법을 연구하고 개선점을 찾아 나아가도록 체계적으로 검증절차를 진행하고 있습니다.
                 </span>  
@@ -757,7 +706,7 @@
                 <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">
                   블록체인 보안 감사 (Audit)
                 </span>
-                <span style="color: #D6D6D6; font-size: 14px;">
+                <span style="color: var(--gray-10); font-size: 14px;">
                   블록체인(Block Chain)이란 데이터가 담긴 블록을<br/>
                   일정 주기로 생성한 뒤 이전 블록에 체인과 같이<br/>
                   연결하는 기술입니다. 블록체인은 변조하기 어려운<br/>
@@ -778,7 +727,7 @@
                 <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">
                   인공지능 기술검증
                 </span>
-                <span style="color: #D6D6D6; font-size: 14px;">
+                <span style="color: var(--gray-10); font-size: 14px;">
                   주식회사 애나의 인공지능 검증 서비스는 고객사가<br/>
                   개발한 인공지능 모델 및 시스템에 대해 실제 뉴럴<br/>
                   네트워크 기반의 인공지능 모델이 실제 솔루션에<br/>
@@ -802,7 +751,7 @@
           <div class="mc2">
             <div class="mc2dim"></div>
             <div class="animText" style=" margin-bottom: 11px;">
-              <span style="animation-delay: 600ms; font-family: Paperlogy-8ExtraBold; color: #5F7DFF; line-height: 19px;">ANNA Inc.</span>
+              <span style="animation-delay: 600ms; font-family: Paperlogy-8ExtraBold; color: var(--point-color); line-height: 19px;">ANNA Inc.</span>
             </div>
             <div class="animText" style=" margin-bottom: 69px;">
               <span style="animation-delay: 600ms; font-family: Paperlogy-8ExtraBold; font-size: 64px; line-height: 75px; color: white;">CONTACT US</span><br/>
@@ -816,7 +765,7 @@
       <!-- 1. 지도 노드 -->
       <div id="daumRoughmapContainer1687960018711" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:100%;"> </div>
               </div>
-              <div style="color: #D6D6D6; margin-left: 51px; display: flex; flex-direction: column; justify-content: center; gap: 39px;">
+              <div style="color: var(--gray-10); margin-left: 51px; display: flex; flex-direction: column; justify-content: center; gap: 39px;">
                 <div style="display: flex; align-items: flex-start; gap: 23px;">
                   <img src="resources/contact0.svg" width="18" style="margin: 0px 3px;">
                   <span>070-7811-4803</span>
@@ -850,14 +799,14 @@
         </svg>          
       </div>
       <img src="resources/logo.svg" width="160" style="user-select: none; -webkit-user-drag: none; margin-top: 55px;"/>
-      <p style="color: #D6D6D6; text-align: center; line-height: 74.6%; margin: 32px 0px 41px 0px;">
+      <p style="color: var(--gray-10); text-align: center; line-height: 74.6%; margin: 32px 0px 41px 0px;">
         상호 : 주식회사 애나<br/><br/>
         대표 : 김민종<br/><br/>
         주소 : 인천광역시 연수구 컨벤시아대로 204, 인천스타트업파크 405호<br/><br/>
         TEL : 070-7811-4803<br/><br/>
         e-mail : minjong.kim@byanna.io
       </p>
-      <p style="color: #757575; user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
+      <p style="color: var(--gray-40); user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
     </div>
 
 
@@ -896,32 +845,31 @@
         const swiper = new Swiper('.swiper', {
           // Optional parameters
           direction: 'horizontal',
-          loop: false,
 
           // Navigation arrows
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
+          // navigation: {
+          //   nextEl: '.swiper-button-next',
+          //   prevEl: '.swiper-button-prev',
+          // },
 
           // And if we need scrollbar
-          scrollbar: {
-            hide: true
-            // el: '.swiper-scrollbar',
-          },
+          // scrollbar: {
+          //   hide: true
+          //   // el: '.swiper-scrollbar',
+          // },
 
           pagination: {
             el: ".swiper-pagination",
             clickable: true,
           },
 
-          speed: 1200, // animation duration
+          // speed: 1200, // animation duration
           spaceBetween:30, // gap
           slidesPerView:4,
           autoplay:{delay:1400},
           // autoplay:false,
           centeredSlides: true, // 가운데 정렬
-
+          loop:true,
           // initialSlide: 1, // 두번째 슬라이드에서 시작
           // on: {
           //     slideChange: function () {
