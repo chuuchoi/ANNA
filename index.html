@@ -69,13 +69,13 @@
             display: block;
             z-index: 2;
         }
-        .ct.c2{
+        /* .ct.c2{
           display: block;
           visibility: hidden;
         }
         .ct.c2.show{
           visibility: visible;
-        }
+        } */
         /* .ct:nth-child(1){
           position: sticky;
           height: 200vh;
@@ -470,11 +470,6 @@
           from{transform: translateY(40px); opacity: 0;}
           to{transform: translateY(0px); opacity: 1;}
         }
-        @keyframes upbtnanim {
-          0%{transform: translateY(1px);}
-          90%{transform: translateY(-1px);}
-          100%{transform: translateY(1px);}
-        }
         @keyframes slide-up {
           from{transform: translateY(110%); opacity: 0;}
           to{transform: translateY(0px); opacity: 1;}
@@ -834,6 +829,33 @@
         // 각 요소를 감시 대상으로 추가
         boxes.forEach(box => observer.observe(box));
 
+// 특정 요소가 display: block;이 되면 Swiper 업데이트
+const observec2 = new MutationObserver(() => {
+  // console.log(window.getComputedStyle(document.querySelector('.ct.c2')).display!== 'none')
+  if (window.getComputedStyle(document.querySelector('.ct.c2')).display !== 'none') {
+    // console.log('update')
+    swiper.update();
+    // swiper.slideToLoop(5, 10); // loop 다시 정상 동작하도록 첫 번째 슬라이드로 이동
+    setTimeout(() => {
+      swiper.slideToLoop(0, 10); // loop 다시 정상 동작하도록 첫 번째 슬라이드로 이동
+    }, 80);
+  }
+});
+observec2.observe(document.querySelector('.ct.c2'), { attributes: true, attributeFilter: ['class'] });
+const observec5 = new MutationObserver(() => {
+  // console.log(window.getComputedStyle(document.querySelector('.ct.c2')).display!== 'none')
+  if (window.getComputedStyle(document.querySelector('.ct.c5')).display !== 'none') {
+// console.log('c5 show')
+new daum.roughmap.Lander({
+		"timestamp" : "1687960018711",
+		"key" : "2fcmr",
+		"mapWidth" : "591",
+		"mapHeight" : "420"
+	}).render();
+  }
+});
+observec5.observe(document.querySelector('.ct.c5'), { attributes: true, attributeFilter: ['class'] });
+
 
         const swiper = new Swiper('.swiper', {
           // Optional parameters
@@ -863,7 +885,7 @@
           // autoplay:false,
           centeredSlides: true, // 가운데 정렬
           loop:true,
-          // initialSlide: 1, // 두번째 슬라이드에서 시작
+          initialSlide: 3, // 두번째 슬라이드에서 시작
           // on: {
           //     slideChange: function () {
           //         let maxIndex = this.slides.length - 1; // 마지막에서 두번째 슬라이드
@@ -888,7 +910,6 @@
             };
         }
         function checkScrollPosition() {
-          console.log('checkScroll')
             let scrollTop = window.scrollY; // 현재 스크롤 위치
             let windowHeight = window.innerHeight; // 브라우저 창 높이
             let documentHeight = document.documentElement.scrollHeight; // 문서 전체 높이
@@ -975,15 +996,6 @@
 // kakao.maps.event.addListener(marker, 'click', function() {
 //     window.open('https://map.kakao.com/link/map/인천스타트업파크,37.3873,126.6399', '_blank')
 // });
-
-
-
-	new daum.roughmap.Lander({
-		"timestamp" : "1687960018711",
-		"key" : "2fcmr",
-		"mapWidth" : "591",
-		"mapHeight" : "420"
-	}).render();
 
     // Lottie 애니메이션 로드
     var animation = lottie.loadAnimation({

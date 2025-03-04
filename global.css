@@ -87,3 +87,9 @@ span{
     }
   }
 }
+
+@keyframes upbtnanim {
+  0%{transform: translateY(1px);}
+  90%{transform: translateY(-1px);}
+  100%{transform: translateY(1px);}
+}
