@@ -1006,6 +1006,17 @@ observec5.observe(document.querySelector('.ct.c5'), { attributes: true, attribut
       path: 'resources/scrolldown.json' // Lottie JSON 파일 경로
     });
 
+//모바일UI 0~768px
+const mediaQuery = window.matchMedia("(max-width: 768px)");
+if (mediaQuery.matches) {
+  window.location.href = "./index_mobile.html";
+}
+// 화면 크기 변경 시 감지
+mediaQuery.addEventListener("change", (e) => {
+  if (e.matches) {
+    window.location.href = "./index_mobile.html";
+  }
+});
     </script>
 
 </body>
