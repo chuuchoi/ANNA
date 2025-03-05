@@ -21,7 +21,7 @@
       }
       .header{
         width: 100vw;
-        height: 45px;
+        height: 60px;
         &>img{
           left: 20px;
         }
@@ -79,28 +79,43 @@
           align-items: center;
           justify-content: center;
           gap: 24px;
-          font-size: 16px;
+          font-size: 19px;
           font-weight: 500;
           color: #f0f0f0;
           height: 100%;
           z-index: 4;
           user-select: none;
-        }
+      }
+      .mcnt .titlenum{
+        color: var(--point-color); display: inline-block; width: fit-content; position: relative; top: -7px; font-weight: 700; margin-right: 8px;
+      }
+      .mcnt .title{
+        color: white; font-weight: 700; display: inline-block; width: fit-content;  font-size: 26px; margin-right: 107px;
+      }
+      .mcnt .subtt{
+        color: var(--gray-10); font-size: 19px; line-height: 140%;
+      }
+      .mcnt .conttitle{
+        color: white; font-weight: 700; font-size: 19px; word-break: keep-all; margin-bottom: 8px;
+      }
+      .mcnt .content{
+        color: var(--gray-10); font-size: 15px; line-height: 133%;
+      }
         .btn-p0{
           position: relative;
           cursor: pointer;
           color: #f0f0f0;
-          padding: 8px 16px;
+          padding: 12px 21px;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          width: 280px;
-          height: 52px;
+          width: 320px;
+          height: 64px;
           background-color: transparent;
           border: 1px solid white;
           border-radius: 100px;
           font-weight: 700;
-          font-size: 16px;
+          font-size: 19px;
           overflow: hidden;
           transition: all 0.4s ease;
           &::before{
@@ -214,7 +229,7 @@
               align-items: flex-end;
               padding: 6px 12px;
               color: white;
-              font-size: 13px;
+              font-size: 15px;
               margin: auto;
               /* @media screen and (max-width :768px){
                 padding: 8px 6px;
@@ -243,11 +258,11 @@
 
         .morebtn{
           cursor: pointer; position: relative; text-decoration: none;
-          width: 80px;
+          width: 120px;
           margin-top: 40px;
           & span{
             color: var(--gray-10);
-            font-size: 12px;
+            font-size: 15px;
           }
           & svg{
             position: absolute; left: 0; bottom: 0;
@@ -305,16 +320,16 @@
 </head>
 <body>
   <div class="header" > 
-    <img src="resources/logo.svg" width="70"/>
-    <!-- <a href="./about.html">회사소개</a>
+    <img src="resources/logo.svg" width="104"/>
+    <a href="./about.html">회사소개</a>
     <a href="./test1.html">종합성능 시험평가</a>
     <a href="./test2.html">기술검증</a>
     <a href="./test1.html">연구개발</a>
-    <a href="./test.html">고객지원</a> -->
-    <div style="position: absolute; right: 8px; width: 45px; height: 45px; display: flex; flex-direction: column; gap: 3px; align-items: center; justify-content: center;">
-      <div style="width: 21px; height: 1px; background-color: white;"></div>
-      <div style="width: 21px; height: 1px; background-color: white;"></div>
-      <div style="width: 21px; height: 1px; background-color: white;"></div>
+    <a href="./test.html">고객지원</a>
+    <div style="position: absolute; right: 8px; width: 60px; height: 60px; display: flex; flex-direction: column; gap: 3px; align-items: center; justify-content: center;">
+      <div style="width: 27px; height: 1px; background-color: white;"></div>
+      <div style="width: 27px; height: 1px; background-color: white;"></div>
+      <div style="width: 27px; height: 1px; background-color: white;"></div>
     </div>
   </div>
 
@@ -329,7 +344,7 @@
     </div>
     <div class="mcnt">
       <div class="animText">
-        <img src="resources/logo.svg" width="192" />
+        <img src="resources/logo.svg" width="248" />
       </div>
       <div class="animText" >
         <span style="animation-delay: 400ms; padding: 0 36px; text-align: center;">
@@ -358,10 +373,10 @@
       </div>
 
       <div class="animText" style="z-index: 2;">
-        <img src="resources/s2title.svg" width="242"/>
+        <img src="resources/s2title.svg" width="304"/>
       </div>
       <div class="animText" style="z-index: 2; margin-bottom: 24px;">
-        <span style=" font-size: 14px; padding: 0 32px; animation-delay: 400ms; text-align: center; color: var(--gray-10);">국제 표준 규격에 기반하여 SW 기반 제품에 대한 공인 시험평가 및 기술 검증을 시행하고, 제품의 성능을 정량적으로 평가하여 SW 제품의 기술적 무결성 확인을 지원하는 국제 공인 시험평가 및 기술 검증 기관입니다.</span>
+        <span style=" font-size: 19px; padding: 0 32px; animation-delay: 400ms; text-align: center; color: var(--gray-10);">국제 표준 규격에 기반하여 SW 기반 제품에 대한 공인 시험평가 및 기술 검증을 시행하고, 제품의 성능을 정량적으로 평가하여 SW 제품의 기술적 무결성 확인을 지원하는 국제 공인 시험평가 및 기술 검증 기관입니다.</span>
       </div>
         <div class="swiper fadein" style="animation-delay: 800ms;">
           <div class="swiper-wrapper">
@@ -411,25 +426,25 @@
 
 
   <div class="ct c3">
-    <div class="mcnt" style="gap: 32px;">
-      <div style="padding: 0 24px; display: flex; flex-direction: column; position: relative; width: 100%;">
+    <div class="mcnt" style="gap: 52px;">
+      <div style="padding: 0 24px; gap: 6px; display: flex; flex-direction: column; position: relative; width: 100%;">
         <div class="animText">
-          <span style="color: var(--point-color); display: inline-block; width: fit-content; position: relative; top: -3px; font-weight: 700; margin-right: 8px;">01</span>
-          <span style="color: white; font-weight: 700; display: inline-block; width: fit-content;  font-size: 21px; margin-right: 107px;">종합성능 시험평가</span>
+          <span class="titlenum">01</span>
+          <span class="title">종합성능 시험평가</span>
         </div>
         <div class="animText">
-          <span style="animation-delay: 400ms; color: var(--gray-10); font-size: 16px; line-height: 140%;">
+          <span class="subtt" style="animation-delay: 400ms;">
             주식회사 애나는 국제 표준에 따른 품질 경영시스템과 시험능력을 갖춘 국제공인 시험평가 기관입니다.
           </span>  
         </div>
       </div>
       <div style="padding: 0 24px; display: flex; width: 100%; justify-content: center;">
-        <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim0.png" width="72px" style="align-self: center; margin-bottom: 21px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">
+        <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%; max-width: 280px;">
+          <img src="resources/dtim0.png" width="96px" style="align-self: center; margin-bottom: 14px;">
+          <span class="conttitle">
             종합 SW 시험평가
           </span>
-          <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
+          <span class="content">
             종합 SW 시험평가는 SW 및 Data 관련
             전분야의 제품을KS X ISO/IFC
             25023:2016 표준에 의거한 소프트웨어
@@ -437,18 +452,18 @@
           </span>
           <a class="morebtn" href="./test.html">
             <span>더 알아보기</span>
-            <svg width="80" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="120" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
             </svg>
           </a>
         </div>
         <div style="flex-grow: 1; max-width: 48px; min-width: 24px;"></div>
-        <div class="fadein" style="animation-delay: 800ms; position: relative; top: 5px; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim1.png" width="64px" style="align-self: center; margin-bottom: 24px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">
+        <div class="fadein" style="animation-delay: 800ms; position: relative; top: 5px; display: flex; flex-direction: column; width: 100%; max-width: 280px;">
+          <img src="resources/dtim1.png" width="80px" style="align-self: center; margin-bottom: 24px;">
+          <span class="conttitle">
             메타버스 시험평가
           </span>
-          <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
+          <span class="content">
             2015년부터 메타버스 콘텐츠에 대한 성능
             시험평가를 위한 품질 측정 용건 및 방법을 업계 최초로 개발 및 적용한 메타버스 전문
             시험기관으로 메타버스 콘텐츠 및 관련
@@ -457,16 +472,16 @@
           </span>
           <a class="morebtn" href="./test1.html">
             <span>더 알아보기</span>
-            <svg width="80" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="120" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
             </svg>
           </a>
         </div>
         <div style="flex-grow: 1; max-width: 48px; min-width: 24px;"></div>
-        <div class="fadein" style="animation-delay: 1200ms; position: relative; top: 7px; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim2.png" width="62px" style="align-self: center; margin-bottom: 26px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">AI 시험평가</span>
-          <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
+        <div class="fadein" style="animation-delay: 1200ms; position: relative; top: 7px; display: flex; flex-direction: column; width: 100%; max-width: 280px;">
+          <img src="resources/dtim2.png" width="78px" style="align-self: center; margin-bottom: 26px;">
+          <span class="conttitle">AI 시험평가</span>
+          <span class="content">
             인공지능 솔루션의 학습 데이터, 알고리즘
             등을 성능지표 및 ISO/IEC 25023의거한
             소프트웨어 품질 시험과 인공지능 학습 데이터를 ISO/IEC 25024 표준에 의거한
@@ -475,7 +490,7 @@
           </span>
           <a class="morebtn" href="./test2.html">
             <span>더 알아보기</span>
-            <svg width="80" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="120" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
             </svg>
           </a>
@@ -486,26 +501,26 @@
 
 
   <div class="ct c4">
-    <div class="mcnt" style="gap: 24px;">
+    <div class="mcnt" style="gap: 40px;">
       <div style="padding: 0 24px; display: flex; flex-direction: column; position: relative; width: 100%;">
         <div class="animText">
-          <span style="color: var(--point-color); display: inline-block; width: fit-content; position: relative; top: -3px; font-weight: 700; margin-right: 8px;">02</span>
-          <span style="color: white; font-weight: 700; display: inline-block; width: fit-content;  font-size: 21px; margin-right: 107px;">기술검증</span>
+          <span class="titlenum" >02</span>
+          <span class="title" >기술검증</span>
         </div>
         <div class="animText">
-          <span style="animation-delay: 400ms; color: var(--gray-10); font-size: 15px; line-height: 133%;">
+          <span class="subtt" style="animation-delay: 400ms;">
             주식회사 애나는 기술기반의 제품 및 서비스에 대한 품질 강화를 목적으로 기술 검증에 대해 연구합니다.
             특히 인공지능(A), 블록체인(Blockchain)의 기술 품질 방법을 연구하고 개선점을 찾아 나아가도록 체계적으로 검증절차를 진행하고 있습니다.
           </span>  
         </div>
       </div>
       <div style="padding: 0 24px; display: flex; width: 100%; justify-content: center;">
-        <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim3.png" height="88px" style="border-radius: 15px; align-self: center; margin-bottom: 24px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">
+        <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%; max-width: 280px;">
+          <img src="resources/dtim3.png" height="104px" style="border-radius: 15px; align-self: center; margin-bottom: 24px;">
+          <span class="conttitle">
             블록체인 보안 감사 (Audit)
           </span>
-          <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
+          <span class="content">
             블록체인(Block Chain)이란 데이터가 담긴 블록을
             일정 주기로 생성한 뒤 이전 블록에 체인과 같이
             연결하는 기술입니다. 블록체인은 변조하기 어려운
@@ -515,18 +530,18 @@
           </span>
           <a class="morebtn" href="./test.html">
             <span>더 알아보기</span>
-            <svg width="80" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="120" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
             </svg>
           </a>
         </div>
         <div style="flex-grow: 1; max-width: 48px; min-width: 24px;"></div>
-        <div class="fadein" style="animation-delay: 800ms; position: relative; top: 5px; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim4.png" height="88px" style="border-radius: 15px; align-self: center; margin-bottom: 24px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">
+        <div class="fadein" style="animation-delay: 800ms; position: relative; top: 5px; display: flex; flex-direction: column; width: 100%; max-width: 280px;">
+          <img src="resources/dtim4.png" height="104px" style="border-radius: 15px; align-self: center; margin-bottom: 24px;">
+          <span class="conttitle">
             인공지능 기술검증
           </span>
-          <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
+          <span class="content">
             주식회사 애나의 인공지능 검증 서비스는 고객사가
             개발한 인공지능 모델 및 시스템에 대해 실제 뉴럴
             네트워크 기반의 인공지능 모델이 실제 솔루션에
@@ -536,7 +551,7 @@
           </span>
           <a class="morebtn" href="./test1.html">
             <span>더 알아보기</span>
-            <svg width="80" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="120" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
             </svg>
           </a>
@@ -547,7 +562,7 @@
 
 
   <div class="ct c5">
-    <div class="mc2">
+    <div class="mc2" style="justify-content: center;">
       <div class="mc2dim"></div>
       <div class="animText" style=" margin-bottom: 0px;">
         <span style="animation-delay: 600ms; font-family: Paperlogy-8ExtraBold; font-size: 14px; color: var(--point-color);">ANNA Inc.</span>
@@ -556,7 +571,7 @@
         <span style="animation-delay: 600ms; font-family: Paperlogy-8ExtraBold; font-size: 24px; color: white;">CONTACT US</span><br/>
       </div>
 
-      <div class="fadein" style="animation-delay: 900ms; display: flex; flex-direction: column; gap: 24px; width: 100%; max-width: 500px; padding: 0px 24px;">
+      <div class="fadein" style="animation-delay: 900ms; display: flex; flex-direction: column; gap: 24px; width: 100%; max-width: 640px; padding: 0px 24px;">
         <div id="mapWrapper" style="background-color: black; width: 100%; height: 353px; border-radius: 15px; overflow: hidden;">
           <!-- 지도를 표시할 div 입니다 -->
           <!-- <div id="map" style="width:100%;height:100%;"></div> -->
@@ -581,6 +596,7 @@
           </div>
         </div>
       </div>
+      <div style="flex: 1; width: 1px; max-height: 60px;"></div>
     </div>
   </div>
 
@@ -777,9 +793,9 @@ mapWrapperEl.addEventListener("touchstart", (e)=>{
 
           // speed: 1200, // animation duration
           spaceBetween:30, // gap
-          slidesPerView:2,
-          // autoplay:{delay:1400},
-          autoplay:false,
+          slidesPerView:4,
+          autoplay:{delay:1400},
+          // autoplay:false,
           centeredSlides: true, // 가운데 정렬
           loop:true,
           initialSlide: 3, // 세번째 슬라이드에서 시작

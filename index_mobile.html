@@ -332,7 +332,7 @@
         <img src="resources/logo.svg" width="192" />
       </div>
       <div class="animText" >
-        <span style="animation-delay: 400ms; padding: 0 36px; text-align: center;">
+        <span style="animation-delay: 400ms; padding: 0 36px; text-align: center; word-break: keep-all;">
           <b style="color: #8097FF;">주식회사 애나</b>는 공신력과 신뢰성을 바탕으로 하는 국제공인 시험평가 기관입니다.</span>
       </div>
       <div class="fadein" style="animation-delay: 800ms; display: flex; flex-direction: column; gap: 16px; margin-top: 8px;">
@@ -778,8 +778,8 @@ mapWrapperEl.addEventListener("touchstart", (e)=>{
           // speed: 1200, // animation duration
           spaceBetween:30, // gap
           slidesPerView:2,
-          // autoplay:{delay:1400},
-          autoplay:false,
+          autoplay:{delay:1400},
+          // autoplay:false,
           centeredSlides: true, // 가운데 정렬
           loop:true,
           initialSlide: 3, // 세번째 슬라이드에서 시작
