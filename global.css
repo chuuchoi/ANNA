@@ -56,7 +56,7 @@ span{
     position: absolute;
     left: 47.6px;
   }
-  a{
+  & a{
     cursor: pointer; text-decoration: none;
     color: white;
   }
