@@ -78,7 +78,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: 24px;
+          gap: 4px;
           font-size: 16px;
           font-weight: 500;
           color: #f0f0f0;
@@ -151,7 +151,9 @@
         
         .swiper {
           width: 100%;
+          /* aspect-ratio: 4; */
           max-width: 2000px;
+          max-height: 45vh;
         }
         .swiper-slide{
           display: flex;
@@ -189,23 +191,27 @@
         }
         .slideimg{
           display: block;
-          width: 100%;
-          /* max-width: 180px; */
+          /* width: 100%; */
+          aspect-ratio: 1;
+          height: 100%;
+          max-width: 20vw;
           position: relative;
           border-radius: 15px;
           +div{
             position: absolute;
             top: 0;
-            left: 0;
+            /* left: 0; */
             display: flex;
             justify-content: center;
-            width: 100%;
+            /* width: 100%; */
+            aspect-ratio: 1;
             height: 100%;
 
             >div{
               top: 0;
               left: 0;
-              width: 100%;
+              /* width: 100%; */
+              aspect-ratio: 1;
               max-width: 396px;
               border-radius: 15px;
               height: 100%;
@@ -244,7 +250,7 @@
         .morebtn{
           cursor: pointer; position: relative; text-decoration: none;
           width: 80px;
-          margin-top: 36px;
+          margin-top: 12px;
           & span{
             color: var(--gray-10);
             font-size: 12px;
@@ -411,7 +417,7 @@
 
 
   <div class="ct c3">
-    <div class="mcnt" style="gap: 32px;">
+    <div class="mcnt" style="gap: 14px;">
       <div style="padding: 0 24px; display: flex; flex-direction: column; position: relative; width: 100%;">
         <div class="animText">
           <span style="color: var(--point-color); display: inline-block; width: fit-content; position: relative; top: -3px; font-weight: 700; margin-right: 8px;">01</span>
@@ -425,8 +431,8 @@
       </div>
       <div style="padding: 0 24px; display: flex; width: 100%; justify-content: center;">
         <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim0.png" width="72px" style="align-self: center; margin-bottom: 21px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">
+          <img src="resources/dtim0.png" width="72px" style="align-self: center; margin-bottom: 7px;">
+          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 4px;">
             종합 SW 시험평가
           </span>
           <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
@@ -444,8 +450,8 @@
         </div>
         <div style="flex-grow: 1; max-width: 48px; min-width: 24px;"></div>
         <div class="fadein" style="animation-delay: 800ms; position: relative; top: 5px; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim1.png" width="64px" style="align-self: center; margin-bottom: 24px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">
+          <img src="resources/dtim1.png" width="64px" style="align-self: center; margin-bottom: 11px;">
+          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 4px;">
             메타버스 시험평가
           </span>
           <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
@@ -464,8 +470,8 @@
         </div>
         <div style="flex-grow: 1; max-width: 48px; min-width: 24px;"></div>
         <div class="fadein" style="animation-delay: 1200ms; position: relative; top: 7px; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim2.png" width="62px" style="align-self: center; margin-bottom: 26px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">AI 시험평가</span>
+          <img src="resources/dtim2.png" width="62px" style="align-self: center; margin-bottom: 13px;">
+          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 4px;">AI 시험평가</span>
           <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
             인공지능 솔루션의 학습 데이터, 알고리즘
             등을 성능지표 및 ISO/IEC 25023의거한
@@ -486,7 +492,7 @@
 
 
   <div class="ct c4">
-    <div class="mcnt" style="gap: 24px;">
+    <div class="mcnt" style="gap: 14px;">
       <div style="padding: 0 24px; display: flex; flex-direction: column; position: relative; width: 100%;">
         <div class="animText">
           <span style="color: var(--point-color); display: inline-block; width: fit-content; position: relative; top: -3px; font-weight: 700; margin-right: 8px;">02</span>
@@ -501,8 +507,8 @@
       </div>
       <div style="padding: 0 24px; display: flex; width: 100%; justify-content: center;">
         <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim3.png" height="88px" style="border-radius: 15px; align-self: center; margin-bottom: 24px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">
+          <img src="resources/dtim3.png" style="height: 144px; max-height: 20vh; border-radius: 15px; align-self: center; margin-bottom: 3vh;">
+          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 4px;">
             블록체인 보안 감사 (Audit)
           </span>
           <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
@@ -522,8 +528,8 @@
         </div>
         <div style="flex-grow: 1; max-width: 48px; min-width: 24px;"></div>
         <div class="fadein" style="animation-delay: 800ms; position: relative; top: 5px; display: flex; flex-direction: column; width: 100%;">
-          <img src="resources/dtim4.png" height="88px" style="border-radius: 15px; align-self: center; margin-bottom: 24px;">
-          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 8px;">
+          <img src="resources/dtim4.png" style="height: 144px; max-height: 20vh; border-radius: 15px; align-self: center; margin-bottom: 3vh;">
+          <span style="color: white; font-weight: 700; font-size: 15px; word-break: keep-all; margin-bottom: 4px;">
             인공지능 기술검증
           </span>
           <span style="color: var(--gray-10); font-size: 12px; line-height: 133%;">
@@ -556,15 +562,15 @@
         <span style="animation-delay: 600ms; font-family: Paperlogy-8ExtraBold; font-size: 24px; color: white;">CONTACT US</span><br/>
       </div>
 
-      <div class="fadein" style="animation-delay: 900ms; display: flex; flex-direction: column; gap: 24px; width: 100%; max-width: 500px; padding: 0px 24px;">
-        <div id="mapWrapper" style="background-color: black; width: 100%; height: 353px; border-radius: 15px; overflow: hidden;">
+      <div class="fadein" style="animation-delay: 900ms; display: flex; gap: 24px; width: 100%; padding: 0px 24px;">
+        <div id="mapWrapper" style="background-color: black; width: 100%; height: 353px; max-height: 60vh; border-radius: 15px; overflow: hidden;">
           <!-- 지도를 표시할 div 입니다 -->
           <!-- <div id="map" style="width:100%;height:100%;"></div> -->
 <!-- * 카카오맵 - 지도퍼가기 -->
 <!-- 1. 지도 노드 -->
 <div id="daumRoughmapContainer1687960018711" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:100%;"> </div>
         </div>
-        <div style="color: var(--gray-10); margin-left: 32px; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
+        <div style="color: var(--gray-10); display: flex; flex-direction: column; justify-content: center; gap: 16px;">
           <div style="display: flex; align-items: flex-start; gap: 23px;">
             <img src="resources/contact0.svg" width="18" style="margin: 0px 3px;">
             <span>070-7811-4803</span>
@@ -617,6 +623,7 @@
   </div>
 
     <script>
+
 // sessionStorage에서 section 값을 가져오고 없으면 1로 설정
 let section = parseInt(sessionStorage.getItem("section")) || 1;
 const minSection = 1;
@@ -746,12 +753,13 @@ const observec5 = new MutationObserver(() => {
   // console.log(window.getComputedStyle(document.querySelector('.ct.c5')).display!== 'none')
   if (window.getComputedStyle(document.querySelector('.ct.c5')).display !== 'none') {
 // console.log('c5 show')
-
+let h = window.innerHeight || 400
+h = Math.min(353, h*0.6) //height:353px maxHeight:60vh
 new daum.roughmap.Lander({
 		"timestamp" : "1687960018711",
 		"key" : "2fcmr",
 		"mapWidth" : "100%",
-		"mapHeight" : "400"
+		"mapHeight" : h + 40
 	}).render();
   }
 });
@@ -777,7 +785,7 @@ mapWrapperEl.addEventListener("touchstart", (e)=>{
 
           // speed: 1200, // animation duration
           spaceBetween:30, // gap
-          slidesPerView:2,
+          slidesPerView:4,
           // autoplay:{delay:1400},
           autoplay:false,
           centeredSlides: true, // 가운데 정렬
@@ -788,22 +796,28 @@ mapWrapperEl.addEventListener("touchstart", (e)=>{
 
 
 //모바일 0~768 , 태블릿 768~1200, 데스크톱 1200~
-// const mediaMobile = window.matchMedia("(max-width: 768px)");
+const mediaMobile = window.matchMedia("(max-width: 768px)");
 const mediaTablet = window.matchMedia("(min-width: 769px) and (max-width: 1200px)");
 const mediaDesktop = window.matchMedia("(min-width: 1201px)");
 const mediaLandscape = window.matchMedia("(orientation: landscape)");
 
 function handleDeviceChange() {
-  if (mediaTablet.matches) {
-    window.location.href = "./index_tablet.html";
-  } else if (mediaDesktop.matches) {
+  if (mediaDesktop.matches) {
     window.location.href = "./index.html";
   }
 }
 function checkOrientation(e) {
   if (e.matches) {
     // Landscape 모드일 경우 index_landscape.html로 이동
-    window.location.href = "./index_landscape.html";
+    // window.location.href = "./index_landscape.html";
+  }else{
+    if (mediaMobile.matches) {
+    window.location.href = "./index_mobile.html";
+  } else if (mediaTablet.matches) {
+    window.location.href = "./index_tablet.html";
+  } else if (mediaDesktop.matches) {
+    window.location.href = "./index.html";
+  } 
   }
 }
 
@@ -813,11 +827,10 @@ handleDeviceChange();
 checkOrientation(mediaLandscape);
 
 // 화면 크기 변경 시 감지
-mediaTablet.addEventListener("change", handleDeviceChange);
+// mediaMobile.addEventListener("change", handleDeviceChange);
 mediaDesktop.addEventListener("change", handleDeviceChange);
 // 화면 방향 변경 감지
 mediaLandscape.addEventListener("change", checkOrientation);
-
 
 
 // 초기 실행

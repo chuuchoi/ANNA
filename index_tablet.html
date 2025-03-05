@@ -190,7 +190,7 @@
         .slideimg{
           display: block;
           width: 100%;
-          /* max-width: 180px; */
+          max-width: 396px;
           position: relative;
           border-radius: 15px;
           +div{
@@ -244,7 +244,7 @@
         .morebtn{
           cursor: pointer; position: relative; text-decoration: none;
           width: 80px;
-          margin-top: 36px;
+          margin-top: 40px;
           & span{
             color: var(--gray-10);
             font-size: 12px;
@@ -788,14 +788,14 @@ mapWrapperEl.addEventListener("touchstart", (e)=>{
 
 
 //모바일 0~768 , 태블릿 768~1200, 데스크톱 1200~
-// const mediaMobile = window.matchMedia("(max-width: 768px)");
-const mediaTablet = window.matchMedia("(min-width: 769px) and (max-width: 1200px)");
+const mediaMobile = window.matchMedia("(max-width: 768px)");
+// const mediaTablet = window.matchMedia("(min-width: 769px) and (max-width: 1200px)");
 const mediaDesktop = window.matchMedia("(min-width: 1201px)");
 const mediaLandscape = window.matchMedia("(orientation: landscape)");
 
 function handleDeviceChange() {
-  if (mediaTablet.matches) {
-    window.location.href = "./index_tablet.html";
+  if (mediaMobile.matches) {
+    window.location.href = "./index_mobile.html";
   } else if (mediaDesktop.matches) {
     window.location.href = "./index.html";
   }
@@ -813,7 +813,7 @@ handleDeviceChange();
 checkOrientation(mediaLandscape);
 
 // 화면 크기 변경 시 감지
-mediaTablet.addEventListener("change", handleDeviceChange);
+mediaMobile.addEventListener("change", handleDeviceChange);
 mediaDesktop.addEventListener("change", handleDeviceChange);
 // 화면 방향 변경 감지
 mediaLandscape.addEventListener("change", checkOrientation);
