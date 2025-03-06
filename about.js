@@ -11,17 +11,10 @@ if (history.scrollRestoration) {
   history.scrollRestoration = "manual";
 }
 window.addEventListener("load", ()=>{
-  const vctElement = document.querySelector(".vct")
-  // if(vctElement){
-  //   vctElement.style.height = '100vh'
-  //   vctElement.style.transition = ''
-  // }
-  setTimeout(() => { 
-    if(vctElement){
-      vctElement.style.height = '700px'
-      // vctElement.style.transition = 'height 0.5s ease-in-out'
-    }
-  }, 400);
+  // const vctElement = document.querySelector(".vct")
+  // setTimeout(() => { 
+  //   if(vctElement) vctElement.style.height = '700px'
+  // }, 400);
   if(window.getComputedStyle(document.documentElement).overflow == 'hidden'){
     setTimeout(() => {
       document.documentElement.style.overflow='auto'

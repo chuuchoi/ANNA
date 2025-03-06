@@ -28,7 +28,8 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: end;
-  transition: height 0.5s ease-in-out;
+  /* transition: height 0.5s ease-in-out; */
+  animation: vctinit 0.5s ease-in-out 400ms forwards;
 }
 .vct>span,
 .vct>div{
@@ -136,4 +137,9 @@ body{
       scale: 0.7;
     }
   }
+}
+
+@keyframes vctinit {
+  from{height: 100vh;}
+  to{height: 700px;}
 }
