@@ -57,7 +57,7 @@
   </div>
 
   <div style="display: flex; flex-direction: column; align-items: center;">
-    <img src="resources/poim0.png" width="100%" style="max-width: 1920px;">
+    <img src="resources/poim0.png" width="100%" class="fadein" style="animation-delay: 1700ms; max-width: 1920px;">
   </div>
   
   <div class="contractcont" >
@@ -90,30 +90,9 @@
     </p>
     <p style="color: #757575; user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
   </div>
+
+  <script src="about.js"></script>
   <script>
-    window.addEventListener("scroll", function () {
-      const header = document.querySelector(".header");
-      if (window.scrollY > 250) {
-        header.style.backgroundColor = "#0f0f0f";
-      } else {
-        header.style.backgroundColor = "transparent";
-      }
-    });
-    //스크롤 복원 안함, 항상 0,0 위치에서 시작
-    if (history.scrollRestoration) {
-      history.scrollRestoration = "manual";
-    }
-    window.addEventListener("load", ()=>{
-      if(window.getComputedStyle(document.documentElement).overflow == 'hidden'){
-        setTimeout(() => { 
-          const vctElement = document.querySelector(".vct")
-          if(vctElement) vctElement.style.height = '700px'
-        }, 400);
-        setTimeout(() => {
-          document.documentElement.style.overflow='auto'
-        }, 1700);
-      }
-    })
   </script>
 
 </body>
