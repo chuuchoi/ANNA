@@ -6,141 +6,11 @@
     <title>주식회사 애나</title>
     <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="global.css"/>
+    <link rel="stylesheet" href="about.css"/>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
 
     <style>
-      body{
-        /* min-width: 992px; */
-        min-width: 1200px;
-      }
-      .headerwrapper{
-        z-index: 10;
-        position: sticky;
-        top: 0px;
-        left: 0px;
-        height: 0;
-      }
-      .header{
-        position: sticky;
-        /* min-width: 992px; */
-        min-width: 1200px;
-      }
-        .vct{
-          position: relative;
-          line-height: 0;
-          width: 100%;
-          height: 700px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: end;
-          & video{
-            z-index: -1;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-          }
-        }
-        .menubtns::before{
-          mix-blend-mode: lighten;
-          content: '';
-          position: absolute;
-          z-index: -1;
-          width: 100%;
-          height: 100%;
-          border-radius: 15px;
-          background-color: rgba(255, 255, 255, 0.25);
-        }
-        .menubtns{
-          position: relative;
-          display: flex;
-          width: 840px;
-          height: 65px;
-          & a{
-            height: 100%;
-            text-decoration: none;
-            text-align: center;
-            align-content: center;
-            cursor: pointer;
-            flex: 1;
-            background-color: transparent;
-            color: #F5F5F5;
-            font-weight: 700;
-            font-size: 20px;
-            transition: color 0.4s ease-in-out;
-          }
-          & a:hover{
-            color: #292929;
-          }
-          & .deco{
-            z-index: -1; position:absolute;
-            background-color: rgba(255, 255, 255, 0.4);
-            width:210px;
-            border-radius: 15px;
-            height: 100%; top: 0; left: 0;
-            transition: all 0.4s ease-in-out;
-            transform: translateX(0);
-          }
-        }
-        .menubtns:has(.b1:hover){
-          & .deco{
-            transform: translate(210px);
-          }
-        }
-        .menubtns:has(.b2:hover){
-          & .deco{
-            transform: translate(420px);
-          }
-        }
-        .menubtns:has(.b3:hover){
-          & .deco{
-            transform: translate(630px);
-          }
-        }
 
-        .morebtn{
-          cursor: pointer;
-          position: relative;
-          width: 299px;
-          & svg{
-            position: absolute; left: 0; bottom: 0;
-            & path{
-              stroke-dasharray: 150px;
-              stroke-dashoffset: 0px;
-              transition: all 800ms cubic-bezier(0.18, 0.06, 0.2, 1);
-            }
-          }
-        }
-        .morebtn:hover{
-          & svg{
-            & path{
-              stroke-dashoffset: -300px;
-            }
-          }
-        }
-        .contractcont{
-          width: 100%; height: 307px; line-height: 0; position: relative;
-        }
-        .contract{
-          font-size: 55px; font-weight: 700; margin-left: 204px;
-        }
-        @media screen and (max-width:1200px) {
-          .contractcont{
-            height: 207px;
-          }
-          .contract{font-size: 25px; margin-left: 44px;}
-          .morebtn{
-            cursor: pointer;
-            position: relative;
-            width: 120px;
-            & svg{
-              scale: 0.7;
-            }
-          }
-        }
     </style>
 </head>
 <body>
@@ -162,7 +32,8 @@
 
   <div class="vct">
     <video src="resources/bgv.mp4" autoplay muted loop></video>
-    <span style="user-select: none; color: white; font-size: 70px; font-weight: 700;  margin-bottom: 180px;">회사소개</span>
+    <span style="user-select: none; color: white; font-size: 70px; font-weight: 700;  margin-bottom: 180px;">
+      회사소개</span>
     <div class="menubtns" style="margin-bottom: 63px;">
       <div class="deco"></div>
       <a style="cursor: default; color: #292929; background-color: white; border-radius: 15px;">소개</a>
