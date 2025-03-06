@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="global.css"/>
     <link rel="stylesheet" href="about.css"/>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
-
+      .vct>span,
+      .vct>div{
+        opacity: 0;
+        transform: translateY(40px);
+        animation: fade-in 0.6s ease 900ms forwards;
+      }
     </style>
 </head>
 <body>
@@ -43,9 +50,10 @@
     </div>
   </div>
   <div style="display: flex; flex-direction: column; align-items: center;">
-    <span style="font-size: 54px; font-weight: 800; color: var(--gray-main); margin-top: 120px; margin-bottom: 92px;">소개</span>
-    <img src="resources/logo.png" width="447">
-    <p style="line-height: 170%; color: var(--gray-50); font-size: 20px; max-width: 1592px; padding: 0 40px; margin-top: 52px; margin-bottom: 156px;">
+    <span data-aos="fade-right" style="animation-delay: 1300ms; font-size: 54px; font-weight: 800; color: var(--gray-main); margin-top: 120px; margin-bottom: 92px;">
+      소개</span>
+    <img data-aos="fade-right" style="animation-delay: 1700ms;" src="resources/logo.png" width="447">
+    <p class="fadein" style="animation-delay: 1700ms; line-height: 170%; color: var(--gray-50); font-size: 20px; max-width: 1592px; padding: 0 40px; margin-top: 52px; margin-bottom: 156px;">
       주식회사 애나는 2021년부터 VR/AR 시험평가 기술 개발을 시작으로 지금까지 시험평가 및 기술검증 사업을 꾸준하게 추진해온 전문 시험평가 및 기술검증 기관입니다. 창사 이래로 지금까지 꾸준하게
       진행해 온 연구개발을 바탕으로 현재는 메타버스를 포함한 XR 뿐만 아니라 인공지능(AI), 그리고 블록체인(BC)까지 SW 전반에 대한 시험평가 및 기술 검증을 KS 및 ISO/IEC 등의 국제 시험평가 및 인증
       표준에 기반하여 수행하는 기관으로, 미국 SIGGRAPH 수상 실적, 포브스(Forbes)지 등에 소개되며 글로벌 기업으로 발돋움하고 있는 XR, AI, BC 전문 시험평가 및 기술검증 기업입니다.
@@ -53,7 +61,7 @@
     <img src="resources/aboutim0.png" width="100%" style="max-width: 1592px; padding: 0 40px; margin-bottom: 226px;">
   </div>
   
-  <div style="width: 100%; line-height: 0; position: relative; ">
+  <div data-aos="fade-right" style="width: 100%; line-height: 0; position: relative; ">
     <div style="display: flex; justify-content: center; width: 100%; background-color: black;">
       <img src="resources/aboutim1.png" style=" width: 100%; max-width: 1920px; height: 582px; object-fit: cover;">
     </div>
@@ -91,7 +99,8 @@
       </svg>          
     </div>
     <img src="resources/logo.svg" width="160" style="user-select: none; -webkit-user-drag: none; margin-top: 55px;"/>
-    <p style="color: #D6D6D6; text-align: center; line-height: 74.6%; margin: 32px 0px 41px 0px;">
+    <p style="color: #D6D6D6; text-align: center; line-height: 74.6%; margin: 32px 0px 41px 0px;"
+    data-aos="fade-up" data-aos-offset="10" data-aos-anchor-placement="top-bottom" data-aos-once="true">
       상호 : 주식회사 애나<br/><br/>
       대표 : 김민종<br/><br/>
       주소 : 인천광역시 연수구 컨벤시아대로 204, 인천스타트업파크 405호<br/><br/>
@@ -101,14 +110,31 @@
     <p style="color: #757575; user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
   </div>
   <script>
-        window.addEventListener("scroll", function () {
-            const header = document.querySelector(".header");
-            if (window.scrollY > 250) {
-                header.style.backgroundColor = "#0f0f0f";
-            } else {
-                header.style.backgroundColor = "transparent";
-            }
-        });
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector(".header");
+      if (window.scrollY > 250) {
+        header.style.backgroundColor = "#0f0f0f";
+      } else {
+        header.style.backgroundColor = "transparent";
+      }
+    });
+    //스크롤 복원 안함, 항상 0,0 위치에서 시작
+    if (history.scrollRestoration) {
+      history.scrollRestoration = "manual";
+    }
+    window.addEventListener("load", ()=>{
+      if(window.getComputedStyle(document.documentElement).overflow == 'hidden'){
+        setTimeout(() => { 
+          const vctElement = document.querySelector(".vct")
+          if(vctElement) vctElement.style.height = '700px'
+        }, 400);
+        setTimeout(() => {
+          document.documentElement.style.overflow='auto'
+        }, 1700);
+      }
+    })
+
+    AOS.init()
   </script>
 
 </body>

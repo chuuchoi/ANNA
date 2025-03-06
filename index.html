@@ -96,7 +96,7 @@
           background-color: aliceblue;
           width: 100%;
           padding-top: 163px;
-          /* min-height: 100vh; */
+          min-height: 720px;
           height: 100%;
           max-height: 968px;
         }
@@ -380,11 +380,6 @@
             animation: slide-up 0.4s cubic-bezier(0.18, 0.06, 0.2, 1) forwards;
           }
         }
-        .fadein{
-          opacity: 0;
-          transform: translateY(40px);
-          animation: fade-in 0.6s ease forwards;
-        }
         .swiperdeco{
           pointer-events: none;
           position: absolute;
@@ -465,10 +460,6 @@
         @keyframes fade-in-mc2 {
           from{opacity: 0;}
           to{opacity: 1;}
-        }
-        @keyframes fade-in {
-          from{transform: translateY(40px); opacity: 0;}
-          to{transform: translateY(0px); opacity: 1;}
         }
         @keyframes slide-up {
           from{transform: translateY(110%); opacity: 0;}
@@ -778,7 +769,7 @@
       <div class="box c2">Box 2</div>
       <div class="box c3">Box 3</div>
       <div class="box c4">Box 4</div>
-      <div class="box c5" style="max-height: 968px;">Box 5</div>
+      <div class="box c5" style="min-height: 720px; max-height: 968px;">Box 5</div>
     </div>
     <div class="footer">
       <div class="upbtn" style="margin-top: 54px;" onclick="(()=>{window.scroll({top:0,left:0,behavior:'smooth'})})()">
@@ -824,7 +815,7 @@
                 }
             });
         }, {
-            threshold: 0.5  
+            threshold: 0.1  
         });
         // 각 요소를 감시 대상으로 추가
         boxes.forEach(box => observer.observe(box));

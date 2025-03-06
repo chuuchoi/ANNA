@@ -427,11 +427,7 @@
             animation: slide-up 0.4s cubic-bezier(0.18, 0.06, 0.2, 1) forwards;
           }
         }
-        .fadein{
-          opacity: 0;
-          transform: translateY(40px);
-          animation: fade-in 0.6s ease forwards;
-        }
+
         .swiperdeco{
           pointer-events: none;
           position: absolute;
@@ -523,15 +519,6 @@
           svg{
             animation: upbtnanim 800ms ease-in-out infinite forwards;
           }
-        }
-        @keyframes fade-in {
-          from{transform: translateY(40px); opacity: 0;}
-          to{transform: translateY(0px); opacity: 1;}
-        }
-        @keyframes upbtnanim {
-          0%{transform: translateY(1px);}
-          90%{transform: translateY(-1px);}
-          100%{transform: translateY(1px);}
         }
         @keyframes slide-up {
           from{transform: translateY(110%); opacity: 0;}

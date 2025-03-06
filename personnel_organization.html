@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="global.css"/>
     <link rel="stylesheet" href="about.css"/>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
   .menubtns .deco{
@@ -89,14 +91,29 @@
     <p style="color: #757575; user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
   </div>
   <script>
-        window.addEventListener("scroll", function () {
-            const header = document.querySelector(".header");
-            if (window.scrollY > 250) {
-                header.style.backgroundColor = "#0f0f0f";
-            } else {
-                header.style.backgroundColor = "transparent";
-            }
-        });
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector(".header");
+      if (window.scrollY > 250) {
+        header.style.backgroundColor = "#0f0f0f";
+      } else {
+        header.style.backgroundColor = "transparent";
+      }
+    });
+    //스크롤 복원 안함, 항상 0,0 위치에서 시작
+    if (history.scrollRestoration) {
+      history.scrollRestoration = "manual";
+    }
+    window.addEventListener("load", ()=>{
+      if(window.getComputedStyle(document.documentElement).overflow == 'hidden'){
+        setTimeout(() => { 
+          const vctElement = document.querySelector(".vct")
+          if(vctElement) vctElement.style.height = '700px'
+        }, 400);
+        setTimeout(() => {
+          document.documentElement.style.overflow='auto'
+        }, 1700);
+      }
+    })
   </script>
 
 </body>

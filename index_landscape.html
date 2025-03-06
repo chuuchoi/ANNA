@@ -14,13 +14,16 @@
     <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 
     <style>
-      html, body{
+      /* html, body{
         width: 100%;
         height: 100%;
         overflow: hidden;
+      } */
+      body{
+        height: auto;
       }
       .header{
-        width: 100vw;
+        width: 100%;
         height: 45px;
         font-size: 14px;
         &>img{
@@ -29,7 +32,7 @@
         }
       }
       .footer{
-        position: absolute;
+        position: relative;
         height: 352px;
         font-size: 14px;
         transition: transform 0.4s ease-in-out;
@@ -38,22 +41,44 @@
          height: 32px;
        }
       }
-      .footer.show{
+      /* .footer.show{
         transform: translateY(-352px);
-      }
+      } */
       .ct{
         overflow: hidden;
         display: none;
         position: relative;
-        width: 100vw;
-        height: 100%;
+        width: 100%;
+        height: 100vh;
+        min-height: 412px;
+      }
+      .ct.c2,
+      .ct.c3,
+      .ct.c4{
+        padding-top: 55px;
+      }
+      .ct.c3,
+      .ct.c4{
+        height: min-content;
+      }
+      /* .ct.c3{
+        min-height: 430px;
+      }
+      .ct.c4{
+        min-height: 470px;
+      } */
+      .ct.c3 .mcnt{
+        height: auto;
+      }
+      .ct.c5{
+        height: auto;
       }
       .ct.show{
         display: flex; align-items: start; justify-content: center;
       }
       .vct{
         position: fixed;
-        width: 100vw;
+        width: 100%;
         height: 100%;
         & video{
           position: absolute;
@@ -166,18 +191,13 @@
           transform: translateY(110%);
           animation: slide-up 0.4s cubic-bezier(0.18, 0.06, 0.2, 1) forwards;
         }
-        .fadein{
-          opacity: 0;
-          transform: translateY(40px);
-          animation: fade-in 0.6s ease forwards;
-        }
 
         
         .swiper {
           width: 100%;
           /* aspect-ratio: 4; */
           max-width: 2000px;
-          max-height: 40vh;
+          /* max-height: 40vh; */
         }
         .swiper-slide{
           display: flex;
@@ -304,9 +324,10 @@
           flex-direction: column;
           background-color: aliceblue;
           width: 100%;
-          padding-top: 44px;
-          /* min-height: 100vh; */
-          height: 100%;
+          padding-top: 72px;
+          padding-bottom: 40px;
+          min-height: 430px;
+          height: 100vh;
           /* max-height: 968px; */
         }
         .mc2dim{
@@ -316,9 +337,6 @@
           width:100%;
           height: 100%;
           background-color: rgba(0, 0, 0, 0.7)
-        }
-        .ourservices{
-          width:242px; max-height: 10vh;
         }
         .ptitle0{
           font-family: Paperlogy-8ExtraBold; font-size: 14px; color: var(--point-color);
@@ -399,10 +417,6 @@
           from{opacity: 0;}
           to{opacity: 1;}
         }
-        @keyframes fade-in {
-          from{transform: translateY(40px); opacity: 0;}
-          to{transform: translateY(0px); opacity: 1;}
-        }
         @keyframes slide-up {
           from{transform: translateY(110%); opacity: 0;}
           to{transform: translateY(0px); opacity: 1;}
@@ -464,7 +478,7 @@
       </div>
 
       <div class="animText" style="z-index: 2;">
-        <img class="ourservices" src="resources/s2title.svg"/>
+        <img src="resources/s2title.svg" width="242"/>
       </div>
       <div class="animText" style="z-index: 2; margin-bottom: 4vh;">
         <span class="subtt" style=" padding: 0 32px; animation-delay: 400ms; text-align: center;">
@@ -530,7 +544,7 @@
           </span>  
         </div>
       </div>
-      <div style="padding: 0 24px; display: flex; width: 100%; justify-content: center;">
+      <div style="padding: 0px 24px 16px 24px; display: flex; width: 100%; justify-content: center;">
         <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%; max-width: 280px;">
           <img src="resources/dtim0.png" height="120px" style="max-height: 20vh; align-self: center; margin-bottom: 7px;">
           <span class="conttitle">
@@ -606,7 +620,7 @@
           </span>  
         </div>
       </div>
-      <div style="padding: 0 24px; display: flex; width: 100%; justify-content: center;">
+      <div style="padding: 0px 24px 16px 24px; display: flex; width: 100%; justify-content: center;">
         <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%; max-width: 280px;">
           <img src="resources/dtim3.png" style="height: 144px; max-height: 20vh; border-radius: 15px; align-self: center; margin-bottom: 3vh;">
           <span class="conttitle">
@@ -653,7 +667,7 @@
   </div>
 
 
-  <div class="ct c5">
+  <div class="ct c5" style="flex-direction: column; justify-content: start;">
     <div class="mc2" style="justify-content: center;">
       <div class="mc2dim"></div>
       <div class="animText" style=" margin-bottom: 0px;">
@@ -663,7 +677,7 @@
         <span style="animation-delay: 600ms;">CONTACT US</span><br/>
       </div>
 
-      <div class="fadein" style="animation-delay: 900ms; display: flex; justify-content: center; gap: 24px; width: 100%; padding: 0px 24px;">
+      <div class="fadein" style="animation-delay: 900ms; display: flex; justify-content: center; gap: 24px; width: 100%; padding: 0px 60px;">
         <div id="mapWrapper" style="background-color: black; width: 100%; max-width: 640px; height: 353px; max-height: 60vh; border-radius: 15px; overflow: hidden;">
           <!-- 지도를 표시할 div 입니다 -->
           <!-- <div id="map" style="width:100%;height:100%;"></div> -->
@@ -688,7 +702,24 @@
           </div>
         </div>
       </div>
-      <div style="flex: 1; width: 1px; max-height: 60px;"></div>
+
+    </div>
+    <div class="footer">
+        <div class="upbtn" style="margin-top: 32px;" onclick="goToSec(1)">
+          <svg width="12" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.70711 0.721326C8.31658 0.330801 7.68342 0.330801 7.29289 0.721326L0.928932 7.08529C0.538408 7.47581 0.538408 8.10898 0.928932 8.4995C1.31946 8.89002 1.95262 8.89002 2.34315 8.4995L8 2.84265L13.6569 8.4995C14.0474 8.89002 14.6805 8.89002 15.0711 8.4995C15.4616 8.10898 15.4616 7.47581 15.0711 7.08529L8.70711 0.721326ZM9 18.5713L9 1.42843L7 1.42843L7 18.5713L9 18.5713Z" fill="white"/>
+          </svg>          
+        </div>
+        <img src="resources/logo.svg" width="120" style="user-select: none; -webkit-user-drag: none; margin-top: 32px;"/>
+        <p style="color: var(--gray-10); text-align: center; line-height: 144%; margin: 24px 0px 22px 0px;">
+          상호 : 주식회사 애나<br/>
+          대표 : 김민종<br/>
+          주소 : 인천광역시 연수구 컨벤시아대로 204,<br/>
+          인천스타트업파크 405호<br/>
+          TEL : 070-7811-4803<br/>
+          e-mail : minjong.kim@byanna.io
+        </p>
+        <p style="color: var(--gray-40); user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
     </div>
   </div>
 
@@ -706,30 +737,14 @@
     <button onclick="moveToSec(6)"></button>
   </div> -->
 
-  <div class="footer">
-      <div class="upbtn" style="margin-top: 32px;" onclick="goToSec(1)">
-        <svg width="12" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8.70711 0.721326C8.31658 0.330801 7.68342 0.330801 7.29289 0.721326L0.928932 7.08529C0.538408 7.47581 0.538408 8.10898 0.928932 8.4995C1.31946 8.89002 1.95262 8.89002 2.34315 8.4995L8 2.84265L13.6569 8.4995C14.0474 8.89002 14.6805 8.89002 15.0711 8.4995C15.4616 8.10898 15.4616 7.47581 15.0711 7.08529L8.70711 0.721326ZM9 18.5713L9 1.42843L7 1.42843L7 18.5713L9 18.5713Z" fill="white"/>
-        </svg>          
-      </div>
-      <img src="resources/logo.svg" width="120" style="user-select: none; -webkit-user-drag: none; margin-top: 32px;"/>
-      <p style="color: var(--gray-10); text-align: center; line-height: 144%; margin: 24px 0px 22px 0px;">
-        상호 : 주식회사 애나<br/>
-        대표 : 김민종<br/>
-        주소 : 인천광역시 연수구 컨벤시아대로 204,<br/>
-        인천스타트업파크 405호<br/>
-        TEL : 070-7811-4803<br/>
-        e-mail : minjong.kim@byanna.io
-      </p>
-      <p style="color: var(--gray-40); user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
-  </div>
 
     <script>
 
 // sessionStorage에서 section 값을 가져오고 없으면 1로 설정
 let section = parseInt(sessionStorage.getItem("section")) || 1;
 const minSection = 1;
-const maxSection = 5+ 1;//footer
+// const maxSection = 5+ 1;//footer
+const maxSection = 5;
 
 // throttle 함수 (600ms 동안 이벤트 중복 실행 방지)
 function throttle(func, delay) {
@@ -814,7 +829,7 @@ window.addEventListener("touchend", handleTouchEnd);
 
 function updateSectionDisplay() {
   // console.log('section??',section)
-  if(section < maxSection){
+  // if(section < maxSection){
     // 모든 .ct 요소에서 show 제거
     document.querySelectorAll(".ct").forEach(el => el.classList.remove("show"));
   
@@ -823,16 +838,24 @@ function updateSectionDisplay() {
     if (activeCt) {
       activeCt.classList.add("show");
     }
-    document.querySelector(".footer").classList.remove("show")
-  }else{ //footer
-    document.querySelector(`.ct.c5`).classList.add("show");
-    document.querySelector(".footer").classList.add("show")
-  }
+    // document.querySelector(".footer").classList.remove("show")
+  // }else{ //footer
+  //   document.querySelector(`.ct.c5`).classList.add("show");
+  //   document.querySelector(".footer").classList.add("show")
+  // }
 }
 function goToSec(n){
   section = n;
   updateSectionDisplay();
 }
+window.addEventListener("scroll", function () {
+      const header = document.querySelector(".header");
+      if (window.scrollY > 12) {
+        header.style.backgroundColor = "#0f0f0f";
+      } else {
+        header.style.backgroundColor = "transparent";
+      }
+    });
 
 
 
