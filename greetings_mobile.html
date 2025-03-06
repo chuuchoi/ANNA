@@ -13,22 +13,18 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <style>
-  .whowr{
-    background-image: url(./resources/aboutim1_m.png);
-    background-size: cover;
-    background-position: center;
-    background-color: black;
-    height: 264px;
-    text-align: center; word-break: keep-all;
-    padding: 0 40px;
-    font-family: 'Paperlogy-8ExtraBold', cursive;
-    color: white;
-    &>div{
-      height: 100%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-    }
+  .menubtns .deco{
+    transform: translateX(80px);
   }
-
+  .menubtns:has(.b1:hover) .deco{
+    transform: translate(0px);
+  }
+  .menubtns:has(.b2:hover) .deco{
+    transform: translate(160px);
+  }
+  .menubtns:has(.b3:hover) .deco{
+    transform: translate(240px);
+  }
     </style>
 </head>
 <body>
@@ -51,58 +47,30 @@
   <div class="vct">
     <video src="resources/bgv.mp4" autoplay muted loop></video>
     <span style="user-select: none; color: white; font-size: 27px; font-weight: 700;  margin-bottom: 52px;">
-      회사소개</span>
+      인사말</span>
     <div class="menubtns" style="margin-bottom: 32px;">
       <div class="deco"></div>
-      <a style="cursor: default; color: #292929; font-weight: 700; background-color: white; border-radius: 8px;">소개</a>
-      <a class="b1" href="./greetings.html">인사말</a>
+      <a class="b1" href="./about.html">소개</a>
+      <a style="cursor: default; color: #292929; font-weight: 700; background-color: white; border-radius: 8px;">인사말</a>
       <a class="b2" href="./personnel_organization.html">인원 구성</a>
       <a class="b3" href="./way_to_come.html">오시는길</a>
     </div>
   </div>
   <div style="display: flex; flex-direction: column; align-items: center;">
     <span class="fadein" style="animation-delay: 1300ms; font-size: 24px; font-weight: 800; color: var(--gray-main); margin-top: 40px; margin-bottom: 20px;">
-      소개</span>
-    <img class="fadein" style="animation-delay: 1700ms;" src="resources/logo.png" width="200">
-    <p class="fadein" style="animation-delay: 1700ms; line-height: 140%; color: var(--gray-50); font-size: 14px; max-width: 1592px; padding: 0 40px; margin-top: 24px; margin-bottom: 13px;">
-      주식회사 애나는 2021년부터 VR/AR 시험평가 기술 개발을 시작으로 지금까지 시험평가 및 기술검증 사업을 꾸준하게 추진해온 전문 시험평가 및 기술검증 기관입니다. 창사 이래로 지금까지 꾸준하게
-      진행해 온 연구개발을 바탕으로 현재는 메타버스를 포함한 XR 뿐만 아니라 인공지능(AI), 그리고 블록체인(BC)까지 SW 전반에 대한 시험평가 및 기술 검증을 KS 및 ISO/IEC 등의 국제 시험평가 및 인증
-      표준에 기반하여 수행하는 기관으로, 미국 SIGGRAPH 수상 실적, 포브스(Forbes)지 등에 소개되며 글로벌 기업으로 발돋움하고 있는 XR, AI, BC 전문 시험평가 및 기술검증 기업입니다.
+      인사말</span>
+      <svg class="fadein" style="animation-delay: 1500ms;" width="28" height="22" viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.12578 10.4232C10.148 10.8676 10.948 11.5343 11.5258 12.4232C12.1036 13.3121 12.3924 14.3565 12.3924 15.5565C12.3924 17.2454 11.8369 18.6232 10.7258 19.6898C9.65912 20.7121 8.30356 21.2232 6.65912 21.2232C4.97023 21.2232 3.59245 20.6898 2.52578 19.6232C1.45911 18.5565 0.925781 17.201 0.925781 15.5565C0.925781 14.7121 1.01467 13.8898 1.19245 13.0898C1.41467 12.2898 1.83689 11.1121 2.45911 9.55651L6.12578 0.0898438H11.8591L9.12578 10.4232ZM23.7924 10.4232C24.8147 10.8676 25.6147 11.5343 26.1924 12.4232C26.7702 13.3121 27.0591 14.3565 27.0591 15.5565C27.0591 17.2454 26.5036 18.6232 25.3924 19.6898C24.3258 20.7121 22.9702 21.2232 21.3258 21.2232C19.6369 21.2232 18.2591 20.6898 17.1924 19.6232C16.1258 18.5565 15.5924 17.201 15.5924 15.5565C15.5924 14.7121 15.6813 13.8898 15.8591 13.0898C16.0813 12.2898 16.5036 11.1121 17.1258 9.55651L20.7924 0.0898438H26.5258L23.7924 10.4232Z" fill="#5F7DFF"/>
+        </svg>        
+    <p class="fadein" style="animation-delay: 1700ms; line-height: 160%; text-align: center; color: var(--gray-50); font-size: 14px; font-weight: 600; max-width: 1592px; padding: 0 40px; margin-top: 24px; margin-bottom: 13px;">
+      안녕하십니까 주식회사 애나의 홈페이지를 찾아주셔서<br/>
+      진심으로 감사드립니다
     </p>
-    <img src="resources/aboutim0_m.png" width="320px" style="margin-bottom: 60px;"
+    <img src="resources/gim0_m.png" width="320px" style="margin-bottom: 60px;"
     data-aos="fade-up" data-aos-offset="30" data-aos-delay="400" data-aos-anchor-placement="top-bottom" data-aos-once="true">
   </div>
   
-  <div class="whowr" style="width: 100%; line-height: 0; position: relative; ">
-    <!-- <div style="display: flex; justify-content: center; width: 100%; background-color: black;">
-      <img src="resources/aboutim1_m.png" style=" width: 100%; height: 264px; object-fit: fill;"
-      data-aos="fade-up" data-aos-offset="120" data-aos-delay="500" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-    </div> -->
-    <div data-aos="fade-up" data-aos-offset="120" data-aos-delay="500" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-      <svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9.30135 11.9304C10.3917 12.4045 11.2451 13.1156 11.8614 14.0638C12.4777 15.0119 12.7858 16.126 12.7858 17.406C12.7858 19.2075 12.1932 20.6771 11.008 21.8149C9.87024 22.9052 8.42432 23.4504 6.67024 23.4504C4.86876 23.4504 3.39913 22.8815 2.26135 21.7438C1.12357 20.606 0.554688 19.1601 0.554688 17.406C0.554688 16.5052 0.649501 15.6282 0.83913 14.7749C1.07617 13.9215 1.52654 12.6652 2.19024 11.006L6.10135 0.908203H12.2169L9.30135 11.9304ZM24.9458 11.9304C26.0362 12.4045 26.8895 13.1156 27.5058 14.0638C28.1221 15.0119 28.4302 16.126 28.4302 17.406C28.4302 19.2075 27.8376 20.6771 26.6525 21.8149C25.5147 22.9052 24.0688 23.4504 22.3147 23.4504C20.5132 23.4504 19.0436 22.8815 17.9058 21.7438C16.768 20.606 16.1991 19.1601 16.1991 17.406C16.1991 16.5052 16.2939 15.6282 16.4836 14.7749C16.7206 13.9215 17.171 12.6652 17.8347 11.006L21.7458 0.908203H27.8614L24.9458 11.9304Z" fill="#5F7DFF"/>
-      </svg>
-      <span style="font-size: 28px; margin-bottom: 4px;">Who we are</span>
-      <span style="font-size: 14px; font-family: pretendard, cursive;">
-        SW 기반 제품에 대한 시험평가 및 기술 검증을 통해 제품의 문제점을
-        미리 정량적으로 평가하고, 출시 전에 해결방안을 미리 제시하여 SW 제품의
-        기술적 무결성을 지원하는 전문 시험평가 및 기술검증 기업
-    </div>
-  </div>
-
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 32px;">
-    <span style="font-family: Paperlogy-8ExtraBold; font-size: 24px; margin-top: 60px;"
-    data-aos="fade-up" data-aos-offset="120" data-aos-delay="300" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-    HISTORY</span>
-    <img src="resources/aboutim2_m0.png" width="320px"
-    data-aos="fade-up" data-aos-offset="120" data-aos-delay="300" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-    <img src="resources/aboutim2_m1.png" width="320px"
-    data-aos="fade-up" data-aos-offset="120" data-aos-delay="300" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-    <img src="resources/aboutim2_m2.png" width="320px"
-    data-aos="fade-up" data-aos-offset="120" data-aos-delay="300" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-  </div>
-  
-  <div class="contractcont" style="margin-top: 60px;" >
+  <div class="contractcont" >
     <img src="resources/aboutim3.png" width="100%" height="100%">
     <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
       <div style="width: 100%; max-width: 1920px; margin: auto; display: flex; align-items: center; justify-content: space-between;">
@@ -145,7 +113,7 @@ const mediaMobile = window.matchMedia("(min-width: 769px)");
 
 function handleDeviceChange() {
   if (mediaMobile.matches) {
-    window.location.href = "./about.html";
+    window.location.href = "./greetings.html";
   }
 }
 

@@ -93,6 +93,19 @@
 
   <script src="about.js"></script>
   <script>
+    const mediaMobile = window.matchMedia("(max-width: 768px)");
+
+function handleDeviceChange() {
+  if (mediaMobile.matches) {
+    window.location.href = "./greetings_mobile.html";
+  }
+}
+
+// 초기 실행 (페이지 로드 시)
+handleDeviceChange();
+
+// 화면 크기 변경 시 감지
+mediaMobile.addEventListener("change", handleDeviceChange);
   </script>
 
 </body>

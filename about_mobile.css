@@ -1,0 +1,67 @@
+body{
+  min-width: auto;
+}
+.header{
+  width: 100%;
+  height: 45px;
+  font-size: 12px;
+  min-width: auto;
+  &>img{
+    left: 20px;
+  }
+}
+.vct{
+  animation: vctinitm 0.5s ease-in-out 400ms forwards;
+}
+.menubtns{
+  width: 320px;
+  height: 40px;
+}
+.menubtns a{
+  font-size: 14px;
+  font-weight: 600;
+}
+.menubtns a:hover{
+  font-weight: 700;
+}
+.menubtns::before{
+  border-radius: 8px;
+}
+.menubtns .deco{
+  border-radius: 8px;
+  width:80px;
+}
+.menubtns:has(.b1:hover) .deco{
+  transform: translate(80px);
+}
+.menubtns:has(.b2:hover) .deco{
+  transform: translate(160px);
+}
+.menubtns:has(.b3:hover) .deco{
+  transform: translate(240px);
+}
+
+.contractcont{
+  height: 90px;
+}
+.contract{
+  font-size: 16px;
+}
+.morebtn{
+  width: 40px;
+  margin-right: 40px;
+}
+.morebtn svg{
+  scale: 1;
+}
+.morebtn svg path{
+  stroke-width: 4px;
+}
+.footer{
+  height: 393px;
+}
+
+@keyframes vctinitm {
+from{height: 100vh;}
+to{height: 280px;}
+}
