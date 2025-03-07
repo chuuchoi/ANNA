@@ -10,6 +10,7 @@
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 
     <style>
   .menubtns .deco{
@@ -57,28 +58,11 @@
   <div style="display: flex; flex-direction: column; align-items: center;">
     <span style="font-size: 54px; font-weight: 800; color: var(--gray-main); margin-top: 120px; margin-bottom: 92px;">
       찾아오시는길</span>
-    <img src="resources/logo.png" width="447">
-    <p style="line-height: 170%; color: var(--gray-50); font-size: 20px; max-width: 1592px; padding: 0 40px; margin-top: 52px; margin-bottom: 156px;">
-      주식회사 애나는 2021년부터 VR/AR 시험평가 기술 개발을 시작으로 지금까지 시험평가 및 기술검증 사업을 꾸준하게 추진해온 전문 시험평가 및 기술검증 기관입니다. 창사 이래로 지금까지 꾸준하게
-      진행해 온 연구개발을 바탕으로 현재는 메타버스를 포함한 XR 뿐만 아니라 인공지능(AI), 그리고 블록체인(BC)까지 SW 전반에 대한 시험평가 및 기술 검증을 KS 및 ISO/IEC 등의 국제 시험평가 및 인증
-      표준에 기반하여 수행하는 기관으로, 미국 SIGGRAPH 수상 실적, 포브스(Forbes)지 등에 소개되며 글로벌 기업으로 발돋움하고 있는 XR, AI, BC 전문 시험평가 및 기술검증 기업입니다.
-    </p>
-    <img src="resources/aboutim0.png" width="100%" style="max-width: 1592px; padding: 0 40px; margin-bottom: 226px;">
-  </div>
-  
-  <div style="width: 100%; line-height: 0; position: relative; margin-bottom: 200px;">
-    <img src="resources/aboutim1.png" width="100%">
-    <!-- <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-      <span>"</span>
-      <span>Who we are</span>
-      <span>SW 기반 제품에 대한 시험평가 및 기술 검증을 통해 제품의 문제점을<br/>
-        미리 정량적으로 평가하고, 출시 전에 해결방안을 미리 제시하여 SW 제품의<br/>
-        기술적 무결성을 지원하는 전문 시험평가 및 기술검증 기업</span>
-    </div> -->
-  </div>
-
-  <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 219px;">
-    <img src="resources/aboutim2.png" width="100%" style="max-width: 1592px; padding: 0 40px;">
+      <div style="background-color: black; width: 770px; height: 578px; border-radius: 15px; overflow: hidden;">
+        <!-- 지도를 표시할 div 입니다 -->
+        <!-- * 카카오맵 - 지도퍼가기 -->
+        <div id="daumRoughmapContainer1687960018711" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:100%;"> </div>
+      </div>
   </div>
   
   <div class="contractcont" >
@@ -114,6 +98,13 @@
 
   <script src="about.js"></script>
   <script>
+        new daum.roughmap.Lander({
+		"timestamp" : "1687960018711",
+		"key" : "2fcmr",
+		"mapWidth" : "770",
+		"mapHeight" : "578"
+	}).render();
+
     const mediaMobile = window.matchMedia("(max-width: 768px)");
 
 function handleDeviceChange() {

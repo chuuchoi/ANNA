@@ -1,6 +1,8 @@
 window.addEventListener("scroll", function () {
   const header = document.querySelector(".header");
-  if (window.scrollY > 250) {
+  let startY = 250;
+  if(this.window.visualViewport.width<=768) startY = 50;
+  if (window.scrollY > startY) {
     header.style.backgroundColor = "#0f0f0f";
   } else {
     header.style.backgroundColor = "transparent";
