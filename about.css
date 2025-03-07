@@ -50,16 +50,16 @@ body{
 }
 
   .menubtns::before{
-    mix-blend-mode: lighten;
     content: '';
     position: absolute;
     z-index: -1;
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(180, 180, 180, 0.3);
   }
   .menubtns{
+    mix-blend-mode: lighten;
     position: relative;
     display: flex;
     width: 840px;
@@ -123,6 +123,18 @@ body{
 }
 .contract{
   font-size: 55px; font-weight: 700; margin-left: 204px;
+}
+.contractcont .cmw{
+  width: 100%; margin: auto; display: flex; align-items: center; justify-content: space-between;
+  max-width: 1920px;
+}
+@media screen and (max-width:1649px){
+  .contractcont .cmw{
+    max-width: 870px;
+  }
+  .contractcont{ height: 207px; }
+  .contract{font-size: 32px; margin-left: 44px;}
+  .morebtn{width: 172px;}
 }
 @media screen and (max-width:1200px) {
   .contractcont{
