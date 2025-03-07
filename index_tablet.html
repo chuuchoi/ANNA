@@ -59,14 +59,10 @@
       }
       .ct.c3,
       .ct.c4{
-        min-height: min-content;
+        /* min-height: min-content; */
+        min-height: 560px;
       }
-      /* .ct.c3{
-        min-height: 430px;
-      }
-      .ct.c4{
-        min-height: 470px;
-      } */
+
       .ct.c3 .mcnt,
       .ct.c4 .mcnt{
         height: auto;
@@ -80,6 +76,7 @@
       }
       .vct{
         position: fixed;
+        top: 0;
         width: 100%;
         height: 100%;
         & video{
@@ -284,7 +281,7 @@
         .morebtn{
           cursor: pointer; position: relative; text-decoration: none;
           width: 120px;
-          margin-top: 40px;
+          margin-top: 20px;
           & span{
             color: var(--gray-10);
             font-size: 15px;
@@ -454,7 +451,7 @@
 
 
   <div class="ct c3">
-    <div class="mcnt" style="gap: 52px;">
+    <div class="mcnt" style="gap: 40px;">
       <div style="padding: 0 24px; gap: 6px; display: flex; flex-direction: column; position: relative; width: 100%;">
         <div class="animText">
           <span class="titlenum">01</span>
