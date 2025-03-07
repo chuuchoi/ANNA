@@ -55,7 +55,8 @@
     </div>
   </div>
   <div style="display: flex; flex-direction: column; align-items: center;">
-    <span style="font-size: 54px; font-weight: 800; color: var(--gray-main); margin-top: 120px; margin-bottom: 92px;">찾아오시는길</span>
+    <span style="font-size: 54px; font-weight: 800; color: var(--gray-main); margin-top: 120px; margin-bottom: 92px;">
+      찾아오시는길</span>
     <img src="resources/logo.png" width="447">
     <p style="line-height: 170%; color: var(--gray-50); font-size: 20px; max-width: 1592px; padding: 0 40px; margin-top: 52px; margin-bottom: 156px;">
       주식회사 애나는 2021년부터 VR/AR 시험평가 기술 개발을 시작으로 지금까지 시험평가 및 기술검증 사업을 꾸준하게 추진해온 전문 시험평가 및 기술검증 기관입니다. 창사 이래로 지금까지 꾸준하게
@@ -113,6 +114,19 @@
 
   <script src="about.js"></script>
   <script>
+    const mediaMobile = window.matchMedia("(max-width: 768px)");
+
+function handleDeviceChange() {
+  if (mediaMobile.matches) {
+    window.location.href = "./way_to_come_mobile.html";
+  }
+}
+
+// 초기 실행 (페이지 로드 시)
+handleDeviceChange();
+
+// 화면 크기 변경 시 감지
+mediaMobile.addEventListener("change", handleDeviceChange);
   </script>
 
 </body>
