@@ -68,7 +68,8 @@
       .ct.c4{
         min-height: 470px;
       } */
-      .ct.c3 .mcnt{
+      .ct.c3 .mcnt,
+      .ct.c4 .mcnt{
         height: auto;
       }
       .ct.c5{
@@ -928,7 +929,9 @@ const mediaDesktop = window.matchMedia("(min-width: 1201px)");
 const mediaLandscape = window.matchMedia("(orientation: landscape)");
 
 function handleDeviceChange() {
-  if (mediaDesktop.matches) {
+  if(mediaTablet.matches){
+    window.location.href = "./index_tablet.html";
+  } else if (mediaDesktop.matches) {
     window.location.href = "./index.html";
   }
 }
@@ -953,7 +956,8 @@ handleDeviceChange();
 checkOrientation(mediaLandscape);
 
 // 화면 크기 변경 시 감지
-// mediaMobile.addEventListener("change", handleDeviceChange);
+mediaMobile.addEventListener("change", handleDeviceChange);
+mediaTablet.addEventListener("change", handleDeviceChange);
 mediaDesktop.addEventListener("change", handleDeviceChange);
 // 화면 방향 변경 감지
 mediaLandscape.addEventListener("change", checkOrientation);
