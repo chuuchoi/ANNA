@@ -183,6 +183,67 @@
         .btn-p0:hover svg path{
           stroke: black;
         }
+        .navbtns{
+          z-index: 10;
+          position: fixed;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          right: 24px;
+          height: 100%;
+          background-color: transparent;
+          pointer-events: none;
+          opacity: 1;
+          transition: all 0.4s ease-in-out;
+          gap: 23px;
+          & button{
+            position: relative;
+            cursor: pointer;
+            pointer-events: all;
+            width: 16px;
+            height: 16px;
+            border-radius: 16px;
+            padding: 0px;
+            background-color: transparent;
+            border: none;
+            transition: all 0.4s ease;
+            &:hover{
+              &::after{
+                width: 8px;
+                height: 8px;
+                border-radius: 8px;
+                background-color: white;
+              }
+            }
+            &::after{
+              content: '';
+              position: relative;
+              display: block;
+              margin: auto;
+              top: 0px;
+              left: 0px;
+              width: 6px;
+              height: 6px;
+              border-radius: 8px;
+              background-color: #ACACAC;
+              transition: all 0.4s ease;
+            }
+          }
+          & button.on{
+            background-color: var(--point-color);
+            &::after{
+              width: 8px;
+              height: 8px;
+              background-color: white;
+            }
+          }
+        }
+        .navbtns.off{
+          opacity: 0;
+          button{
+            pointer-events: none;
+          }
+        }
         .animText{
           overflow: hidden;
           height: fit-content;
@@ -373,6 +434,15 @@
     <div class="vdim"></div>
     <video src="resources/bgv1.mp4" muted autoplay loop></video>
   </div>
+  <div class="navbtns">
+    <button onclick="moveToSec(1)"></button>
+    <button onclick="moveToSec(2)"></button>
+    <button onclick="moveToSec(3)"></button>
+    <button onclick="moveToSec(4)"></button>
+    <button onclick="moveToSec(5)"></button>
+    <button onclick="moveToSec(6)"></button>
+  </div>
+
   <div class="ct c1">
     <div class="vct" >
       <div class="vdim"></div>
@@ -468,7 +538,7 @@
 
   <div class="ct c3">
     <div class="mcnt" style="gap: 40px;">
-      <div style="padding: 0 24px; gap: 6px; display: flex; flex-direction: column; position: relative; width: 100%;">
+      <div style="padding: 0 40px; gap: 6px; display: flex; flex-direction: column; position: relative; width: 100%;">
         <div class="animText">
           <span class="titlenum">01</span>
           <span class="title">종합성능 시험평가</span>
@@ -479,7 +549,7 @@
           </span>  
         </div>
       </div>
-      <div style="padding: 0 24px; display: flex; width: 100%; justify-content: center;">
+      <div style="padding: 0 40px; display: flex; width: 100%; justify-content: center;">
         <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%; max-width: 280px;">
           <img src="resources/dtim0.png" width="96px" style="align-self: center; margin-bottom: 14px;">
           <span class="conttitle">
@@ -543,7 +613,7 @@
 
   <div class="ct c4">
     <div class="mcnt" style="gap: 40px;">
-      <div style="padding: 0 24px; display: flex; flex-direction: column; position: relative; width: 100%;">
+      <div style="padding: 0 40px; display: flex; flex-direction: column; position: relative; width: 100%;">
         <div class="animText">
           <span class="titlenum" >02</span>
           <span class="title" >기술검증</span>
@@ -555,7 +625,7 @@
           </span>  
         </div>
       </div>
-      <div style="padding: 0 24px; display: flex; width: 100%; justify-content: center;">
+      <div style="padding: 0 40px; display: flex; width: 100%; justify-content: center;">
         <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 100%; max-width: 280px;">
           <img src="resources/dtim3.png" height="104px" style="border-radius: 15px; align-self: center; margin-bottom: 24px;">
           <span class="conttitle">
@@ -749,6 +819,14 @@ window.addEventListener("touchmove", handleTouchMove);
 window.addEventListener("touchend", handleTouchEnd);
 
 function updateSectionDisplay() {
+  const navbtnsElement = document.querySelector(`.navbtns`);
+  if(section == 2) navbtnsElement.classList.add('off')
+  else navbtnsElement.classList.remove('off')
+  const btns = Array.from(navbtnsElement.children)
+  btns.forEach((element, idx) => {
+    if(idx == section-1) element.classList.add('on')
+    else element.classList.remove('on')
+  });
   // console.log('section??',section)
   // if(section < maxSection){
     // 모든 .ct 요소에서 show 제거
