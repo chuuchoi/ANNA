@@ -26,6 +26,21 @@
   .menubtns:has(.b3:hover) .deco{
     transform: translate(160px);
   }
+  .maplabel{
+    display: flex; align-items: center;
+    gap: 9px;
+    height: 41px;
+    border-bottom: 1px solid #D9D9D9;
+    color:var(--gray-main);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .maplabel-detail{
+    margin: 10px 0px;
+    color: var(--gray-50);
+    font-weight: 500;
+    font-size: 14px;
+  }
     </style>
 </head>
 <body>
@@ -60,14 +75,40 @@
   <div style="display: flex; flex-direction: column; align-items: center;">
     <span class="fadein" style="animation-delay: 1300ms; font-size: 24px; font-weight: 800; color: var(--gray-main); margin-top: 40px; margin-bottom: 20px;">
       찾아오시는길</span>
-      <div style="background-color: black; width: 320px; height: 240px; border-radius: 8px; overflow: hidden;">
-        <!-- 지도를 표시할 div 입니다 -->
-        <!-- * 카카오맵 - 지도퍼가기 -->
-        <div id="daumRoughmapContainer1687960018711" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:100%;"> </div>
+      
+      <div class="mapcont" style="margin-bottom: 20px;">
+        <div style="background-color: black; width: 320px; height: 240px; border-radius: 8px; overflow: hidden;">
+          <!-- 지도를 표시할 div 입니다 * 카카오맵 - 지도퍼가기 -->
+          <div id="daumRoughmapContainer1687960018711" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:100%;"> </div>
+        </div>
+        <div class="maplabel">
+          <img src="resources/map_marker.svg" width="15" >
+          <span>애나 본사</span>
+        </div>
+        <p class="maplabel-detail">
+          인천광역시 연수구 컨벤시아대로 204,<br/>
+          인천스타트업파크 406호
+        </p>
       </div>
+      
+      <div class="mapcont">
+        <div style="background-color: black; width: 320px; height: 240px; border-radius: 8px; overflow: hidden;">
+          <!-- 지도를 표시할 div 입니다 * 카카오맵 - 지도퍼가기 -->
+          <div id="daumRoughmapContainer1741336863188" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:100%;"> </div>
+        </div>
+        <div class="maplabel">
+          <img src="resources/map_marker.svg" width="15" >
+          <span>기업부설 연구소</span>
+        </div>
+        <p class="maplabel-detail">
+          인천광역시 연수구 송도동,<br/>
+          AIT빌딩 2303호
+        </p>
+      </div>
+      
   </div>
   
-  <div class="contractcont" >
+  <div class="contractcont" style="margin-top: 64px;">
     <img src="resources/aboutim3.png" width="100%" height="100%">
     <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
       <div style="width: 100%; max-width: 1920px; margin: auto; display: flex; align-items: center; justify-content: space-between;">
@@ -112,7 +153,13 @@
 		"mapWidth" : "320",
 		"mapHeight" : "240"
 	}).render();
-  
+  new daum.roughmap.Lander({
+		"timestamp" : "1741336863188",
+		"key" : "2n9uf",
+		"mapWidth" : "320",
+		"mapHeight" : "240"
+	}).render();
+
 const mediaMobile = window.matchMedia("(min-width: 769px)");
 
 function handleDeviceChange() {
