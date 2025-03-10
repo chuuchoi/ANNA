@@ -1000,12 +1000,15 @@ observec5.observe(document.querySelector('.ct.c5'), { attributes: true, attribut
 //모바일 0~768 , 태블릿 768~1200
 const mediaMobile = window.matchMedia("(max-width: 768px)");
 const mediaTablet = window.matchMedia("(min-width: 769px) and (max-width: 1200px)");
+const mediaLandscape = window.matchMedia("(max-height: 800px)");
 
 function handleDeviceChange() {
   if (mediaMobile.matches) {
     window.location.href = "./index_mobile.html";
   } else if (mediaTablet.matches) {
     window.location.href = "./index_tablet.html";
+  } else if (mediaLandscape.matches) {
+    window.location.href = "./index_landscape.html";
   }
 }
 
@@ -1015,6 +1018,7 @@ handleDeviceChange();
 // 화면 크기 변경 시 감지
 mediaMobile.addEventListener("change", handleDeviceChange);
 mediaTablet.addEventListener("change", handleDeviceChange);
+mediaLandscape.addEventListener("change", handleDeviceChange);
     </script>
 
 </body>
