@@ -17,10 +17,11 @@ window.addEventListener("load", ()=>{
   // setTimeout(() => { 
   //   if(vctElement) vctElement.style.height = '700px'
   // }, 400);
-  if(window.getComputedStyle(document.documentElement).overflow == 'hidden'){
-    setTimeout(() => {
-      document.documentElement.style.overflow='auto'
-      AOS.init()
-    }, 1700);
-  }
+
+  // if(window.getComputedStyle(document.documentElement).overflow == 'hidden'){
+  //   setTimeout(() => {
+  //     document.documentElement.style.overflow='auto'
+  //     AOS.init()
+  //   }, 1700);
+  // }
 })

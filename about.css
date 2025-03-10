@@ -1,6 +1,7 @@
-html{
+/* 애니메이션제거 */
+/* html{
   overflow: hidden;
-}
+} */
 body{
   /* min-width: 992px; */
   min-width: 1200px;
@@ -22,21 +23,21 @@ body{
   position: relative;
   line-height: 0;
   width: 100%;
-  /* height: 700px; */
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: end;
-  /* transition: height 0.5s ease-in-out; */
+  height: 700px;
   animation: vctinit 0.5s ease-in-out 400ms forwards;
 }
-.vct>span,
+/* 애니메이션제거 */
+/* .vct>span,
 .vct>div{
   opacity: 0;
   transform: translateY(40px);
   animation: fade-in 0.6s ease 900ms forwards;
-}
+} */
 
 
 .vct video{
@@ -150,8 +151,8 @@ body{
     }
   }
 }
-
-@keyframes vctinit {
+/* 애니메이션제거 */
+/* @keyframes vctinit {
   from{height: 100vh;}
   to{height: 700px;}
-}
+} */

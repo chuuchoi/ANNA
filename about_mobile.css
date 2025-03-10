@@ -11,6 +11,7 @@ body{
   }
 }
 .vct{
+  height: 280px;
   animation: vctinitm 0.5s ease-in-out 400ms forwards;
 }
 .menubtns{
@@ -61,7 +62,7 @@ body{
   height: 393px;
 }
 
-@keyframes vctinitm {
+/* @keyframes vctinitm {
 from{height: 100vh;}
 to{height: 280px;}
-}
+} */
