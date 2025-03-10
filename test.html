@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{box-sizing: border-box;}
+    html,body{padding: 0;margin: 0;
+      scroll-snap-type: y mandatory;
+    }
+    .box{
+      scroll-snap-align: start;
+      /* position: sticky;
+      top: 0; */
+      width: 100px;
+      height: 100vh;
+      min-height: 700px;
+      background:linear-gradient(green, red);
+    }
+    .box.c2{
+      background:linear-gradient(blue, black);
+    }
+    .ct{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box c1">
+    <div class="ct c1" style="background-color: yellow; height: 100px; width: 500px; justify-content: center; align-items: center; font-size: 32px;">
+      1</div>
+  </div>
+  <div class="box c2">
+    <div class="ct c2" style="background-color: yellow; height: 100px; width: 500px; justify-content: center; align-items: center; font-size: 32px;">
+      2</div>
+  </div>
+  <div class="box c3">
+    <div class="ct c3" style="background-color: yellow; height: 100px; width: 500px; justify-content: center; align-items: center; font-size: 32px;">
+      3</div>
+  </div>
+
+  <script>
+    // 감시할 대상 가져오기
+    const boxes = document.querySelectorAll('.box');
+    // Intersection Observer 설정
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          console.log(entry)
+          const className = entry.target.classList[1]; // box의 클래스 가져오기 (예: 'c1')
+          console.log(className)
+            const ctElement = document.querySelector(`.ct.${className}`); // 해당하는 ct 요소 찾기
+            const navbtnsElement = document.querySelector(`.navbtns`);
+
+            if (entry.isIntersecting) {
+                // entry.target.classList.add('show'); // box 보이면 show 추가
+                if (ctElement) ctElement.classList.add('show'); // 해당 ct에도 show 추가
+                if(className=='c2'){
+                  if (navbtnsElement) navbtnsElement.classList.add('off'); // 해당 ct에도 show 추가
+                }
+              } else {
+                // entry.target.classList.remove('show'); // box 안 보이면 show 제거
+                if (ctElement) ctElement.classList.remove('show'); // 해당 ct에서도 show 제거
+                if(className=='c2'){
+                  if (navbtnsElement) navbtnsElement.classList.remove('off'); // 해당 ct에도 show 추가
+                }
+            }
+        });
+    }, {
+        threshold: 0.9  
+    });
+    // 각 요소를 감시 대상으로 추가
+    boxes.forEach(box => observer.observe(box));
+  </script>
+</body>
+</html>
