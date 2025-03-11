@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,body{margin: 0;}
+    *{box-sizing: border-box;}
+    section {
+      height: 700px;
+      width: 500px;
+    }
+    #toc a[aria-current="true"] {
+      background-color: orange;
+    }
+    #aos{
+      overflow-y: scroll; height: 100px; position: relative;
+      scroll-timeline: --aos block;
+
+    }
+    .progressbar{
+      z-index: 1;
+      position: sticky; top: 20px; width: 100%; height: 20px; background-color: purple;
+      transform-origin: left;
+      animation-timeline: scroll();
+      animation-name: pb;
+      animation-duration: 1s;
+    }
+    .progressbar2{
+      z-index: 1;
+      position: sticky; top: 0px; width: 100%; height: 20px; background-color: palevioletred;
+      transform-origin: left;
+    }
+    @keyframes pb {
+      from{transform: scaleX(0); }
+      to{transform: scaleX(1); }
+    }
+    #subject{
+      view-timeline: --subjectReveal block;
+      view-timeline-inset: 100px 200px;
+      animation-fill-mode: forwards;
+      animation-timeline: --subjectReveal;
+      animation-name: appear;
+    }
+    @keyframes fade-up {
+      from{opacity: 0; transform: translateY(40px);}
+      to{opacity: 1; transform: translateY(0px);}
+    }
+    .animation {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+  animation-name: appear;
+  animation-fill-mode: both;
+  animation-duration: 1ms; 
+  /* Firefox requires this to apply the animation */
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="progressbar"></div>
+  <div class="progressbar2"></div>
+  <div style="position: fixed; right: 100px; top: 100px;">
+    Table of Contents
+    <ul id="toc">
+      <li><a href="#s1" aria-current="true">sec1</a></li>
+      <li><a href="#s2">sec2</a></li>
+      <li><a href="#s3">sec3</a></li>
+      <li><a href="#s4">sec4</a></li>
+    </ul>
+    another scoll
+    <div id="aos">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+
+        <div style="width: 50px; height: 50px; background-color: black;"></div>
+        <div style="width: 50px; height: 50px; background-color: black;"></div>
+        <div style="width: 50px; height: 50px; background-color: black;"></div>
+        <div style="width: 50px; height: 50px; background-color: black;"></div>
+        <div style="width: 50px; height: 50px; background-color: black;"></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="s1"><b>Section1</b> Lorem Ipsum ...
+    <div class="animation" style="width: 100px; height: 100px; background-color: #dd4444;"></div>
+  </section>
+  <section id="s2"><b>Section2</b> Lorem Ipsum ...
+    <div class="animation" style="width: 100px; height: 100px; background-color: #dddd44;"></div>
+  </section>
+  <section id="s3"><b>Section3</b> Lorem Ipsum ...
+    <div id="subject" style="width: 100px; height: 100px; background-color: #44dd44;"></div>
+  </section>
+  <section id="s4"><b>Section4</b> Lorem Ipsum ...
+    <div class="animation" style="width: 100px; height: 100px; background-color: #44dddd;"></div>
+  </section>
+
+  <script>
+    const sections = document.querySelectorAll("section>b");
+    const tocLinks = document.querySelectorAll("#toc a");
+  
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          console.log(entry.target,entry.isIntersecting,entry.boundingClientRect.top)
+            if (entry.isIntersecting) {
+                // 모든 TOC 링크에서 aria-current 제거
+                tocLinks.forEach(link => link.removeAttribute("aria-current"));
+  
+                // 현재 보이는 section과 매칭되는 TOC 링크에 aria-current 추가
+                const activeLink = document.querySelector(`#toc a[href="#${entry.target.parentElement.id}"]`);
+                if (activeLink) {
+                    activeLink.setAttribute("aria-current", "true");
+                }
+            }
+        });
+    }, { root: null, threshold: 0, rootMargin: "50px 0px -70% 0px" });
+  
+    // 모든 section을 observer에 등록
+    sections.forEach(section => observer.observe(section));
+
+        // smooth scroll 효과를 위해서 클릭 이벤트에 scrollIntoView() 적용
+    document.querySelectorAll("#toc a").forEach(anchor => {
+      anchor.addEventListener("click", function(e) {
+        e.preventDefault();  // 기본 동작 방지 (기본 앵커 이동 방지)
+
+        // 해당 섹션으로 부드럽게 스크롤 이동
+        const target = document.querySelector(this.getAttribute("href"));
+
+        target.scrollIntoView({
+          behavior: "smooth",   // 부드러운 스크롤
+          block: "start",       // 섹션의 시작 위치로 맞춤
+          inline: "nearest"     // 가로 방향에서도 가장 가까운 위치로 맞춤
+        });
+
+        // scrollIntoView 완료 후 100px 위로 이동하도록 설정
+        // requestAnimationFrame을 사용하여 애니메이션이 끝난 후 실행
+        function scrollAfterAnimation() {
+          if (Math.abs(target.getBoundingClientRect().top) < 1) {
+            window.scrollBy(0, -100); // 100px 만큼 스크롤을 위로 이동
+          } else {
+            requestAnimationFrame(scrollAfterAnimation);
+          }
+        }
+        requestAnimationFrame(scrollAfterAnimation);
+      });
+    });
+    document.querySelector("#s1").addEventListener("click",()=>{console.log('hi')})
+
+    // const timeline = new ViewTimeline({
+    //   subject: document.querySelector("#subject"),
+    //   axis: "y",
+    //   inset: "100px 200px",
+    // });
+    // document.querySelector(".progressbar").animate([
+    //   {transform: 'scaleX(0)'},
+    //   {transform: 'scaleX(1)'},
+    // ],{duration:500, fill:'both', timeline})
+    const timline = new ScrollTimeline({
+      source:document.querySelector("#aos"),
+      axis:'y'
+    })
+    document.querySelector(".progressbar2").animate([
+      {transform: 'scaleX(0)'},
+      {transform: 'scaleX(1)'},
+    ],{duration:500, fill:'both', timeline:timline})
+  </script>
+  
+</body>
+</html>

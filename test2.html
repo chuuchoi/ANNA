@@ -134,9 +134,9 @@
     @layer view-transitions {
 
 /* Force flat mode, should the browser use layered by default */
-* {
+/* * {
   view-transition-capture-mode: flat;
-}
+} */
 
 /* Don�셳 capture the root, allowing pointer interaction while cards are animating */
 @layer no-root {
@@ -214,9 +214,9 @@
     background:blue;
     translate: 300px 50px;
   } */
-  ::view-transition-new(targeted-card) {
+  /* ::view-transition-new(targeted-card) {
     animation: animate-in ease-in 2.25s;
-  }
+  } */
 }
 
 /* Cards that get removed should animate-out */
@@ -227,7 +227,7 @@
       translate: 0 0;
     }
     100% {
-      opacity: 0;
+      opacity: 1;
       translate: 0 -200px;
     }
   }
@@ -295,7 +295,7 @@
 
 		e.target.parentElement.style.viewTransitionName = 'targeted-card';
 		document.startViewTransition(() => {
-			e.target.parentElement.remove();
+			// e.target.parentElement.remove();
 		});
 	}
 })
