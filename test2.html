@@ -144,7 +144,7 @@
     view-transition-name: none;
   }
   ::view-transition {
-    top: 10px;
+    top: 4px;
     pointer-events: none;
   }
   ::view-transition-group(cardlist) {
@@ -174,11 +174,8 @@
     
     /* Without view-transition-class you had to write a selector that targets all cards �� and that selector needed updating whenever you added/removed a card */
     ::view-transition-group(.card) {
-      *{
-
         animation-timing-function: var(--bounce-easing);
         animation-duration: 0.8s;
-      }
     }
     
     ::view-transition {
@@ -214,9 +211,9 @@
     background:blue;
     translate: 300px 50px;
   } */
-  /* ::view-transition-new(targeted-card) {
-    animation: animate-in ease-in 2.25s;
-  } */
+  ::view-transition-new(targeted-card) {
+    animation: animate-in ease-in 0.8s;
+  }
 }
 
 /* Cards that get removed should animate-out */
@@ -295,7 +292,7 @@
 
 		e.target.parentElement.style.viewTransitionName = 'targeted-card';
 		document.startViewTransition(() => {
-			// e.target.parentElement.remove();
+			e.target.parentElement.remove();
 		});
 	}
 })
@@ -316,7 +313,7 @@ document.querySelector('.add-btn').addEventListener('click', async (e) => {
 		document.querySelector('.cards').appendChild($newCard);
 	});
   await transition.ready;
-  alert('r')
+  // alert('r')
 	await transition.finished;
 
 	const rand = window.performance.now().toString().replace('.', '_') + Math.floor(Math.random() * 1000);
