@@ -8,10 +8,12 @@ window.addEventListener("scroll", function () {
     header.style.backgroundColor = "transparent";
   }
 });
+
 //스크롤 복원 안함, 항상 0,0 위치에서 시작
-if (history.scrollRestoration) {
-  history.scrollRestoration = "manual";
-}
+// if (history.scrollRestoration) {
+//   history.scrollRestoration = "manual";
+// }
+
 window.addEventListener("load", ()=>{
   // const vctElement = document.querySelector(".vct")
   // setTimeout(() => { 

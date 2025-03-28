@@ -1,8 +1,12 @@
 :root{
   --point-color:#5F7DFF;
+  --point-color05:#FF6F61;
+  --gray-3:#F5F5F5;
   --gray-10:#D6D6D6;
+  --gray-20:#BDBDBD;
   --gray-40:#757575;
   --gray-50:#525252;
+  --gray-70:#2C2C2C;
   --gray-main:#292929;
 }
 @font-face {
@@ -18,11 +22,11 @@
   font-style: normal;
 }
 *{
+  letter-spacing: -0.03em;
   box-sizing: border-box;
 }
 html, body {
   font-family: pretendard, cursive, Arial, sans-serif;
-  letter-spacing: -0.03em;
   margin: 0;
   padding: 0;
   }
@@ -56,6 +60,7 @@ span{
   position: fixed;
   width: 100%;
   height: 90px;
+  font-weight:600;
   z-index: 10;
   transition: all 300ms cubic-bezier(0.26, 0.65, 0.15, 1);
   >img{

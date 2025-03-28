@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주식회사 애나</title>
+    <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+    <!-- pretendard 폰트 설치 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+    <style>
+    @font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    }
+      *{
+        box-sizing: border-box;
+      }
+        html, body {
+            font-family: pretendard, cursive, Arial, sans-serif;
+            letter-spacing: -0.03em;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            scroll-snap-type: y mandatory;
+          }
+          /* 전체 페이지에서 스크롤바 숨기기 */
+          html,body {
+            -ms-overflow-style: none; /* IE 및 Edge에서 스크롤바 숨김 */
+            scrollbar-width: none; /* Firefox에서 스크롤바 숨김 */
+          }
+          html,body{
+            &::-webkit-scrollbar {
+            /* Webkit 브라우저(Chrome, Safari)에서 스크롤바 숨기기 */
+              display: none;
+            }
+          &::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+            background-color: #f0f0f0;
+          }
+          &::-webkit-scrollbar-thumb {
+            background-color: #ff0000;
+          }
+        }
+        p{margin: 0;}
+        button{
+          letter-spacing: -0.03em;
+          font-family: pretendard, cursive;
+        }
+        span{
+          line-height: 150%;
+        }
+
+        .container {
+          /* scroll-snap-align: start; */
+          position: relative;
+          background-color: transparent;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .box {
+          scroll-snap-align: start;
+            width: 1400px;
+            height: 100vh;
+            background-color: steelblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            opacity: 0.1;
+            transform: translateY(0px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            position: relative;
+        }
+        .ct {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: transparent;
+            z-index: 1;
+            display: none;
+          /* animation: fade-in 0.6s ease; */
+        }
+        .ct.show {
+            display: block;
+            z-index: 2;
+        }
+        /* .ct:nth-child(1){
+          position: sticky;
+          height: 200vh;
+        } */
+        /* .ct:last-child{
+          position: sticky;
+          height: 100vh;
+        } */
+
+        .mc2{
+          scroll-snap-align: start;
+          background-image: url('./resources/bgim0.png');
+          background-size: cover;
+          background-position: center;
+          position: relative;
+          z-index: 4;
+          display: flex; align-items: center;
+          flex-direction: column;
+          background-color: aliceblue;
+          width: 100%;
+          padding-top: 163px;
+          /* min-height: 100vh; */
+          height: 100%;
+          max-height: 968px;
+        }
+        .mc2dim{
+          z-index: -1;
+          position: absolute;
+          top: 0;
+          width:100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7)
+        }
+        .vdim{
+          z-index: 2;
+          mix-blend-mode: darken;
+          position: absolute;
+          top: 0;
+          width:100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6)
+        }
+        .header{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 37px;
+          user-select: none;
+          background-color: transparent;
+          position: fixed;
+          width: 100%;
+          height: 90px;
+          z-index: 10;
+          transition: all 300ms cubic-bezier(0.26, 0.65, 0.15, 1);
+          >img{
+            position: absolute;
+            left: 47.6px;
+          }
+          a{
+            cursor: pointer; text-decoration: none;
+            color: white;
+          }
+        }
+        .footer{
+          scroll-snap-align: start;
+          position: relative;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: #0f0f0f;
+          width: 100%;
+          height: 472px;
+          z-index: 9;
+        }
+        .vct{
+          z-index: 1;
+          position: fixed;
+          line-height: 0;
+          width: 100%;
+          height: 100%;
+          video{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+        .mcnt{
+          position: sticky;
+          top: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 24px;
+          font-size: 24px;
+          font-weight: 500;
+          color: #f0f0f0;
+          height: 100vh;
+          z-index: 4;
+          user-select: none;
+        }
+        .btn-p0{
+          position: relative;
+          cursor: pointer;
+          color: #f0f0f0;
+          padding: 16px 40px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 461px;
+          height: 95px;
+          background-color: transparent;
+          border: 1px solid white;
+          border-radius: 100px;
+          font-weight: 700;
+          font-size: 32px;
+          overflow: hidden;
+          transition: all 0.4s ease;
+          svg{
+            path{
+              transition: all 0.4s ease;
+            }
+          }
+          &:hover{
+            color: black;
+            &::before{
+              transform: translateX(0);
+            }
+            svg{
+              path{
+                stroke: black;
+              }
+            }
+          }
+          &::before{
+            content: '';
+            background-color: white;
+            position: absolute;
+            border-radius: 100px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transform: translateX(-105%);
+            transition: all 0.4s ease;
+          }
+        }
+
+        .swiper {
+          width: 100%;
+          max-width: 2000px;
+        }
+        .swiper-slide{
+          display: flex;
+          justify-content: center;
+        }
+
+        .swiper-pagination-bullets.swiper-pagination-horizontal{
+            position: relative;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: fit-content;
+            /* & span:first-child{
+              display: none !important;
+            }
+            & span:last-child{
+              display: none !important;
+            } */
+        }
+        .swiper-pagination-bullet {
+            width: 25px;
+            height: 2px;
+            border-radius: 0px;
+            background: white;
+            opacity: 0.3;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: white;
+        }
+        .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+            /* margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px); */
+            margin: 0 3px;
+        }
+        .slideimg{
+          display: block;
+          width: 100%;
+          max-width: 396px;
+          position: relative;
+          border-radius: 15px;
+          +div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+
+            >div{
+              top: 0;
+              left: 0;
+              width: 100%;
+              max-width: 396px;
+              border-radius: 15px;
+              height: 100%;
+              background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 35.5%);
+              display: flex;
+              align-items: flex-end;
+              padding: 18px 36px;
+              color: white;
+              margin: auto;
+            }
+          }
+        }
+        .swiper-button-prev,
+        .swiper-button-next{
+          width: 50px;
+          height: 50px;
+          &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            background: #FFFFFF;
+            opacity: 0.5;
+          }
+        }
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            display: none;
+        }
+        .swiper-button-next svg, .swiper-button-prev svg {
+          opacity: 1;
+          width: auto;
+          height: auto;
+          object-fit: contain;
+          transform-origin: center;
+        }
+        /* .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+          opacity: 1;
+          &::before{
+            opacity: 0.1;
+          }
+        } */
+        .navbtns{
+          z-index: 10;
+          position: fixed;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          right: 100px;
+          height: 100%;
+          background-color: transparent;
+          pointer-events: none;
+          opacity: 1;
+          transition: all 0.4s ease-in-out;
+          gap: 23px;
+          button{
+            position: relative;
+            cursor: pointer;
+            pointer-events: all;
+            width: 16px;
+            height: 16px;
+            border-radius: 16px;
+            padding: 0px;
+            background-color: transparent;
+            border: none;
+            transition: all 0.4s ease;
+            &:hover{
+              &::after{
+                width: 8px;
+                height: 8px;
+                border-radius: 8px;
+                background-color: white;
+              }
+            }
+            &::after{
+              content: '';
+              position: relative;
+              display: block;
+              margin: auto;
+              top: 0px;
+              left: 0px;
+              width: 6px;
+              height: 6px;
+              border-radius: 8px;
+              background-color: #ACACAC;
+              transition: all 0.4s ease;
+            }
+          }
+          button.on{
+            background-color: #5F7DFF;
+            &::after{
+              width: 8px;
+              height: 8px;
+              background-color: white;
+            }
+          }
+        }
+        .navbtns.off{
+          opacity: 0;
+          button{
+            pointer-events: none;
+          }
+        }
+        .animText{
+          overflow: hidden;
+          height: fit-content;
+          span{
+            transform: translateY(110%);
+            display: block;
+            animation: slide-up 0.4s cubic-bezier(0.18, 0.06, 0.2, 1) forwards;
+          }
+          img{
+            transform: translateY(110%);
+            animation: slide-up 0.4s cubic-bezier(0.18, 0.06, 0.2, 1) forwards;
+          }
+        }
+
+        .swiperdeco{
+          pointer-events: none;
+          position: absolute;
+          width: 241px;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: linear-gradient(90deg, rgba(11, 13, 22, 0) 0%, #0B0D16 99.99%);
+          z-index: 1;
+          transform: rotate(-180deg);
+        }
+        .swiperdeco.right{
+          left: auto;
+          right: 0;
+          background: linear-gradient(-90deg, rgba(11, 13, 22, 0) 0%, #0B0D16 99.99%);
+        }
+        .roughmap_maker_label{
+          color: #3061E7;
+          font-family: pretendard,cursive;
+          font-size: 15px;
+          font-weight: 500;
+          background-color: white;
+          text-decoration: none;
+          padding: 3px 6px;
+          border: 1px solid black;
+          border-radius: 2px;
+          &::before {
+              content: '';
+              position: absolute;
+              width: 0;
+              height: 0;
+
+              /* 작은 삼각형 (실제 빨간색 삼각형) */
+              border-left: 7px solid transparent;
+              border-right: 7px solid transparent;
+              border-top: 10px solid black;
+              bottom: -13px; /* 겹쳐서 위치 조정 */
+              left: 47px; /* 겹쳐서 위치 조정 */
+          }
+          &::after {
+              content: '';
+              position: absolute;
+              width: 0;
+              height: 0;
+              
+              /* 큰 삼각형 (검은색 테두리 역할) */
+              border-left: 6px solid transparent;
+              border-right: 6px solid transparent;
+              border-top: 9px solid white;
+              bottom: -12px; /* 위치 조정 */
+              left: 48px; /* 위치 조정 */
+          }
+
+        }
+        .morebtn{
+          cursor: pointer; position: relative; text-decoration: none;
+          width: 130px;
+          margin-top: 40px;
+          span{
+            color: #D6D6D6; font-size: 16px;
+          }
+          svg{
+            position: absolute; left: 0; bottom: 0;
+            path{
+              stroke-dasharray: 150px;
+              stroke-dashoffset: 0px;
+              transition: all 800ms cubic-bezier(0.18, 0.06, 0.2, 1);
+            }
+          }
+        }
+        .morebtn:hover{
+          svg{
+            path{
+              stroke-dashoffset: -300px;
+            }
+          }
+        }
+        .upbtn{
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 40px;
+          border: 2px solid white;
+        }
+        .upbtn:hover{
+          svg{
+            animation: upbtnanim 800ms ease-in-out infinite forwards;
+          }
+        }
+        @keyframes slide-up {
+          from{transform: translateY(110%); opacity: 0;}
+          to{transform: translateY(0px); opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+  <div class="header" > 
+    <img src="resources/logo.svg" width="130"/>
+    <a href="./test.html">회사소개</a>
+    <a href="./test1.html">종합성능 시험평가</a>
+    <a href="./test2.html">기술검증</a>
+    <a href="./test1.html">연구개발</a>
+    <a href="./test.html">고객지원</a>
+  </div>
+
+  <div class="vct">
+    <div class="vdim"></div>
+    <video id="bgv1" src="resources/bgv1.mp4" autoplay loop muted></video>
+  </div>
+  <div class="navbtns">
+    <button onclick="moveToSec(1)"></button>
+    <button onclick="moveToSec(2)"></button>
+    <button onclick="moveToSec(3)"></button>
+    <button onclick="moveToSec(4)"></button>
+    <button onclick="moveToSec(5)"></button>
+    <button onclick="moveToSec(6)"></button>
+  </div>
+
+    <div class="container">
+      <div style="position: absolute; top: 0; left: 0; width: 100%;">
+        <div class="ct c1" >
+          <div class="vct">
+            <div class="vdim"></div>
+            <video id="bgv" src="resources/bgv.mp4" autoplay loop muted></video>
+          </div>
+          <div class="mcnt">
+            <div class="animText">
+              <img src="resources/logo.svg" />
+            </div>
+            <div class="animText" >
+              <span style="animation-delay: 400ms;">
+                <b style="color: #8097FF;">주식회사 애나</b>는 공신력과 신뢰성을 바탕으로 하는 국제공인 시험평가 기관입니다.</span>
+            </div>
+            <div class="fadein" style="animation-delay: 800ms; display: flex; gap: 16px; margin-top: 8px;">
+              <button class="btn-p0">종합성능 시험평가
+                <svg width="33" height="10" viewBox="0 0 33 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 8.17037H29.5L21.6087 1" stroke="white" stroke-width="2"/>
+                </svg>
+              </button>
+              <button class="btn-p0">AI 위험상황 인식예측 솔루션
+                <svg width="33" height="10" viewBox="0 0 33 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 8.17037H29.5L21.6087 1" stroke="white" stroke-width="2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+            <!-- 애니메이션을 삽입할 div -->
+            <div style="position: absolute; z-index: 7; bottom: 40px; width: 100%; display: flex; justify-content: center;">
+                <div id="lottie-animation" style="width: 50px; height: 50px;"></div>
+            </div>
+        </div>
+
+        <div class="ct c2">
+          <div class="mcnt">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #0B0D16; display: flex; justify-content: center;">
+              <div style="background: radial-gradient(52.67% 42.82% at 50% 59.35%, #394272 36.42%, #0B0D16 99.99%); width: 100%; max-width: 1920px; height: 100%;"></div>
+            </div>
+
+            <div class="animText" style="z-index: 2;">
+              <img src="resources/s2title.svg"/>
+            </div>
+            <div class="animText" style="z-index: 2; margin-bottom: 24px;">
+              <span style=" font-size: 20px; animation-delay: 400ms; text-align: center; color: #D6D6D6;">국제 표준 규격에 기반하여 SW 기반 제품에 대한 공인 시험평가 및 기술 검증을 시행하고,<br/> 제품의 성능을 정량적으로 평가하여 SW 제품의 기술적 무결성 확인을 지원하는 국제 공인 시험평가 및 기술 검증 기관입니다.</span>
+            </div>
+              <div class="swiper fadein" style="animation-delay: 800ms;">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="resources/im0.png" class="slideimg" >
+                    <div><div><span># 종합 SW시험평가</span></div></div>
+                  </img>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="resources/im1.png" class="slideimg" />
+                    <div><div><span># 메타버스 시험평가</span></div></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="resources/im2.png" class="slideimg" />
+                    <div><div><span># AI 시험평가</span></div></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="resources/im3.png" class="slideimg" />
+                    <div><div><span># 시험성적서 신청</span></div></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="resources/im4.png" class="slideimg" />
+                    <div><div><span># 블록체인 기술 검증</span></div></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="resources/im5.png" class="slideimg" />
+                    <div><div><span># 인공지능 기술 검증</span></div></div>
+                  </div>
+                </div>
+
+                <!-- <div class="swiper-button-prev">
+                  <svg width="13" height="22" style="margin-right:3px" viewBox="0 0 13 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5718 0.832033L2.28613 10.832L11.5718 20.832" stroke="white" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="swiper-button-next">
+                  <svg width="12" height="22" style="margin-left:2px" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.28655 20.832L10.5723 10.832L1.28655 0.832031" stroke="white" stroke-width="2"/>
+                  </svg>
+                </div> -->
+                
+                <div class="swiperdeco"></div>
+                <div class="swiperdeco right"></div>
+              </div>
+              <div class="swiper-pagination fadein" style="animation-delay: 800ms;"></div>
+          </div>
+        </div>
+
+        <div class="ct c3">
+          <div class="mcnt" style="gap: 62px;">
+            <div style="display: flex; position: relative; left: -110px; width: 1400px;">
+              <div class="animText">
+                <span style="color: #5F7DFF; font-weight: 700; margin-right: 23px;">01</span>
+              </div>
+              <div class="animText">
+                <span style="color: white; font-weight: 700; font-size: 44px; margin-right: 107px;">종합성능 시험평가</span>
+              </div>
+              <div class="animText">
+                <span style="color: #D6D6D6; font-size: 20px; animation-delay: 400ms;">
+                  주식회사 애나는 국제 표준에 따른 품질 경영시스템과 시험능력을 갖춘 국제공인 시험평가 기관입니다.
+                </span>  
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: center;">
+              <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 286px;">
+                <img src="resources/dtim0.png" width="251px" style="align-self: center; margin-bottom: 15px;">
+                <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">
+                  종합 SW 시험평가
+                </span>
+                <span style="color: #D6D6D6; font-size: 14px;">
+                  종합 SW 시험평가는 SW 및 Data 관련<br/>
+                  전분야의 제품을KS X ISO/IFC<br/>
+                  25023:2016 표준에 의거한 소프트웨어<br/>
+                  품질시험으로 서비스로 제공하고 있습니다.
+                </span>
+                <a class="morebtn" href="./test.html">
+                  <span>더 알아보기</span>
+                  <svg width="130" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
+                  </svg>
+                </a>
+              </div>
+              <div style="flex-grow: 1; max-width: 171px;"></div>
+              <div class="fadein" style="animation-delay: 800ms; position: relative; top: 10px; display: flex; flex-direction: column; width: 286px;">
+                <img src="resources/dtim1.png" width="221px" style="align-self: center; margin-bottom: 35px;">
+                <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">
+                  메타버스 시험평가
+                </span>
+                <span style="color: #D6D6D6; font-size: 14px;">
+                  2015년부터 메타버스 콘텐츠에 대한 성능<br/>
+                  시험평가를 위한 품질 측정 용건 및 방법을 업계 최초로 개발 및 적용한 메타버스 전문<br/> 
+                  시험기관으로 메타버스 콘텐츠 및 관련<br/>
+                  SW전분야에 걸처 자체 개발한 어지럼증 분석 둘(MOSKIT)을 활용하여 제품의 품질을<br/>
+                  검증 및 측정 서비스를 제공하고 있습니다.
+                </span>
+                <a class="morebtn" href="./test1.html">
+                  <span>더 알아보기</span>
+                  <svg width="130" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
+                  </svg>
+                </a>
+              </div>
+              <div style="flex-grow: 1; max-width: 171px;"></div>
+              <div class="fadein" style="animation-delay: 1200ms; position: relative; top: 25px; display: flex; flex-direction: column; width: 286px;">
+                <img src="resources/dtim2.png" width="201px" style="align-self: center; margin-bottom: 42px;">
+                <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">AI 시험평가</span>
+                <span style="color: #D6D6D6; font-size: 14px;">
+                  인공지능 솔루션의 학습 데이터, 알고리즘<br/>
+                  등을 성능지표 및 ISO/IEC 25023의거한<br/>
+                  소프트웨어 품질 시험과 인공지능 학습 데이터를 ISO/IEC 25024 표준에 의거한<br/>
+                  Data품질시험을 통해 인공지능 제품 품질의<br/>
+                  완성도 평가하는 서비스를 제공하고 있습니다.
+                </span>
+                <a class="morebtn" href="./test2.html">
+                  <span>더 알아보기</span>
+                  <svg width="130" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ct c4">
+          <div class="mcnt" style="gap: 62px;">
+            <div style="display: flex; position: relative; left: -110px; width: 1400px;">
+              <div class="animText">
+                <span style="color: #5F7DFF; font-weight: 700; margin-right: 23px;">02</span>
+              </div>
+              <div class="animText">
+                <span style="color: white; font-weight: 700; font-size: 44px; margin-right: 107px;">기술검증</span>
+              </div>
+              <div class="animText">
+                <span style="color: #D6D6D6; font-size: 20px; animation-delay: 400ms;">
+                  주식회사 애나는 기술기반의 제품 및 서비스에 대한 품질 강화를 목적으로 기술 검증에 대해 연구합니다.<br/>
+                  특히 인공지능(A), 블록체인(Blockchain)의 기술 품질 방법을 연구하고 개선점을 찾아 나아가도록 체계적으로 검증절차를 진행하고 있습니다.
+                </span>  
+              </div>
+            </div>
+            <div style="display: flex; width: 100%; justify-content: center;">
+              <div class="fadein" style="animation-delay: 400ms; display: flex; flex-direction: column; width: 342px;">
+                <img src="resources/dtim3.png" height="196px" style="border-radius: 15px; align-self: center; margin-bottom: 46px;">
+                <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">
+                  블록체인 보안 감사 (Audit)
+                </span>
+                <span style="color: #D6D6D6; font-size: 14px;">
+                  블록체인(Block Chain)이란 데이터가 담긴 블록을<br/>
+                  일정 주기로 생성한 뒤 이전 블록에 체인과 같이<br/>
+                  연결하는 기술입니다. 블록체인은 변조하기 어려운<br/>
+                  형태이며 네트워크에 참여한 다수의 사용자가 정보를<br/>
+                  공유할 수 있습니다. 또한 다수의 사용자는 해당<br/>
+                  데이터를 분산•저장할 수 있습니다.
+                </span>
+                <a class="morebtn" href="/test.html">
+                  <span>더 알아보기</span>
+                  <svg width="130" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
+                  </svg>
+                </a>
+              </div>
+              <div style="flex-grow: 1; max-width: 171px;"></div>
+              <div class="fadein" style="animation-delay: 800ms; display: flex; flex-direction: column; width: 286px;">
+                <img src="resources/dtim4.png" height="196px" style="border-radius: 15px; align-self: center; margin-bottom: 46px;">
+                <span style="color: white; font-weight: 700; font-size: 32px; margin-bottom: 14px;">
+                  인공지능 기술검증
+                </span>
+                <span style="color: #D6D6D6; font-size: 14px;">
+                  주식회사 애나의 인공지능 검증 서비스는 고객사가<br/>
+                  개발한 인공지능 모델 및 시스템에 대해 실제 뉴럴<br/>
+                  네트워크 기반의 인공지능 모델이 실제 솔루션에<br/>
+                  사용되고 있는지와, 인공지능 모델을 활용한 효과를<br/>
+                  객관적인 품질평가 시스템 및 모델을 활용하여<br/>
+                  국제표준을 기반으로 검증하는 서비스입니다.
+                </span>
+                <a class="morebtn" href="/test1.html">
+                  <span>더 알아보기</span>
+                  <svg width="130" height="9" viewBox="0 0 130 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 7.67403H128.5L120.609 0.503662" stroke="white"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="box c1">Box 1</div>
+      <div class="box c2">Box 2</div>
+      <div class="box c3">Box 3</div>
+      <div class="box c4">Box 4</div>
+    </div>
+    <div class="mc2">
+      <div class="mc2dim"></div>
+      <span style="font-family: Paperlogy-8ExtraBold; color: #5F7DFF; line-height: 19px; margin-bottom: 11px;">ANNA Inc.</span>
+      <span style="font-family: Paperlogy-8ExtraBold; font-size: 64px; line-height: 75px; color: white; margin-bottom: 69px;">CONTACT US</span><br/>
+
+      <div style="display: flex; width: 1206px;">
+        <div style="background-color: black; width: 591px; height: 383px; border-radius: 15px; overflow: hidden;">
+          <!-- 지도를 표시할 div 입니다 -->
+          <!-- <div id="map" style="width:100%;height:100%;"></div> -->
+<!-- * 카카오맵 - 지도퍼가기 -->
+<!-- 1. 지도 노드 -->
+<div id="daumRoughmapContainer1687960018711" class="root_daum_roughmap root_daum_roughmap_landing" style="width:100%;height:100%;"> </div>
+        </div>
+        <div style="color: #D6D6D6; margin-left: 51px; display: flex; flex-direction: column; justify-content: center; gap: 39px;">
+          <div style="display: flex; align-items: flex-start; gap: 23px;">
+            <img src="resources/contact0.svg" width="18" style="margin: 0px 3px;">
+            <span>070-7811-4803</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 23px;">
+            <img src="resources/contact1.svg" width="25" style="margin-top: 5px;">
+            <span>shlee@byanna.io</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 23px;">
+            <img src="resources/contact2.svg" width="24" style="margin-top: 6px;">
+            <span>인천광역시 연수구 컨벤시아대로 204<br/>
+              인천스타트업파크, 516호
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="upbtn" style="margin-top: 54px;" onclick="(()=>{window.scroll({top:0,left:0,behavior:'smooth'})})()">
+        <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.70711 0.721326C8.31658 0.330801 7.68342 0.330801 7.29289 0.721326L0.928932 7.08529C0.538408 7.47581 0.538408 8.10898 0.928932 8.4995C1.31946 8.89002 1.95262 8.89002 2.34315 8.4995L8 2.84265L13.6569 8.4995C14.0474 8.89002 14.6805 8.89002 15.0711 8.4995C15.4616 8.10898 15.4616 7.47581 15.0711 7.08529L8.70711 0.721326ZM9 18.5713L9 1.42843L7 1.42843L7 18.5713L9 18.5713Z" fill="white"/>
+        </svg>          
+      </div>
+      <img src="resources/logo.svg" width="160" style="user-select: none; -webkit-user-drag: none; margin-top: 55px;"/>
+      <p style="color: #D6D6D6; text-align: center; line-height: 74.6%; margin: 32px 0px 41px 0px;">
+        상호 : 주식회사 애나<br/><br/>
+        대표 : 김민종<br/><br/>
+        주소 : 인천광역시 연수구 컨벤시아대로 204, 인천스타트업파크 405호<br/><br/>
+        TEL : 070-7811-4803<br/><br/>
+        e-mail : minjong.kim@byanna.io
+      </p>
+      <p style="color: #757575; user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
+    </div>
+
+    <script>
+        // 감시할 대상 가져오기
+        const boxes = document.querySelectorAll('.box');
+
+        // Intersection Observer 설정
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const className = entry.target.classList[1]; // box의 클래스 가져오기 (예: 'c1')
+                const ctElement = document.querySelector(`.ct.${className}`); // 해당하는 ct 요소 찾기
+                const navbtnsElement = document.querySelector(`.navbtns`);
+
+                if (entry.isIntersecting) {
+                    // entry.target.classList.add('show'); // box 보이면 show 추가
+                    if (ctElement) ctElement.classList.add('show'); // 해당 ct에도 show 추가
+                    if(className=='c2'){
+                      if (navbtnsElement) navbtnsElement.classList.add('off'); // 해당 ct에도 show 추가
+                    }
+                  } else {
+                    // entry.target.classList.remove('show'); // box 안 보이면 show 제거
+                    if (ctElement) ctElement.classList.remove('show'); // 해당 ct에서도 show 제거
+                    if(className=='c2'){
+                      if (navbtnsElement) navbtnsElement.classList.remove('off'); // 해당 ct에도 show 추가
+                    }
+                }
+            });
+        }, {
+            threshold: 0.5  
+        });
+        // 각 요소를 감시 대상으로 추가
+        boxes.forEach(box => observer.observe(box));
+
+
+        const swiper = new Swiper('.swiper', {
+          // Optional parameters
+          direction: 'horizontal',
+          loop: false,
+
+          // Navigation arrows
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+
+          // And if we need scrollbar
+          scrollbar: {
+            hide: true
+            // el: '.swiper-scrollbar',
+          },
+
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+
+          speed: 1200, // animation duration
+          spaceBetween:30, // gap
+          slidesPerView:4,
+          autoplay:{delay:1400},
+          // autoplay:false,
+          centeredSlides: true, // 가운데 정렬
+
+          // initialSlide: 1, // 두번째 슬라이드에서 시작
+          // on: {
+          //     slideChange: function () {
+          //         let maxIndex = this.slides.length - 1; // 마지막에서 두번째 슬라이드
+          //         if (this.activeIndex >= maxIndex) {
+          //             this.slideTo(1); 
+          //         }else if(this.activeIndex < 1){
+          //           this.slideTo(maxIndex-1);
+          //         }
+          //     }
+          // }
+        });
+
+        function moveToSec(n){
+          const h = window.visualViewport.height
+          window.scroll({top:h*(n-1), left:0})
+        }
+        function debounce(func, delay) {
+            let timer;
+            return function (...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+        function checkScrollPosition() {
+            let scrollTop = window.scrollY; // 현재 스크롤 위치
+            let windowHeight = window.innerHeight; // 브라우저 창 높이
+            let documentHeight = document.documentElement.scrollHeight; // 문서 전체 높이
+
+            const navbtnsElement = document.querySelector('.navbtns')
+            const headerElement = document.querySelector('.header')
+            const btns = Array.from(navbtnsElement.children)
+            const numOfSections = 6
+            const footerHeight = document.querySelector('.footer').offsetHeight
+            
+            // 🔹 최하단 감지
+            if (scrollTop + windowHeight >= documentHeight - (footerHeight/2)) {
+                // console.log('scrolled to last');
+                btns.forEach((element, idx) => {
+                  if(idx == btns.length-1) element.classList.add('on')
+                  else element.classList.remove('on')
+                });
+                headerElement.style.backgroundColor='#0f0f0f'
+                return;
+            }else{
+                headerElement.style.backgroundColor='transparent'
+            }
+
+            for(let i=0; i<numOfSections; i++){
+              if(scrollTop >= windowHeight*(i-0.5) && scrollTop < windowHeight*(i+0.5)){
+                // console.log(`sec${i+1}`)
+                btns.forEach((element, idx) => {
+                  if(idx == i) element.classList.add('on')
+                  else element.classList.remove('on')
+                });
+
+                // const vid = document.querySelector('#bgv')
+                // const vid1 = document.querySelector('#bgv1')
+                // if(i == 0){
+                //   vid.style.display='block'
+                //   vid1.style.display='none'
+                // }else if(i == 1){
+                //   vid.style.display='none'
+                //   vid1.style.display='none'
+                // }else{
+                //   vid.style.display='none'
+                //   vid1.style.display='block'
+                // }
+                
+                break;
+              }
+            }
+        }
+        // `debounce` 적용하여 성능 최적화 (100ms 간격)
+        window.addEventListener('scroll', debounce(checkScrollPosition, 100));
+        document.addEventListener("DOMContentLoaded", ()=>{
+          checkScrollPosition()
+        });
+
+
+// // 지도 중심 좌표 설정 (예: 서울역)
+// var centerPosition = new kakao.maps.LatLng(37.3873,126.6399);
+
+// // 지도 생성
+// var map = new kakao.maps.Map(document.getElementById('map'), {
+//     center: centerPosition,
+//     level: 3 // 확대 레벨 (낮을수록 확대됨)
+// });
+
+// // 마커 생성
+// var marker = new kakao.maps.Marker({
+//     position: centerPosition,
+//     map: map
+// });
+
+// // 라벨 (roughmap_maker_label) 생성
+// var labelContent = '<a href="https://map.kakao.com/link/map/인천스타트업파크,37.3873,126.6399" target="_blank" class="roughmap_maker_label">인천스타트업파크</a>';
+// var customOverlay = new kakao.maps.CustomOverlay({
+//     position: centerPosition,
+//     content: labelContent,
+//     xAnchor: 0.48,
+//     yAnchor: 3.8 // 마커 위에 위치하도록 조정
+// });
+// customOverlay.setMap(map);
+
+// // 마커 클릭 이벤트 (클릭 시 특정 링크로 이동)
+// kakao.maps.event.addListener(marker, 'click', function() {
+//     window.open('https://map.kakao.com/link/map/인천스타트업파크,37.3873,126.6399', '_blank')
+// });
+
+
+
+	new daum.roughmap.Lander({
+		"timestamp" : "1687960018711",
+		"key" : "2fcmr",
+		"mapWidth" : "591",
+		"mapHeight" : "420"
+	}).render();
+
+    // Lottie 애니메이션 로드
+    var animation = lottie.loadAnimation({
+      container: document.getElementById('lottie-animation'), // 애니메이션을 넣을 div
+      renderer: 'svg', // 렌더링 방식 (svg, canvas, html)
+      loop: true, // 반복 여부
+      autoplay: true, // 자동 재생 여부
+      path: 'resources/scrolldown.json' // Lottie JSON 파일 경로
+    });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+.menubtns{
+  width: 1071px;
+}
+.menubtns .deco{
+  width:196px;
+}
+.menubtns:has(.b1:hover) .deco{
+  transform: translate(214px);
+}
+.menubtns:has(.b2:hover) .deco{
+  transform: translate(428px);
+}
+.menubtns:has(.b3:hover) .deco{
+  transform: translate(642px);
+}
+.menubtns:has(.b4:hover) .deco{
+  transform: translate(856px);
+}
