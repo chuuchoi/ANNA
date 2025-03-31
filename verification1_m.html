@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="accreditation_m.css"/>
     <link rel="stylesheet" href="header_m.css"/>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+    <link rel="stylesheet" href="verification_m.css"/>
     <!-- AOS애니메이션 제거 -->
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
 
     <style>
   .menubtns .deco{
-    transform: translateX(160px);
+    transform: translateX(240px);
   }
   .menubtns:has(.b1:hover) .deco{
     transform: translate(0px);
@@ -26,15 +27,14 @@
     transform: translate(80px);
   }
   .menubtns:has(.b3:hover) .deco{
-    transform: translate(240px);
+    transform: translate(160px);
   }
-
     .backimg0{
       position: absolute;
-      top:72%;
+      top:26.3%;
       background-color: var(--gray-3);
       width: 100%;
-      height: 16%;
+      height: 73.7%;
     }
     </style>
 </head>
@@ -67,22 +67,23 @@
 
   <div class="vct">
     <!-- <video src="resources/bgv.mp4" autoplay muted loop></video> -->
-    <img src="resources/m1bg.png"></img>
+    <img src="resources/m2bg.png"></img>
     <span style="user-select: none; color: white; font-size: 27px; font-weight: 700;  margin-bottom: 52px;">
-      종합성능 시험평가</span>
+      기술검증</span>
     <div class="menubtns" style="margin-bottom: 32px;">
       <!-- <div class="deco"></div> -->
-      <a class="b1" href="./accreditation_m.html"><span style="text-align: center; line-height:136%;">시험평가<br/>소개</span></a>
-      <a class="b2" href="./accreditation1_m.html"><span style="text-align: center; line-height:136%;">종합 SW<br/>시험평가</span></a>
-      <a style="cursor: default; color: #292929; background-color: white; border-radius: 8px;"><span style="text-align: center; line-height:136%;">메타버스<br/>시험평가</span></a>
-      <a class="b3" href="./accreditation3_m.html"><span style="text-align: center; line-height:136%;">AI<br/>시험평가</span></a>
-      <a class="b4" href="./accreditation3_m.html"><span style="text-align: center; line-height:136%;">시험평가<br/>신청</span></a>
+      <a class="b1" href="./verification_m.html"><span style="text-align: center; line-height:136%;">블록체인 스마트 컨트랙트<br/>보안 검사(Audit)</span></a>
+      <a style="cursor: default; color: var(--gray-main); background-color: white; border-radius: 7.5px;">인공지능 기술 검증</a>
     </div>
   </div>
 
   <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
-    <img src="resources/m2s2_im0.png" width="100%" style="margin-top: 12px; z-index: 1;">
-    <div class="backimg0"></div>
+    <img src="resources/m3s2_im0.png" width="100%" style="max-width: 1920px; margin-top: 24px;">
+
+    <div class="download-btns resize-scale" style="position: absolute; bottom: -1%; transform-origin: bottom;">
+      <a href="./accreditation.html">브로셔 다운로드</a>
+      <a >검증 문의 및 신청</a>
+    </div>
   </div>
   
   <div class="contractcont" >
@@ -128,7 +129,7 @@ const mediaMobile = window.matchMedia("(min-width: 769px)");
 
 function handleDeviceChange() {
   if (mediaMobile.matches) {
-    window.location.href = "./accreditation2.html";
+    window.location.href = "./verification.html";
   }
 }
 

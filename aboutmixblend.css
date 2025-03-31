@@ -1,0 +1,4 @@
+.menubtns{mix-blend-mode: lighten;}
+.menubtns::before {
+  background-color: rgba(200, 200, 200, 0.4);
+}

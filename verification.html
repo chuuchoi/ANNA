@@ -10,18 +10,47 @@
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
     <link rel="stylesheet" href="verification.css"/>
+    
     <style>
       .resize-cont{
         display: flex; flex-direction: column; align-items: center;
-        width: 100%;
+        width: 100%; margin: auto;
+        max-width: 1920px;
         aspect-ratio: 1920 / 7592;
         overflow: hidden;
       }
       .resize-scale{
         display: flex; flex-direction: column; align-items: center;
         transform-origin: top;
+      }
+      [class*="q-img-"]:hover{opacity: 1;}
+      .q-img-0{
+        position: absolute;
+        opacity: 0;
+        top: 31.3%;
+        /* width: 32.3%; */
+        /* height: 11.4%; */
+        width: 488px; height: 488px;
+        background: center / 100% 100% url(./resources/verif_s1_q0.png)
+      }
+      .q-img-1{
+        position: absolute;
+        opacity: 0;
+        top: 31.3%;
+        /* left: 33.9%; */
+        left: 512px;
+        width: 488px; height: 488px;
+        background: center / 100% 100% url(./resources/verif_s1_q1.png)
+      }
+      .q-img-2{
+        position: absolute;
+        opacity: 0;
+        top: 31.3%;
+        /* left: 67.7%; */
+        left: 1024px;
+        width: 488px; height: 488px;
+        background: center / 100% 100% url(./resources/verif_s1_q2.png)
       }
     </style>
 </head>
@@ -43,7 +72,8 @@
   </div>
 
   <div class="vct">
-    <video src="resources/bgv.mp4" autoplay muted loop></video>
+    <!-- <video src="resources/bgv.mp4" autoplay muted loop></video> -->
+    <img src="resources/m2bg.png"></img>
     <span style="user-select: none; color: white; font-size: 70px; font-weight: 700;  margin-bottom: 180px;">
       기술검증</span>
     <div class="menubtns" style="margin-bottom: 63px;">
@@ -95,7 +125,12 @@
       <div onclick="smartcontr(event,1)">블록체인 스마트 컨트랙트 보안 감사 (Audit)</div>
     </div>
     <img id="smartcontr-img" src="resources/verif_s1_smartcont0.png" width="100%" style="max-width: 1512px;">
-    <img src="resources/verif_s1_1.png" width="100%" style="max-width: 1514px; margin-top: 196px;">
+    <div style="position: relative;">
+      <img src="resources/verif_s1_1.png" width="100%" style="max-width: 1514px; margin-top: 196px;">
+      <div class="q-img-0"></div>
+      <div class="q-img-1"></div>
+      <div class="q-img-2"></div>
+    </div>
     <div class="download-btns" style="margin-bottom: 200.35px;">
       <a >브로셔 다운로드</a>
       <a >검증 문의 및 신청</a>

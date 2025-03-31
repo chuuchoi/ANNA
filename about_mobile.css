@@ -17,9 +17,10 @@ body{
 .menubtns{
   width: 320px;
   height: 40px;
+  gap: 10px;
 }
 .menubtns a{
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 .menubtns a:hover{
@@ -30,16 +31,18 @@ body{
 }
 .menubtns .deco{
   border-radius: 8px;
-  width:80px;
+  width: 64px;
+  height: 32px;
+  margin: 4px;
 }
 .menubtns:has(.b1:hover) .deco{
-  transform: translate(80px);
+  transform: translate(83px);
 }
 .menubtns:has(.b2:hover) .deco{
-  transform: translate(160px);
+  transform: translate(164px);
 }
 .menubtns:has(.b3:hover) .deco{
-  transform: translate(240px);
+  transform: translate(246px);
 }
 
 .contractcont{
