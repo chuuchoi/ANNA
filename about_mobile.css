@@ -62,7 +62,8 @@ body{
   stroke-width: 4px;
 }
 .footer{
-  height: 393px;
+  font-size: 13px;
+  height: 360px;
 }
 
 /* @keyframes vctinitm {
