@@ -33,6 +33,43 @@
       width: 100%;
       height: 73.7%;
     }
+
+    [class^="copybtn"]{
+      cursor: pointer;
+      z-index: 1;
+      position: absolute;
+      width: 3.3%;
+      height: 0.84%;
+      /* opacity: 0.6; */
+      border: none;
+      /* background: center / 100% 100% url(resources/copied.png); */
+      background: transparent;
+    }
+    .copybtn0{
+      top: 43.7%;
+      left: 66.8%;
+    }
+    .copybtn1{
+      top: 45.2%;
+      left: 63.9%;
+    }
+    .copybtn2{
+      top: 59.6%;
+      left: 66.8%;
+    }
+    .copybtn3{
+      top: 61.1%;
+      left: 63.9%;
+    }
+    .contr-btn{
+      cursor: pointer;
+      z-index: 1;
+      position: absolute;
+      top: 90.3%;
+      left: 37.9%;
+      width: 24.2%;
+      height: 3.6%;
+    }
     </style>
 </head>
 <body>
@@ -70,6 +107,15 @@
   <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
     <img src="resources/m2s4_im0.png" width="100%" style="max-width: 1920px; margin-top: 24px; z-index: 1;">
     <div class="backimg0"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; ">
+      <div style="width: 100%; max-width: 1920px; height: 100%; position: relative;">
+        <button class="copybtn0" onclick="copyToClipboard(event,'minjong.kim@byanna.io')"></button>
+        <button class="copybtn1" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+        <button class="copybtn2" onclick="copyToClipboard(event,'minjong.kim@byanna.io')"></button>
+        <button class="copybtn3" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+        <a class="contr-btn" ></a>
+      </div>
+    </div>
   </div>
   
   <div class="contractcont" >
@@ -106,11 +152,24 @@
 
   <script src="about.js"></script>
   <script>
+async function copyToClipboard(e, str) {
+  try {
+    await navigator.clipboard.writeText(str)
+    console.log(e.target)
+    e.target.style.background = 'center / 100% 100% url(resources/copied.png)';
+    setTimeout(() => {
+      e.target.style.background = 'transparent';
+    }, 800);
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 const mediaMobile = window.matchMedia("(max-width: 768px)");
 
 function handleDeviceChange() {
   if (mediaMobile.matches) {
-    window.location.href = "./accreditation3_m.html";
+    window.location.href = "./accreditation4_m.html";
   }
 }
 

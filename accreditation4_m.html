@@ -30,10 +30,45 @@
   }
     .backimg0{
       position: absolute;
-      top:26.3%;
+      top:21.2%;
       background-color: var(--gray-3);
       width: 100%;
-      height: 73.7%;
+      height: 78.8%;
+    }
+    [class^="copybtn"]{
+      cursor: pointer;
+      z-index: 1;
+      position: absolute;
+      width: 5.9%;
+      height: 0.72%;
+      border: none;
+      background: transparent;
+    }
+    .copybtn0{
+      top: 39.36%;
+      left: 81.5%;
+    }
+    .copybtn1{
+      top: 41.1%;
+      left: 73.8%;
+    }
+    .copybtn2{
+      top: 58.5%;
+      left: 81.5%;
+    }
+    .copybtn3{
+      top: 60.2%;
+      left: 73.8%;
+    }
+    .contr-btn{
+      cursor: pointer;
+      z-index: 1;
+      position: absolute;
+      top: 93.8%;
+      left: 25.7%;
+      width: 46.4%;
+      height: 3.4%;
+      /* background-color: #292929; */
     }
     </style>
 </head>
@@ -80,8 +115,17 @@
   </div>
 
   <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
-    <img src="resources/m2s4_im0.png" width="100%" style="max-width: 1920px; margin-top: 24px; z-index: 1;">
+    <img src="resources/m2s4_im0_m.png" width="100%" style="max-width: 512px; z-index: 1;">
     <div class="backimg0"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; ">
+      <div style="width: 100%; max-width: 512px; height: 100%; position: relative;">
+        <button class="copybtn0" onclick="copyToClipboard(event,'minjong.kim@byanna.io')"></button>
+        <button class="copybtn1" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+        <button class="copybtn2" onclick="copyToClipboard(event,'minjong.kim@byanna.io')"></button>
+        <button class="copybtn3" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+        <a class="contr-btn" ></a>
+      </div>
+    </div>
   </div>
   
   <div class="contractcont" >
@@ -123,6 +167,18 @@
 
   <script src="about.js"></script>
   <script>
+async function copyToClipboard(e, str) {
+  try {
+    await navigator.clipboard.writeText(str)
+    e.target.style.background = 'center / 100% 100% url(resources/copied.png)';
+    setTimeout(() => {
+      e.target.style.background = 'transparent';
+    }, 800);
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 const mediaMobile = window.matchMedia("(min-width: 769px)");
 
 function handleDeviceChange() {
