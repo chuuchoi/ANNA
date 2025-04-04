@@ -17,8 +17,8 @@
         display: flex; flex-direction: column; align-items: center;
         width: 100%; margin: auto;
         max-width: 1920px;
-        aspect-ratio: 1920 / 7592;
-        overflow: hidden;
+        /* aspect-ratio: 1920 / 7592;
+        overflow: hidden; */
       }
       .resize-scale{
         display: flex; flex-direction: column; align-items: center;
@@ -119,7 +119,13 @@
     </div>
     <div class="swiper-pagination" style="animation-delay: 800ms;"></div>
     <h2 style="color: var(--gray-main); font-weight: 700; font-size: 48px; margin-top: 199px;">블록체인 스마트 컨트랙트 보안 감사(Audit)란?</h2>
-    <p style="color: var(--gray-50); font-weight: 500; font-size: 20px; margin-top: 30px;">가상·증강현실(메타버스) 기술이 적용된 의료기기의 허가·심사 가이드라인, 기타 메타버스 기반의 모든 자체/외부 SW 성능 평가 지표입니다</p>
+    <div style="color: var(--gray-50); font-weight: 500; font-size: 20px; margin-top: 30px;">
+      <div style="margin-right: 23px; width: 12.67px; height: 12.67px; border-radius: 10px; background-color: var(--point-color); display: inline-block;"></div>
+      초기 단계에 머물러 있는 블록체인 기반 새로운 비즈니스 모델에 대해 기술 수현 가능성, 성능 검증 등 상용화 가능성을 사전에 검증하도록 지원
+      <br/><br/>
+      <div style="margin-right: 23px; width: 12.67px; height: 12.67px; border-radius: 10px; background-color: var(--point-color); display: inline-block;"></div>
+      POC (Proof Of Concept) : 시범사업 추진 전 기술적인 불확실성 해소를 목적으로 시제품
+    </div>
     <div class="smartcontr-btns">
       <div onclick="smartcontr(event,0)" class="active">블록체인 기반 서비스 상용화 단계</div>
       <div onclick="smartcontr(event,1)">블록체인 스마트 컨트랙트 보안 감사 (Audit)</div>
@@ -173,13 +179,17 @@
 
   <script src="about.js"></script>
   <script>
-function smartcontr(e,i){const parent=e.currentTarget.parentElement;
+function smartcontr(e,i){
+  const parent=e.currentTarget.parentElement;
   const img = document.querySelector("#smartcontr-img")
   Array.from(parent.children).forEach(element => {
     element.classList.remove('active')
   });
   e.currentTarget.classList.add('active');
   img.src = `resources/verif_s1_smartcont${i}.png`;
+  img.onload = ()=>{
+    scaleOnResize()
+  }
 }
 
 const swiper = new Swiper('.swiper', {
@@ -227,11 +237,13 @@ const swiper = new Swiper('.swiper', {
   function scaleOnResize(){
     let w = Math.max(window.visualViewport.width, 1600);
     w = Math.min(w, 1920);
-    console.log(w)
+    // console.log(w)
     let ratio = w / 1920;
-    Array.from(document.querySelectorAll(".resize-scale")).forEach(element => {
-      element.style.scale = `${ratio}`;
-    });
+    const element = document.querySelector(".resize-scale");
+    element.style.scale = `${ratio}`;
+    let h = Number(getComputedStyle(element).height.replace('px',''))*ratio;
+    console.log(h)
+    element.parentElement.style.height = h+'px';
   }
   window.addEventListener("resize",scaleOnResize)
   scaleOnResize()

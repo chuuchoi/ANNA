@@ -38,6 +38,145 @@
       width: 100%;
       height: 73.7%;
     }
+    .qediv{
+      position: relative;
+      min-height: 150px;
+      height: calc(150 * ( min(100vw, 512px)  / 375));
+      width: 100%;
+      border-radius: calc(8 * ( min(100vw, 512px)  / 375));
+      padding-top: calc(16 * ( min(100vw, 512px)  / 375));
+      padding-right: calc(44 * ( min(100vw, 512px)  / 375));
+      padding-bottom: calc(16 * ( min(100vw, 512px)  / 375));
+      padding-left: calc(24 * ( min(100vw, 512px)  / 375));
+      &>label{ font-weight: 700; color: var(--gray-main);
+          font-size: calc(14 * ( min(100vw, 512px)  / 375));
+        }
+      &>p{
+        opacity: 0;
+        margin-top: 12px;
+        word-break: auto-phrase;
+        line-height: 150%; color: var(--gray-50); font-weight: 500;
+        color: white;
+        font-size: calc(11 * ( min(100vw, 512px)  / 375));
+      }
+      &>img{
+        width: calc(94 * ( min(100vw, 512px)  / 375));
+        position: absolute;
+        bottom: 8px;
+        right: 12px;
+        display: block;
+      }
+    }
+    .qediv:nth-of-type(1){background-color: rgba(95, 125, 255, 0.1);}
+    .qediv:nth-of-type(2){background-color: rgba(255, 111, 97, 0.1); margin-top: 8px;}
+    .qediv:nth-of-type(3){background-color: rgba(16, 178, 84, 0.1); margin-top: 8px;}
+    @media (hover:hover){
+      .qediv:hover{
+        &:nth-of-type(1){background-color: var(--point-color);}
+        &:nth-of-type(2){background-color: var(--point-color05);}
+        &:nth-of-type(3){background-color: var(--point-color06);}
+        
+        &>label{color: white;}
+        &>p{opacity: 1;}
+        &>img{display: none;}
+      }
+    }
+    @media (hover:none){
+      .qediv.hover{
+        &:nth-of-type(1){background-color: var(--point-color);}
+        &:nth-of-type(2){background-color: var(--point-color05);}
+        &:nth-of-type(3){background-color: var(--point-color06);}
+        
+        &>label{color: white;}
+        &>p{opacity: 1;}
+        &>img{display: none;}
+      }
+    }
+    .rtico{
+      position: absolute; display: flex; align-items: center; justify-content: center;
+      right: 16px;
+      top: 16px;
+      width: calc(32 * ( min(100vw, 512px)  / 375));
+      height: calc(32 * ( min(100vw, 512px)  / 375));
+      border-radius: 36px;
+      background-color: white;
+      &>svg{
+        width: calc(12 * ( min(100vw, 512px)  / 375));
+        height: calc(12 * ( min(100vw, 512px)  / 375));
+        & rect{fill: black;}
+      }
+    }
+    .qediv:nth-of-type(1) .rtico>svg rect{fill:var(--point-color);}
+    .qediv:nth-of-type(2) .rtico>svg rect{fill:var(--point-color05);}
+    .qediv:nth-of-type(3) .rtico>svg rect{fill:var(--point-color06);}
+
+    .tb01{
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        border-bottom: 1px solid var(--gray-20);
+        & colgroup col:nth-child(1) { width: 20%;  }
+        & colgroup col:nth-child(2) { width: 60%;  }
+        & colgroup col:nth-child(3) { width: 20%;  }
+        
+        & th,
+        & td {
+          word-break: auto-phrase;
+            padding: 10px;
+            text-align: center;
+          }
+        & th{font-size: calc(12 * ( min(100vw, 512px)  / 375)); font-weight: 700; color: var(--gray-main);
+          border-top: 1px solid var(--gray-40);
+        }
+        & td{font-size: calc(11 * ( min(100vw, 512px)  / 375)); font-weight: 500; color: var(--gray-50);
+          border-top: 1px solid var(--gray-10);
+        }
+        & span.light{line-height: 100%; color: var(--gray-30);}
+
+        & tr:hover{
+          background-color: var(--point-color03);
+        }
+    }
+    @media (hover:hover){
+      .tb01 tr:hover{
+          background-color: var(--point-color03);
+      }
+    }
+    @media (hover:none){
+      .tb01 tr.hover{
+          background-color: var(--point-color03);
+      }
+    }
+
+    [class^="copybtn"]{
+      cursor: pointer;
+      z-index: 1;
+      position: absolute;
+      width: 7.9%;
+      height: 1.72%;
+      border: none;
+      background: transparent;
+    }
+    .copybtn0{
+      top: 56.86%;
+      left: 35.9%
+    }
+    .copybtn1{
+      top: 56.86%;
+      left: 68.8%;
+    }
+    .copybtn2{
+      top: 73.9%;
+      left: 48.4%;
+    }
+    .download-btns{
+      &>a{
+        width: calc(137 * ( min(100vw, 512px)  / 375));
+        height: calc(36 * ( min(100vw, 512px)  / 375));
+        border-radius: calc(6 * ( min(100vw, 512px)  / 375)); 
+        font-size: calc(12 * ( min(100vw, 512px)  / 375));
+      }
+    }
     </style>
 </head>
 <body>
@@ -47,7 +186,7 @@
       <a href="./about_mobile.html">회사소개</a>
       <a href="./accreditation_m.html">종합성능 시험평가</a>
       <a href="./verification_m.html">기술검증</a>
-      <a href="./test1.html">연구개발</a>
+      <a href="./test1.html">AI 위험상황 인식예측 솔루션</a>
       <a href="./test.html">고객지원</a>
     </div>
   </div>
@@ -80,29 +219,45 @@
   </div>
 
   <div class="resize-cont">
-    <h2 style="text-align: center; color: var(--gray-main); font-weight: 700; font-size: 15px; margin-top: 44px;">블록체인 스마트 컨트랙트 보안 검사(Audit)</h2>
-    <p style="background-color: var(--gray-3); line-height: 152%; border-radius: 8px; border: 1px solid var(--point-color02); padding: 12px 16px; text-align: center; width: 80%; min-width: 310px; word-break: keep-all; margin: auto; color: var(--gray-50); font-weight: 500; font-size: 13px; margin-top: 24px;">
-      블록체인(Block Chain)이란 데이터가 담긴 블록을 일정 주기로
-      생성한 뒤 이전 블록에 체인과 같이 연결하는 기술입니다.
-      블록체인은 변조하기 어려운 형태이며 네트워크에 참여한 다수의
-      사용자가 정보를 공유할 수 있습니다. 또한, 다수의 사용자는
-      해당 데이터를 분산·저장할 수 있습니다.
-    </p>
+    <h2 style="text-align: center; color: var(--gray-main); font-weight: 800; padding: 0 24px; margin: 0;
+     font-size: calc(22 * ( min(100vw, 512px)  / 375));
+      margin-top: calc(32 * ( min(100vw, 512px)  / 375));">
+      블록체인 스마트 컨트랙트 보안 검사(Audit)
+    </h2>
+    <h2 style="text-align: center; color: var(--gray-main); font-weight: 700;
+      margin-top: calc(24 * ( min(100vw, 512px)  / 375));
+     font-size: calc(15 * ( min(100vw, 512px)  / 375));">
+     블록체인이란?
+    </h2>
+    <div style="width: 100%; max-width: 512px; margin: auto; padding: 0 24px;">
+      <p style="background-color: var(--gray-3); line-height: 152%; border-radius: 8px; border: 1px solid var(--point-color02); padding: 12px 16px; text-align: center; width: 100%;
+               word-break: keep-all; color: var(--gray-50); font-weight: 500; font-size: calc(11 * ( min(100vw, 512px)  / 375));">
+        블록체인(Block Chain)이란 데이터가 담긴 블록을 일정 주기로
+        생성한 뒤 이전 블록에 체인과 같이 연결하는 기술입니다.
+        블록체인은 변조하기 어려운 형태이며 네트워크에 참여한 다수의
+        사용자가 정보를 공유할 수 있습니다. 또한, 다수의 사용자는
+        해당 데이터를 분산·저장할 수 있습니다.
+      </p>
+    </div>
     
-    <h2 style="text-align: center; color: var(--gray-main); font-weight: 700; font-size: 15px; margin-top: 44px;">기술 특성</h2>
+    <h2 style="text-align: center; color: var(--gray-main); font-weight: 700;
+     font-size: calc(15 * ( min(100vw, 512px)  / 375));
+      margin-top: calc(56 * ( min(100vw, 512px)  / 375));">
+      기술 특성
+    </h2>
     <div class="swiper" style="animation-delay: 800ms;">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="resources/verif_s1_slide0.png" class="slideimg" />
+          <img src="resources/verif_s1_slide0_m.png" class="slideimg" />
         </div>
         <div class="swiper-slide">
-          <img src="resources/verif_s1_slide1.png" class="slideimg" />
+          <img src="resources/verif_s1_slide1_m.png" class="slideimg" />
         </div>
         <div class="swiper-slide">
-          <img src="resources/verif_s1_slide2.png" class="slideimg" />
+          <img src="resources/verif_s1_slide2_m.png" class="slideimg" />
         </div>
         <div class="swiper-slide">
-          <img src="resources/verif_s1_slide3.png" class="slideimg" />
+          <img src="resources/verif_s1_slide3_m.png" class="slideimg" />
         </div>
       </div>
 
@@ -121,26 +276,180 @@
       <div class="swiperdeco right"></div>
     </div>
     <div class="swiper-pagination" style="animation-delay: 800ms;"></div>
-    <h2 style="text-align: center; color: var(--gray-main); font-weight: 700; font-size: 15px; margin-top: 44px;">블록체인 스마트 컨트랙트 보안 감사(Audit)란?</h2>
-    <p style="margin: auto; width: 80%; word-break: keep-all; text-align: center; line-height: 138%; color: var(--gray-50); font-weight: 500; font-size: 13px; margin-top: 8px;">
+    <h2 style="text-align: center; color: var(--gray-main); font-weight: 700;
+     font-size: calc(15 * ( min(100vw, 512px)  / 375));
+     margin-top: calc(56 * ( min(100vw, 512px)  / 375));">
+     블록체인 스마트 컨트랙트 보안 감사(Audit)란?
+    </h2>
+    <p style="margin: auto; width: 100%; max-width: 512px; padding: 0 24px; word-break: keep-all; text-align: center;
+       line-height: 152%; color: var(--gray-50); font-weight: 500; font-size: calc(12 * ( min(100vw, 512px)  / 375)); margin-top: 8px;">
       가상·증강현실(메타버스) 기술이 적용된 의료기기의 허가·심사
       가이드라인, 기타 메타버스 기반의 모든 자체/외부
       SW 성능 평가 지표입니다
     </p>
     <div class="smartcontr-btns">
-      <div onclick="smartcontr(event,0)" class="active"><span style="text-align: center; line-height:136%;">블록체인 기반 서비스<br/>상용화 단계</span></div>
-      <div onclick="smartcontr(event,1)"><span style="text-align: center; line-height:136%;">블록체인 스마트 컨트랙트<br/>보안 감사 (Audit)</span></div>
+      <div onclick="smartcontr(event,0)" class="active"><span style="text-align: center; line-height:136%;
+      font-size: calc(6px + 6 * ( min(100vw, 512px)  / 375));">블록체인 기반 서비스<br/>상용화 단계</span></div>
+      <div onclick="smartcontr(event,1)"><span style="text-align: center; line-height:136%;
+      font-size: calc(6px + 6 * ( min(100vw, 512px)  / 375));">블록체인 스마트 컨트랙트<br/>보안 감사 (Audit)</span></div>
     </div>
     <img id="smartcontr-img" src="resources/verif_s1_smartcont0.png" width="100%" style="max-width: 1512px;">
-    <div style="position: relative;">
-      <img src="resources/verif_s1_1.png" width="100%" style="max-width: 1514px; margin-top: 40px;">
-      <div class="q-img-0"></div>
-      <div class="q-img-1"></div>
-      <div class="q-img-2"></div>
+    <div style="width: 100%; max-width: 512px; margin: auto; padding: 0 24px;">
+      <h2 style="text-align: center; color: var(--gray-main); font-weight: 700;
+       margin-top: calc(56 * ( min(100vw, 512px)  / 375));
+      font-size: calc(15 * ( min(100vw, 512px)  / 375));">
+        블록체인 기술 검증 보고서 용도
+      </h2>
+      <img src="resources/verif_s1_0_m.png" width="100%" style="max-width: 512px;"/>
+      <h2 style="text-align: center; color: var(--gray-main); font-weight: 700;
+       margin-top: calc(56 * ( min(100vw, 512px)  / 375));
+      font-size: calc(15 * ( min(100vw, 512px)  / 375));">
+        주요 품질 요소
+      </h2>
+      <div class="qediv">
+        <label>데이터</label>
+        <div class="rtico">
+          <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_586_759)">
+            <rect x="3.1" width="5" height="1.2" transform="rotate(90 3.1 0)" fill="#FF6F61"/>
+            <rect x="5" y="3.1" width="5" height="1.2" transform="rotate(-180 5 3.1)" fill="#FF6F61"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_586_759">
+            <rect width="5" height="5" fill="white"/>
+            </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <p>
+          블록체인은 데이터를 저장, 분산하는 기술로서 원 데이터가 손실되지 않아야 합니다.
+          따라서 데이터를 저장하는 블록에 저장된 데이터의 손실 여부를 확인하는 것이 매우 중요합니다.
+          이에 따른 품질 지표는 블록화 성공률,블록화 정확도가 있습니다.
+        </p>
+        <img src="resources/verif_s1_0_q0_m.png">
+      </div>
+      <div class="qediv">
+        <label>속도</label>
+        <div class="rtico">
+          <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_586_759)">
+            <rect x="3.1" width="5" height="1.2" transform="rotate(90 3.1 0)" fill="#FF6F61"/>
+            <rect x="5" y="3.1" width="5" height="1.2" transform="rotate(-180 5 3.1)" fill="#FF6F61"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_586_759">
+            <rect width="5" height="5" fill="white"/>
+            </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <p>
+          블록체인은 기존 거래 방식과 달리 다수의 참여자가 거래 내역을 처리하기에 기존 거래 방식과 거래 속도의 차이가 있습니다.
+          따라서 블록체인의 특성은 유지하고 속도를 높이는 것이 중요합니다. 이에 따른 품질 지표는 블록체인 트랜잭션 처리량, 블록체인 트랜잭션 처리시간, 블록 생성 시간이 있습니다.
+        </p>
+        <img src="resources/verif_s1_0_q1_m.png">
+      </div>
+      <div class="qediv">
+        <label>보안</label>
+        <div class="rtico">
+          <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_586_759)">
+            <rect x="3.1" width="5" height="1.2" transform="rotate(90 3.1 0)" fill="#FF6F61"/>
+            <rect x="5" y="3.1" width="5" height="1.2" transform="rotate(-180 5 3.1)" fill="#FF6F61"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_586_759">
+            <rect width="5" height="5" fill="white"/>
+            </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <p>
+          블록체인은 모든 참여자에게 전송되어 공유된다는투명성을 가지고 있지만 개인 정보 등과 같은 중요한데이터를 담은 경우 보안이 중요합니다.
+          따라서 암호화 기술에 대한 품질을 고려해야 합니다. 이에 따른 품질 지표는 암호화 처리 성공률, 암호화처리시간이 있습니다.
+        </p>
+        <img src="resources/verif_s1_0_q2_m.png">
+      </div>
+      <h2 style="text-align: center; color: var(--gray-main); font-weight: 700;
+       margin-top: calc(56 * ( min(100vw, 512px)  / 375));
+      font-size: calc(15 * ( min(100vw, 512px)  / 375));">
+        블록체인 품질지표
+      </h2>
+      <table class="tb01">
+        <colgroup>
+            <col>
+            <col>
+            <col>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>주요 성능 지표</th>
+                <th>측정 방법</th>
+                <th>ISO/IEC 25023</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>블럭화 성공률</td>
+                <td>데이터 저장, 등록 시 블록 생성 성공률 측정<br/>
+                  ※ 성공률 = 블록 생성이 성공한 횟수 / 데이터 저장, 등록을 시도한 횟수 x 100</td>
+                <td>8.2.2 기능적 정확성 기능적 정확성</td>
+            </tr>
+            <tr>
+                <td>블럭화 정확도</td>
+                <td>데이터 저장, 등록 시 데이터 손실 없이 블록화되었는지 측정<br/>
+                  <span class="light">※ 정확도 = 데이터 손실 없이 블록화되어 저장된 횟수 / 데이터 저장, 등록을 시도한 횟수 x 100</span>
+                </td>
+                <td>8.2.2 기능적 정확성 기능적 정확성</td>
+            </tr>
+            <tr>
+                <td>블록 생성 시간</td>
+                <td>데이터 저장, 등록을 시도한 시점부터 블록이 생성되어 저장된 시점까지 측정<br/>
+                  <span class="light">(로그 등으로 확인)</span>
+                </td>
+                <td>8.3.1시간 반응성 평균 소요시간</td>
+            </tr>
+            <tr>
+                <td>블록체인 트랜잭션 처리량</td>
+                <td>블록체인을 이용한 트랜젝션을 발생시켜 초당 트랙젝션 수 측정<br/>
+                  <span class="light">(로그 등으로 확인)</span>
+                </td>
+                <td>8.3.1시간 반응성 평균 처리량</td>
+            </tr>
+            <tr>
+                <td>블록체인 트랜잭션 처리 시간</td>
+                <td>블록체인을 이용한 트랜젝션을 처리하는데 소요되는 시간 측정<br/>
+                  <span class="light">(로그 등으로 확인)</span>
+                </td>
+                <td>8.3.1시간 반응성 평균 소요시간</td>
+            </tr>
+            <tr>
+                <td>암호화 처리 성공률</td>
+                <td>데이터를 암호화한 후 복호화 하여 원본 데이터와 복호화 데이터를 비교하고,
+                  두 데이터가 일치하는 비율 측정</td>
+                <td>8.2.2 기능적 정확성 기능적 정확성</td>
+            </tr>
+            <tr>
+                <td>암호화 처리 시간</td>
+                <td>데이터를 암호화하는 시작 시점부터 완료 시점까지의 시간 측정<br/>
+                  <span class="light">(로그 등으로 확인)</span>
+                </td>
+                <td>8.3.1시간 반응성 평균 처리량</td>
+            </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="download-btns">
-      <a >브로셔 다운로드</a>
-      <a >검증 문의 및 신청</a>
+    
+    <div style="width: 100%; max-width: 512px; margin:auto; position: relative; display: flex; justify-content: center;
+    margin-top: calc(56 * ( min(100vw, 512px)  / 375));">
+      <img src="resources/verif_s1_01_m.png" width="100%">
+      <button class="copybtn0" onclick="copyToClipboard(event,'minjong.kim@byanna.io')"></button>
+      <button class="copybtn1" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+      <button class="copybtn2" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+      <div class="download-btns" style="position: absolute; bottom: 8.4%;">
+        <a >브로셔 다운로드</a>
+        <a >검증 문의 및 신청</a>
+      </div>
     </div>
 
   
@@ -185,6 +494,50 @@
 
   <script src="about.js"></script>
   <script>
+async function copyToClipboard(e, str) {
+  try {
+    await navigator.clipboard.writeText(str)
+    e.target.style.background = 'center / 100% 100% url(resources/copied.png)';
+    setTimeout(() => {
+      e.target.style.background = 'transparent';
+    }, 800);
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+window.onload=()=>{
+  const qedivs = document.querySelectorAll(".qediv")
+  qedivs.forEach((qediv) => {
+    qediv.addEventListener("touchstart", () => {
+      qediv.classList.add("hover");
+    });
+
+    qediv.addEventListener("touchend", () => {
+      qediv.classList.remove("hover");
+    });
+  });
+
+  const trs = document.querySelectorAll(".tb01 tr")
+  trs.forEach((tr) => {
+    tr.addEventListener("touchstart", () => {
+      tr.classList.add("hover");
+    });
+
+    tr.addEventListener("touchend", () => {
+      tr.classList.remove("hover");
+    });
+  });
+
+  const contractcont = document.querySelector(".contractcont")
+  contractcont.addEventListener("touchstart", () => {
+      contractcont.classList.add("hover");
+    });
+  contractcont.addEventListener("touchend", () => {
+    contractcont.classList.remove("hover");
+  });
+}
+
 function smartcontr(e,i){const parent=e.currentTarget.parentElement;
   const img = document.querySelector("#smartcontr-img")
   Array.from(parent.children).forEach(element => {

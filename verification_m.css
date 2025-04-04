@@ -9,7 +9,7 @@
 
 .swiper {
         width: 100%;
-        max-width: 1528px;
+        max-width: 485px;
       }
       .swiper-slide{
         display: flex;
@@ -47,14 +47,17 @@
       }
       .slideimg{ user-select: none;
         display: block;
-        width: 80%;
-        max-width: 1206px;
+        width: 81%;
+        /* max-width: 300px; */
         position: relative;
         border-radius: 15px;
       }
       [class*='swiper-button-']{
-        width: 20px;
-        height: 20px;
+        /* width: 20px;
+        height: 20px; */
+        width: 5%;
+        aspect-ratio: 1 / 1;
+        height: auto;
         &::before{
           content: '';
           position: absolute;
@@ -68,6 +71,12 @@
           opacity: 0.5;
         }
       }
+      .swiper-button-prev{
+        left: 3%;
+      }
+      .swiper-button-next{
+        right: 3%;
+      }
       .swiper-button-next::after,
       .swiper-button-prev::after {
           display: none;
@@ -79,36 +88,34 @@
         object-fit: contain;
         transform-origin: center;
       }
-      .smartcontr-btns{ margin-top: 24px;
-        padding: 0 10px;
-        width: 100%; max-width: 1512px;
+      .smartcontr-btns{ 
+        margin:auto;
+        margin-top: 24px;
+        padding: 0 24px;
+        width: 100%; max-width: 512px;
         display: flex; gap: 10px;
         &>div{
           cursor: pointer;
-          width: 583px; height: 52px;
+          width: 300px; height: 52px;
           background-color: var(--gray-3);
           border-radius: 8px; color: var(--gray-20);
           font-weight: 700; font-size: 14px;
           display: flex; align-items: center; justify-content: center;
-        }
-        &>div:first-child{
-          width: 461px;
         }
         &>div.active{background-color: var(--gray-main); color: white;}
       }
       #smartcontr-img{ margin-top: 20px;}
 
       .download-btns{
-        margin: 40px 0px;
-        display: flex; gap: 24px;
+        display: flex; gap: 9px;
         justify-content: center;
         &>a{
           text-decoration: none;
           cursor: pointer;
-          width: 140px; height: 52px;
+          width: 188px; height: 46px;
           background-color: var(--point-color);
           border-radius: 8px; color: white;
-          font-size: 18px; font-weight: 700;
+          font-size: 16px; font-weight: 700;
           display: flex; align-items: center; justify-content: center;
         }
         &>a:first-child{

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        colgroup col:nth-child(1) { width: 20%; min-width: 200px; }
+        colgroup col:nth-child(2) { width: 60%; min-width: 200px; }
+        colgroup col:nth-child(3) { width: 20%; min-width: 200px; }
+    </style>
+</head>
+<body>
+
+<table>
+    <colgroup>
+        <col>
+        <col>
+        <col>
+    </colgroup>
+    <thead>
+        <tr>
+            <th>헤드1</th>
+            <th>헤드2</th>
+            <th>헤드3</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>셀1셀1셀1셀1셀1셀1셀1셀1</td>
+            <td>셀2</td>
+            <td>셀3</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

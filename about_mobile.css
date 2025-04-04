@@ -48,6 +48,13 @@ body{
 .contractcont{
   height: 90px;
 }
+@media (hover:none){
+  .contractcont.hover {
+    &::after {
+        opacity: 0;
+    }
+  }
+}
 .contract{
   font-size: 16px;
 }
