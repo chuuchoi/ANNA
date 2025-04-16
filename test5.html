@@ -43,6 +43,23 @@
         </tr>
     </tbody>
 </table>
+<form onsubmit="foo(event)">
+    <input required type="number" step="1" name="num"/>
+    <button type="submit">submit</button>
+</form>
+<button onclick="()=>{alert('click')}">click</button>
 
+<script>
+    const foo = (e)=>{
+        e.preventDefault();
+        const formdata = new FormData(e.target)
+        alert(JSON.stringify(formdata.entries()))
+        console.log(formdata.get("num"))
+    }
+    // function foo(e) {
+    //     e.preventDefault();
+    //     alert('d')
+    // }
+</script>
 </body>
 </html>

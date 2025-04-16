@@ -17,16 +17,22 @@
 
     <style>
   .menubtns .deco{
-    transform: translateX(160px);
+    width: 55px; height: 41px;
+    transform: translateX(130px);
   }
-  .menubtns:has(.b1:hover) .deco{
-    transform: translate(0px);
-  }
-  .menubtns:has(.b2:hover) .deco{
-    transform: translate(80px);
-  }
-  .menubtns:has(.b3:hover) .deco{
-    transform: translate(240px);
+  @media (hover:none){
+    .menubtns:has(.b1.hover) .deco{
+      transform: translate(0px);
+    }
+    .menubtns:has(.b2.hover) .deco{
+      transform: translate(65px);
+    }
+    .menubtns:has(.b3.hover) .deco{
+      transform: translate(195px);
+    }
+    .menubtns:has(.b4.hover) .deco{
+      transform: translate(260px);
+    }
   }
 
     .backimg0{
@@ -71,7 +77,7 @@
     <span style="user-select: none; color: white; font-size: 27px; font-weight: 700;  margin-bottom: 52px;">
       종합성능 시험평가</span>
     <div class="menubtns" style="margin-bottom: 32px;">
-      <!-- <div class="deco"></div> -->
+      <div class="deco"></div>
       <a class="b1" href="./accreditation_m.html"><span style="text-align: center; line-height:136%;">시험평가<br/>소개</span></a>
       <a class="b2" href="./accreditation1_m.html"><span style="text-align: center; line-height:136%;">종합 SW<br/>시험평가</span></a>
       <a style="cursor: default; color: #292929; background-color: white; border-radius: 5px;"><span style="text-align: center; line-height:136%;">메타버스<br/>시험평가</span></a>
@@ -124,6 +130,21 @@
 
   <script src="about.js"></script>
   <script>
+window.onload=()=>{
+
+  const btns = document.querySelectorAll(".menubtns [class^=b]")
+
+  btns.forEach(b => {
+    b.addEventListener("touchstart",()=>{
+      b.classList.add("hover")
+    })
+    b.addEventListener("touchend",()=>{
+      b.classList.remove("hover")
+    })
+    
+  });
+}
+
 const mediaMobile = window.matchMedia("(min-width: 769px)");
 
 function handleDeviceChange() {

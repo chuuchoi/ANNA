@@ -23,8 +23,11 @@ body{
   font-size: 13px;
   font-weight: 600;
 }
-.menubtns a:hover{
-  font-weight: 700;
+
+@media (hover:none){
+  .menubtns a.hover{
+    color: #292929;
+  }
 }
 .menubtns::before{
   border-radius: 8px;
@@ -35,14 +38,16 @@ body{
   height: 32px;
   margin: 4px;
 }
-.menubtns:has(.b1:hover) .deco{
-  transform: translate(83px);
-}
-.menubtns:has(.b2:hover) .deco{
-  transform: translate(164px);
-}
-.menubtns:has(.b3:hover) .deco{
-  transform: translate(246px);
+@media (hover:hover){
+  .menubtns:has(.b1:hover) .deco{
+    transform: translate(83px);
+  }
+  .menubtns:has(.b2:hover) .deco{
+    transform: translate(164px);
+  }
+  .menubtns:has(.b3:hover) .deco{
+    transform: translate(246px);
+  }
 }
 
 .contractcont{

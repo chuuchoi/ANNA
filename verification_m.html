@@ -293,7 +293,7 @@
       <div onclick="smartcontr(event,1)"><span style="text-align: center; line-height:136%;
       font-size: calc(6px + 6 * ( min(100vw, 512px)  / 375));">블록체인 스마트 컨트랙트<br/>보안 감사 (Audit)</span></div>
     </div>
-    <img id="smartcontr-img" src="resources/verif_s1_smartcont0.png" width="100%" style="max-width: 1512px;">
+    <img id="smartcontr-img" src="resources/verif_s1_smartcont0_m.png" width="100%" style="max-width: 512px;">
     <div style="width: 100%; max-width: 512px; margin: auto; padding: 0 24px;">
       <h2 style="text-align: center; color: var(--gray-main); font-weight: 700;
        margin-top: calc(56 * ( min(100vw, 512px)  / 375));
@@ -544,7 +544,7 @@ function smartcontr(e,i){const parent=e.currentTarget.parentElement;
     element.classList.remove('active')
   });
   e.currentTarget.classList.add('active');
-  img.src = `resources/verif_s1_smartcont${i}.png`;
+  img.src = `resources/verif_s1_smartcont${i}_m.png`;
 }
 
 const swiper = new Swiper('.swiper', {

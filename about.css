@@ -95,9 +95,7 @@ body{
     font-size: 20px;
     transition: color 0.4s ease-in-out;
   }
-  .menubtns a:hover{
-    color: #292929;
-  }
+
   .menubtns .deco{
     z-index: -1; position:absolute;
     background-color: rgba(255, 255, 255, 0.4);
@@ -108,14 +106,21 @@ body{
     transition: all 0.4s ease-in-out;
     transform: translateX(0px);
   }
-  .menubtns:has(.b1:hover) .deco{
-    transform: translate(210px);
+  @media screen and (min-width:769px){
+    .menubtns a:hover{
+      color: #292929;
+    }
   }
-  .menubtns:has(.b2:hover) .deco{
-    transform: translate(420px);
-  }
-  .menubtns:has(.b3:hover) .deco{
-    transform: translate(630px);
+  @media (hover:hover){
+    .menubtns:has(.b1:hover) .deco{
+      transform: translate(210px);
+    }
+    .menubtns:has(.b2:hover) .deco{
+      transform: translate(420px);
+    }
+    .menubtns:has(.b3:hover) .deco{
+      transform: translate(630px);
+    }
   }
 
 .morebtn{

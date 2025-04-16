@@ -24,6 +24,33 @@
         width: 100%;
         height: 32.5%;
       }
+      .usagec{ display: none;
+        z-index: 1;
+        position: absolute;
+        background-color: red;
+        width: 100%;
+        height: 35.1%;
+        top:22.8%;
+        opacity: 0.2;
+        &>div{
+          display: flex; flex-direction: column; align-items: center;
+          gap: calc(8 * ( min(100vw, 512px)  / 375));
+          padding-left: calc(24 * ( min(100vw, 512px)  / 375));
+          padding-right: calc(24 * ( min(100vw, 512px)  / 375));
+          margin: auto;
+          background-color: #292929;
+          width: 100%;
+          height: 100%;
+          max-width: 512px;
+        }
+      }
+      .usagec .card{
+        background-color: aqua;
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid red;
+        flex: 1;
+      }
     </style>
 </head>
 <body>
@@ -65,6 +92,15 @@
 
   <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
     <img src="resources/m2s0_im0_m.png" width="100%" style="max-width: 512px; z-index: 1;">
+    <div class="usagec">
+      <div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+      </div>
+    </div>
     <div class="backimg0"></div>
   </div>
   
