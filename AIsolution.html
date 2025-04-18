@@ -31,9 +31,9 @@ width: 189px;
         z-index: 1;
         position: absolute;
         top: 97.1%;
-        left: 40.1%;
+        left: 36.2%;
         background-color: white;
-        width: 19.8%;
+        width: 27.5%;
         height: 2.94%;
         border-radius: 18px;
         border: 1px solid red;
@@ -134,10 +134,10 @@ width: 189px;
     <div class="header" >
       <img src="resources/logo.svg" width="130" style="cursor: pointer; -webkit-user-drag: none;" onclick="window.location.href='/'"/>
       <a href="./about.html">회사소개</a>
-      <span style="color: white;">종합성능 시험평가</span>
+      <a href="./accreditation.html">종합성능 시험평가</a>
       <a href="./verification.html">기술검증</a>
-      <a href="./test1.html">AI 위험상황 인식예측 솔루션</a>
-      <a href="./test.html">고객지원</a>
+      <span style="color: white;">AI 위험상황 인식예측 솔루션</span>
+      <a href="./CSpage.html">고객지원</a>
       <div style="position: absolute; right: 38px; width: 70px; height: 70px; display: flex; flex-direction: column; gap: 7px; align-items: center; justify-content: center;">
         <div style="width: 45px; height: 1px; background-color: white;"></div>
         <div style="width: 45px; height: 1px; background-color: white;"></div>
@@ -154,15 +154,15 @@ width: 189px;
     <div class="menubtns" style="margin-bottom: 63px;">
       <div class="deco"></div>
       <a style="cursor: default; color: #292929; background-color: white; border-radius: 8px;">영상분석 솔루션</a>
-      <a class="b1" href="./accreditation1.html">군중밀집감지 솔루션</a>
-      <a class="b2" href="./accreditation2.html">산불연기감지 솔루션</a>
-      <a class="b3" href="./accreditation3.html">산업안전관리 솔루션</a>
-      <a class="b4" href="./accreditation4.html">고객사례</a>
+      <a class="b1" href="./AIsolution1.html">군중밀집감지 솔루션</a>
+      <a class="b2" href="./AIsolution2.html">산불연기감지 솔루션</a>
+      <a class="b3" href="./AIsolution3.html">산업안전관리 솔루션</a>
+      <a class="b4" href="./AIsolution4.html">고객사례</a>
     </div>
   </div>
 
   <div>
-    <h2 style="color: var(--gray-main); text-align: center; font-weight: 700; font-size: 56px; margin-top: 120px; margin-bottom: 80px;">영상분석 솔루션</h2>
+    <h2 style="color: var(--gray-main); text-align: center; font-weight: 800; font-size: 56px; margin-top: 120px; margin-bottom: 80px;">영상분석 솔루션</h2>
     <div class="acrm" style="animation-delay: 800ms;">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -239,10 +239,12 @@ width: 189px;
     <div class="swiper-pagination" style="animation-delay: 800ms;"></div>
   </div>
 
-  <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
+  <div style="display: flex; flex-direction: column; align-items: center; position: relative; margin-top: 200px;">
     <img src="resources/acrm_im4.png" width="100%" style="max-width: 1513px; margin-top: 24px; z-index: 1;">
     <div class="backimg0"></div>
-    <a class="jodalbtn" href="https://www.google.com" >구글</a>
+    <div style="max-width: 1513px; margin: auto; width: 100%; height: 100%; position: absolute;">
+      <a class="jodalbtn" href="https://www.google.com" >구글</a>
+    </div>
   </div>
 
   <div style="display: flex; margin-top: 200px;">
@@ -351,10 +353,10 @@ function handleDeviceChange() {
 }
 
 // 초기 실행 (페이지 로드 시)
-handleDeviceChange();
+// handleDeviceChange();
 
 // 화면 크기 변경 시 감지
-mediaMobile.addEventListener("change", handleDeviceChange);
+// mediaMobile.addEventListener("change", handleDeviceChange);
   </script>
 
 </body>
