@@ -19,6 +19,27 @@
 .menubtns:has(.b1:hover) .deco{
   transform: translate(0px);
 }
+    [class^="copybtn"]{
+      cursor: pointer;
+      z-index: 1;
+      position: absolute;
+      width: 3.3%;
+      height: 0.37%;
+      border: none;
+      background: transparent;
+    }
+    .copybtn0{
+      top: 91.66%;
+      left: 28.5%;
+    }
+    .copybtn1{
+      top: 91.66%;
+      left: 44.52%;
+    }
+    .copybtn2{
+      top: 91.66%;
+      left: 76.6%;
+    }
     </style>
 </head>
 <body>
@@ -51,24 +72,44 @@
   </div>
 
   <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
-    <img src="resources/m3s2_im0.png" width="100%" style="max-width: 1920px; margin-top: 24px;">
 
-    <div class="download-btns resize-scale" style="position: absolute; bottom: 2.8%; transform-origin: bottom;">
+    <div style="width: 100%; max-width: 1920px; margin-top: 24px; position: relative;">
+      <img src="resources/m3s2_im0.png" width="100%" >
+      <button class="copybtn0" onclick="copyToClipboard(event,'minjong.kim@byanna.io')"></button>
+      <button class="copybtn1" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+      <button class="copybtn2" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+    </div>
+    <!-- <div class="download-btns resize-scale" style="position: absolute; bottom: 2.8%; transform-origin: bottom;">
       <a href="./accreditation.html">브로셔 다운로드</a>
       <a >검증 문의 및 신청</a>
-    </div>
+    </div> -->
   </div>
   
-  <div class="contractcont" >
-    <img src="resources/aboutim3.png" width="100%" height="100%">
-    <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
-      <div class="cmw">
-        <span class="contract" style="user-select: none;">시험신청 문의 및 상담</span>
-        <a class="morebtn" href="./test1.html">
-          <svg width="98" height="25" viewBox="0 0 98 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
-          </svg>          
-        </a>
+  <div style="display: flex; margin-top: -252px;">
+    <div class="contractcont" >
+      <img src="resources/aboutim3_1.png" width="100%" height="100%">
+      <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
+        <div class="cmw">
+          <span class="contract" style="user-select: none;">브로셔 다운로드</span>
+          <a class="morebtn" href="./test1.html">
+            <svg width="98" height="25" viewBox="0 0 98 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
+            </svg>          
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="contractcont" >
+      <img src="resources/aboutim3_2.png" width="100%" height="100%">
+      <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
+        <div class="cmw">
+          <span class="contract" style="user-select: none;">검증 문의 및 신청</span>
+          <a class="morebtn" href="./test1.html">
+            <svg width="98" height="25" viewBox="0 0 98 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
+            </svg>          
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -93,6 +134,18 @@
 
   <script src="about.js"></script>
   <script>
+async function copyToClipboard(e, str) {
+  try {
+    await navigator.clipboard.writeText(str)
+    e.target.style.background = 'center / 100% 100% url(resources/copied.png)';
+    setTimeout(() => {
+      e.target.style.background = 'transparent';
+    }, 800);
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 function smartcontr(e,i){const parent=e.currentTarget.parentElement;
   const img = document.querySelector("#smartcontr-img")
   Array.from(parent.children).forEach(element => {
@@ -111,7 +164,9 @@ function smartcontr(e,i){const parent=e.currentTarget.parentElement;
     });
   }
   window.addEventListener("resize",scaleOnResize)
-  scaleOnResize()
+  window.onload=()=>{//HTML + CSS + JS + 이미지 등 모든 리소스 로드 완료
+    scaleOnResize()
+  }
 
 const mediaMobile = window.matchMedia("(max-width: 768px)");
 

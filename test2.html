@@ -4,10 +4,25 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
+<script>
+
+console.log(document)
+console.log(document.body)
+console.log(document.querySelector('[data-fancybox]'))
+
+
+</script>
 	<title>Boxes</title>
   <style>
     /* @layer view-transitions; */
-
+:root{
+	--fancybox-zIndex: 3;
+}
 @layer base {
 	* {
 		box-sizing: border-box;
@@ -276,11 +291,16 @@
 	<div class="warning">
 		<p>You browser does not support <code>view-transtion-class: &lt;custom-ident&gt;+</code>. As a result, the existing cards will not bounce upon inserting/deleting a card.</p>
 	</div>
-
+	<a href="./resources/dtim0.png" data-fancybox="gal" data-caption="caption">
+		<img src="./resources/aboutim0.png" width="320" />
+	</a>
+	<a href="./resources/dtim1.png" data-fancybox="gal" data-caption="dtim1 image" style="display: none;">
+		<img src="./resources/aboutim3_1.png" width="320" />
+	</a>
 	<footer>
 		<p>Icons from <a href="https://www.iconfinder.com/iconsets/ionicons-outline-vol-1">Ionicons Outline Vol.1</a>, licensed under the <a href="https://opensource.org/license/MIT">MIT license</a>.</p>
 	</footer>
-
+<div style="z-index: 4; position: fixed; bottom: 0; right: 0; width: 100px; height: 100px; background-color: #84a2c0; color: white;">HELP</div>
   <script>
     document.querySelector('.cards').addEventListener('click', e => {
 	if (e.target.classList.contains('delete-btn')) {
@@ -320,6 +340,16 @@ document.querySelector('.add-btn').addEventListener('click', async (e) => {
 	document.querySelector('.cards .card:last-child').style.viewTransitionName = `card-${rand}`;
 
 });
+console.log(document)
+console.log(document.body)
+console.log(document.querySelector('[data-fancybox]'))
+Fancybox.bind("[data-fancybox]",{
+	// Fullscreen: {
+  //       autoStart:true
+  //   },
+	// contentClick: (fb)=>{console.log(fb)}
+})
+console.log(Fancybox)
   </script>
 </body>
 </html>

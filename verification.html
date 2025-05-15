@@ -52,6 +52,28 @@
         width: 488px; height: 488px;
         background: center / 100% 100% url(./resources/verif_s1_q2.png)
       }
+
+    [class^="copybtn"]{
+      cursor: pointer;
+      z-index: 1;
+      position: absolute;
+      width: 3.9%;
+      height: 0.63%;
+      border: none;
+      background: rgba(222,0,0,0.4);
+    }
+    .copybtn0{
+      top: 98.03%;
+      left: 22.9%;
+    }
+    .copybtn1{
+      top: 98.03%;
+      left: 43.2%;
+    }
+    .copybtn2{
+      top: 98.06%;
+      left: 83.9%;
+    }
     </style>
 </head>
 <body>
@@ -136,25 +158,43 @@
       <div class="q-img-0"></div>
       <div class="q-img-1"></div>
       <div class="q-img-2"></div>
+      <button class="copybtn0" onclick="copyToClipboard(event,'minjong.kim@byanna.io')"></button>
+      <button class="copybtn1" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+      <button class="copybtn2" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
     </div>
-    <div class="download-btns" style="margin-bottom: 200.35px;">
+    <!-- <div class="download-btns" style="margin-bottom: 200.35px;">
       <a >브로셔 다운로드</a>
       <a >검증 문의 및 신청</a>
-    </div>
+    </div> -->
 
   </div>
   </div>
   
-  <div class="contractcont" >
-    <img src="resources/aboutim3.png" width="100%" height="100%">
-    <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
-      <div class="cmw">
-        <span class="contract" style="user-select: none;">시험신청 문의 및 상담</span>
-        <a class="morebtn" href="./test1.html">
-          <svg width="98" height="25" viewBox="0 0 98 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
-          </svg>          
-        </a>
+  <div style="display: flex; margin-top: 200px;">
+    <div class="contractcont" >
+      <img src="resources/aboutim3_1.png" width="100%" height="100%">
+      <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
+        <div class="cmw">
+          <span class="contract" style="user-select: none;">브로셔 다운로드</span>
+          <a class="morebtn" href="./test1.html">
+            <svg width="98" height="25" viewBox="0 0 98 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
+            </svg>          
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="contractcont" >
+      <img src="resources/aboutim3_2.png" width="100%" height="100%">
+      <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
+        <div class="cmw">
+          <span class="contract" style="user-select: none;">검증 문의 및 신청</span>
+          <a class="morebtn" href="./test1.html">
+            <svg width="98" height="25" viewBox="0 0 98 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
+            </svg>          
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -179,6 +219,18 @@
 
   <script src="about.js"></script>
   <script>
+async function copyToClipboard(e, str) {
+  try {
+    await navigator.clipboard.writeText(str)
+    e.target.style.background = 'center / 100% 100% url(resources/copied.png)';
+    setTimeout(() => {
+      e.target.style.background = 'transparent';
+    }, 800);
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 function smartcontr(e,i){
   const parent=e.currentTarget.parentElement;
   const img = document.querySelector("#smartcontr-img")
@@ -246,7 +298,9 @@ const swiper = new Swiper('.swiper', {
     element.parentElement.style.height = h+'px';
   }
   window.addEventListener("resize",scaleOnResize)
-  scaleOnResize()
+  window.onload=()=>{//HTML + CSS + JS + 이미지 등 모든 리소스 로드 완료
+    scaleOnResize()
+  }
 
 
 const mediaMobile = window.matchMedia("(max-width: 768px)");

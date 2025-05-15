@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .popper-anchor{
+      position: relative;
+      top: 100px; left: -60px;
+      transform-origin: 300% 300%;
+      width: fit-content;
+      animation: anchor-ani 2.4s linear infinite;
+    }
+    @keyframes anchor-ani {
+      from{transform: rotate(360deg);}
+    }
+.popper {
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 1000;
+
+  /* 위치 계산용 변수 */
+  transform: translate(var(--popper-x, 0px), var(--popper-y, 0px));
+  transform-origin: var(--popper-origin, top left);
+}
+  </style>
+</head>
+<body>
+
+  <div class="popper-anchor" id="anchor">앵커</div>
+  <div class="popper" id="popper">팝업 내용</div>
+
+  <script>
+function positionPopper(anchorEl, popperEl) {
+  const anchorRect = anchorEl.getBoundingClientRect();
+  const popperRect = popperEl.getBoundingClientRect();
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  const spaceBelow = viewportHeight - anchorRect.bottom;
+  const spaceAbove = anchorRect.top;
+  const spaceRight = viewportWidth - anchorRect.right;
+  const spaceLeft = anchorRect.left;
+
+  let x = anchorRect.left;
+  let y = 0;
+  let origin = 'top left';
+
+  // 수직 방향: 아래가 넉넉하면 아래, 아니면 위
+  if (spaceBelow >= popperRect.height) {
+    y = anchorRect.bottom;
+    origin = 'top left';
+  } else if (spaceAbove >= popperRect.height) {
+    y = anchorRect.top - popperRect.height;
+    origin = 'bottom left';
+  } else {
+    // 공간이 충분치 않으면 그냥 아래쪽으로 놓음 (오버플로우 허용)
+    y = anchorRect.bottom;
+  }
+
+  // 수평 방향 오버플로우 방지
+  if (x + popperRect.width > viewportWidth) {
+    // 오른쪽이 넘치는 경우 → 왼쪽으로 보정
+    x = viewportWidth - popperRect.width - 8; // 8px margin
+  }
+  if (x < 0) {
+    // 왼쪽이 넘치는 경우 → 오른쪽으로 보정
+    x = 8;
+  }
+
+  // CSS 변수 설정
+  popperEl.style.setProperty('--popper-x', `${x}px`);
+  popperEl.style.setProperty('--popper-y', `${y}px`);
+  popperEl.style.setProperty('--popper-origin', origin);
+}
+
+
+const anchor = document.getElementById('anchor');
+const popper = document.getElementById('popper');
+
+// 팝업 표시하면서 위치 설정
+popper.style.display = 'block';
+positionPopper(anchor, popper);
+
+let lastRect = null;
+
+function trackAnchor() {
+  const rect = anchor.getBoundingClientRect();
+  if (!lastRect || JSON.stringify(rect) !== JSON.stringify(lastRect)) {
+    positionPopper(anchor, popper);
+    lastRect = rect;
+  }
+  requestAnimationFrame(trackAnchor);
+}
+trackAnchor();
+  </script>
+</body>
+</html>
