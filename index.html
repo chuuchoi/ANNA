@@ -62,7 +62,7 @@
             transition: opacity 0.6s ease-out, transform 0.6s ease-out; */
             position: relative;
         }
-        .box.c5{
+        .box.c6{
           max-height: var(--cont-min-height);
         }
         .ct {
@@ -134,6 +134,7 @@
           }
         }
         .mcnt{
+          max-width: 100%;
           position: relative;
           display: flex;
           flex-direction: column;
@@ -324,6 +325,13 @@
           width: 200px;
           flex: 1;
           transition: all 300ms ease-in-out;
+          & .slideimg { 
+            & + div {
+              & >div {
+                &>span{
+                  word-break: keep-all;
+                }
+              }}}
         }
         .im-cont>.dd:hover{
           width: 480px;
@@ -335,7 +343,7 @@
                 transition: all 300ms ease-in-out;
                 &>span{
                   transition: all 300ms ease-in-out;
-                  transform: translate(-141px, 188px);;
+                  transform: translate(calc(40% - 130px), 188px);;
                 }
               }}}
         }
@@ -430,6 +438,7 @@
           .navbtns{ right: 32px;}
         }
         @media screen and (max-width:1660px) {
+          .navbtns{ right: 8px;}
           .im-cont{ width: 100%;}
           .im-cont>.dd{
           width: 200px;
@@ -468,7 +477,10 @@
         }
         .ms3-img-cont-0,
         .ms3-img-cont-1,
-        .ms3-img-cont-2{
+        .ms3-img-cont-2,
+        .ms3-img-cont-5,
+        .ms3-img-cont-6,
+        .ms3-img-cont-7{
           width: 332px;
         }
         .ms3-img-cont-3,
@@ -496,25 +508,23 @@
           &>div{ background-image: url(./resources/ms3im4_h.png); }
           &>div:first-child{ background-image: url(./resources/ms3im4.png); }
         }
-        .ms3-img-cont-0:hover{
-          &>div{ opacity: 1; }
-          &>div:first-child{opacity: 0;}
+        .ms3-img-cont-5{
+          &>div{ background-image: url(./resources/ms3im5_h.png); }
+          &>div:first-child{ background-image: url(./resources/ms3im5.png); }
         }
-        .ms3-img-cont-1:hover{
-          &>div{ opacity: 1; }
-          &>div:first-child{opacity: 0;}
+        .ms3-img-cont-6{
+          &>div{ background-image: url(./resources/ms3im6_h.png); }
+          &>div:first-child{ background-image: url(./resources/ms3im6.png); }
         }
-        .ms3-img-cont-2:hover{
-          &>div{ opacity: 1; }
-          &>div:first-child{opacity: 0;}
+        .ms3-img-cont-7{
+          &>div{ background-image: url(./resources/ms3im7_h.png); }
+          &>div:first-child{ background-image: url(./resources/ms3im7.png); }
         }
-        .ms3-img-cont-3:hover{
-          &>div{ opacity: 1; }
-          &>div:first-child{opacity: 0;}
+        [class^="ms3-img-cont-"]:hover > div {
+          opacity: 1;
         }
-        .ms3-img-cont-4:hover{
-          &>div{ opacity: 1; }
-          &>div:first-child{opacity: 0;}
+        [class^="ms3-img-cont-"]:hover > div:first-child {
+          opacity: 0;
         }
         @keyframes fade-in-mc2 {
           from{opacity: 0;}
@@ -605,7 +615,9 @@
           <h1 style="font-family: 'Paperlogy-8ExtraBold'; margin:0; font-size: 64px; color: var(--gray-main);">OUR SERVICES</h1>
           <span style=" font-size: 20px; z-index: 2;  margin-top: 24px; margin-bottom: 24px; animation-delay: 400ms; text-align: center; color: var(--gray-70);">
             국제 표준 규격에 기반하여 SW 기반 제품에 대한 공인 시험평가 및 기술 검증을 시행하고,<br/>
-            제품의 성능을 정량적으로 평가하여 SW 제품의 기술적 무결성 확인을 지원하는 국제 공인 시험평가 및 기술 검증 기관입니다.
+            제품의 성능을 정량적으로 평가하여 SW 제품의 기술적 무결성 확인을 지원하는 국제 공인 시험평가 및 기술 검증 기관입니다.<br/>
+            AI 기반 위험상황 인식예측 솔루션인 ACRM 시리즈를 통해 군중 밀집, 산불 연기, 산업안전 등 다양한<br/>
+            위험 요소를 실시간으로 감지 · 분석하여 재난과 사고를 사전에 예방하는 스마트 안전관리 기술도 함께 제공합니다.
           </span>
 <div class="im-cont">
           <div class="dd">
@@ -631,6 +643,18 @@
           <div class="dd">
             <img src="resources/im5.png" class="slideimg" />
             <div><div><span># 인공지능 기술 검증</span></div></div>
+          </div>
+          <div class="dd">
+            <img src="resources/im6.png" class="slideimg" />
+            <div><div><span># ACRM 군중밀집감지</span></div></div>
+          </div>
+          <div class="dd">
+            <img src="resources/im7.png" class="slideimg" />
+            <div><div><span># ACRM 산불연기감지</span></div></div>
+          </div>
+          <div class="dd">
+            <img src="resources/im8.png" class="slideimg" />
+            <div><div><span># ACRM 산업안전관리</span></div></div>
           </div>
         </div>
       </div>
@@ -689,8 +713,38 @@
         </div>
       </div>
 
-
       <div class="box c5">
+        <div class="mcnt" style="gap: 62px;">
+          <div style="display: flex; position: relative; left: 12px; width: 1360px;">
+            <!-- <div class="animText"> -->
+              <span style="color: var(--point-color); font-weight: 700; margin-right: 23px;">03</span>
+            <!-- </div> -->
+            <!-- <div class="animText"> -->
+              <span style="color: white; font-weight: 700; font-size: 44px; margin-right: 107px;">ACRM</span>
+            <!-- </div> -->
+            <!-- <div class="animText"> -->
+              <span style="color: var(--gray-10); font-size: 20px; animation-delay: 400ms;">
+                ANNA는 AI 기반 위험상황 인식예측 솔루션인 ACRM 시리즈를 통해 군중 밀집 감지, 산불 연기 감지, 산업 안전 관리 등 다양한 분야에서
+                실시간 영상 분석 및 데이터 융합 기반의 스마트 안전관리 기술을 제공함으로써, 재난과 사고를 사전에 예방하고 신속히 대응할 수 있는 지능형 솔루션을 운영하고 있습니다.
+              </span>  
+            <!-- </div> -->
+          </div>
+          <div style="display: flex; width: 100%; justify-content: center;">
+            <div class="ms3-img-cont-5"> <div></div> <div></div> </div>
+            
+            <div style="flex-grow: 1; max-width: 171px;"></div>
+            <div class="ms3-img-cont-6"> <div></div> <div></div> </div>
+            
+            <div style="flex-grow: 1; max-width: 171px;"></div>
+            <div class="ms3-img-cont-7"> <div></div> <div></div> </div>
+            
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="box c6">
         <div class="mc2">
           <!-- <div class="animText" style=" margin-bottom: 11px;"> -->
             <span style="animation-delay: 600ms; margin-bottom: 11px; font-family: Paperlogy-8ExtraBold; color: var(--point-color); line-height: 19px;">ANNA Inc.</span>
