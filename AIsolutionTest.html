@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>설치 사례</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .filters {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .filters button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background-color: #eee;
+    }
+    .filters button.active {
+      background-color: #000;
+      color: #fff;
+    }
+    .search-box {
+      text-align: right;
+      margin-bottom: 20px;
+    }
+    .search-box input {
+      padding: 8px 12px;
+      width: 200px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .card-body {
+      padding: 15px;
+    }
+    .category {
+      font-size: 0.9em;
+      color: #888;
+    }
+    .desc {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .date {
+      font-size: 0.8em;
+      color: #aaa;
+    }
+    .load-more {
+      margin: 30px auto;
+      display: block;
+      padding: 10px 20px;
+      border: none;
+      background-color: #444;
+      color: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>고객사 실제 설치 사례</h1>
+
+<div class="filters">
+  <button data-category="all" class="active">전체</button>
+  <button data-category="crowd">군중밀집감지 솔루션</button>
+  <button data-category="fire">산불연기감지 솔루션</button>
+  <button data-category="safety">산업안전관리 솔루션</button>
+</div>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="검색어를 입력해주세요">
+</div>
+
+<div class="grid" id="cardContainer"></div>
+
+<button class="load-more" id="loadMoreBtn">Load More +</button>
+
+<script>
+  let data = [];
+  const container = document.getElementById('cardContainer');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  const searchInput = document.getElementById('searchInput');
+  const buttons = document.querySelectorAll('.filters button');
+
+  let currentCategory = 'all';
+  let currentIndex = 0;
+  const ITEMS_PER_PAGE = 6;
+
+  function renderCards() {
+    container.innerHTML = '';
+    const keyword = searchInput.value.toLowerCase();
+    const filtered = data.filter(item => {
+      const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+      const matchesSearch = item.title.toLowerCase().includes(keyword);
+      return matchesCategory && matchesSearch;
+    });
+    const visibleItems = filtered.slice(0, currentIndex + ITEMS_PER_PAGE);
+    if(visibleItems.length===0) container.innerHTML += `<div>목록이 없습니다</div>`
+    visibleItems.forEach(item => {
+      container.innerHTML += `
+        <a href="AIsolutionTestDetails.html?id=${item.id}">
+          <div class="card">
+            <img src="${
+              item.category === 'crowd' ? 'resources/aisolution4_crowd.png' :
+              item.category === 'fire' ? 'resources/aisolution4_fire.png' :
+               'resources/aisolution4_safety.png'
+            }" alt="${item.title}">
+            <div class="card-body">
+              <div class="category">${
+                item.category === 'crowd' ? '군중밀집감지 솔루션' :
+                item.category === 'fire' ? '산불연기감지 솔루션' : '산업안전관리 솔루션'
+              }</div>
+              <div class="desc">ACRM ${item.title} 솔루션을 도입한 OOOO, 애나를 선택한건 최고의 결정이었습니다</div>
+              <div class="date">${item.date}</div>
+            </div>
+          </div>
+        </a>
+      `;
+    });
+
+    loadMoreBtn.style.display = visibleItems.length >= filtered.length ? 'none' : 'block';
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCategory = btn.dataset.category;
+      currentIndex = 0;
+      renderCards();
+    });
+  });
+
+  searchInput.addEventListener('input', () => {
+    currentIndex = 0;
+    renderCards();
+  });
+
+  loadMoreBtn.addEventListener('click', () => {
+    currentIndex += ITEMS_PER_PAGE;
+    renderCards();
+  });
+  //초기렌더링
+  renderCards()
+  // 🔽 posts.json 불러오기
+  fetch('posts.json')
+    .then(response => response.json())
+    .then(json => {
+      data = json;
+      renderCards();
+    })
+    .catch(error => {
+      console.error('JSON 파일을 불러오는 데 실패했습니다:', error);
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>애니메이션 아코디언</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    .accordion {
+      background: #f8f8f8;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    .accordion-header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 20px;
+    }
+
+    .icon {
+      transition: transform 0.3s ease;
+    }
+
+    .accordion.active .icon {
+      transform: rotate(180deg);
+    }
+
+    .panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.1s ease;
+      padding: 0 20px;
+    }
+
+    .accordion.active .panel {
+      max-height: 888px; /* 충분히 큰 값으로 설정 */
+      padding-bottom: 0px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .subtext {
+      color: gray;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="accordion">
+  <div class="accordion-header">
+    <span>접수 및 상담</span>
+    <span class="icon">▾</span>
+  </div>
+  <div class="panel">
+    <ul>
+      <li>시험 안내 / 상담</li>
+      <li>시험 세부내용 협의 <span class="subtext">(시험 환경/시험 대상 및 범위/시험 방법)</span></li>
+      <li>수수료 산정 및 견적서 발송</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">
+    <span>시험신청서 작성 및 제출</span>
+    <span class="icon">▾</span>
+  </div>
+  <div class="panel">
+    <ul>
+      <li>시험신청서</li>
+      <li>제품 및 관련 문서 <span class="subtext">(제품설명서/사용자 매뉴얼 등)</span></li>
+      <li>개인정보이용동의서</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">
+    <span>시험 계약</span>
+    <span class="icon">▾</span>
+  </div>
+  <div class="panel">
+    <ul>
+      <li>구비서류 최종확인</li>
+      <li>시험진행 세부내용 협의 <span class="subtext">(시험범위 및 방법 등)</span></li>
+      <li>계약 체결</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">
+    <span>시험 준비</span>
+    <span class="icon">▾</span>
+  </div>
+  <div class="panel">
+    <ul>
+      <li>수수료 협의 및 입금</li>
+      <li>시험환경 구축 지원</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">
+    <span>결함 및 보완사항 리뷰</span>
+    <span class="icon">▾</span>
+  </div>
+  <div class="panel">
+    <ul>
+      <li>결함 및 이슈 리뷰</li>
+      <li>보완 사항 해결</li>
+    </ul>
+  </div>
+</div>
+
+<div class="accordion">
+  <div class="accordion-header">
+    <span>시험 진행</span>
+    <span class="icon">▾</span>
+  </div>
+  <div class="panel">
+    <ul>
+      <li>소프트웨어 시험 진행</li>
+      <li>결함 및 보완사항 통보</li>
+      <li>회귀 시험</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+const accordions = document.querySelectorAll('.accordion');
+
+accordions.forEach((accordion) => {
+  // const header = accordion.querySelector('.accordion-header');
+  const panel = accordion.querySelector('.panel');
+
+  accordion.addEventListener('click', () => {
+    const isOpen = accordion.classList.contains('active');
+
+    if (isOpen) {
+      // 닫기 애니메이션
+      panel.style.maxHeight = panel.scrollHeight + 'px'; // 먼저 현재 높이로 설정
+      requestAnimationFrame(() => {
+        panel.style.maxHeight = '0px'; // 다음 프레임에서 0으로
+      });
+    } else {
+      // 열기 애니메이션
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+    }
+
+    accordion.classList.toggle('active');
+  });
+
+  // 초기 상태 설정
+  panel.style.overflow = 'hidden';
+  panel.style.transition = 'max-height 2.4s ease';
+  panel.style.maxHeight = '0px';
+});
+</script>
+
+</body>
+</html>
