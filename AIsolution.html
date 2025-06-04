@@ -20,12 +20,58 @@ margin-left: 78px;
 .morebtn {
 width: 189px;
 }
+
+.jodal-link{
+  display: block;
+  margin: auto;
+  margin-top: 80px;
+  width: fit-content;
+  border: 1px solid var(--gray-30);
+  border-radius: 15px;
+  color: var(--gray-30);
+  padding: 38px 54px;
+  font-weight: 700;
+  font-size: 32px;
+  text-decoration: none;
+}
+
+table {
+  margin: auto;
+  font-size: 20px;
+  color: var(--gray-70);
+    max-width: 1513px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+  th, td {
+    padding: 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--gray-20);
+    vertical-align: center;
+  }
+  th {
+    border-top: 2px solid var(--gray-main);
+    font-weight: bold;
+  }
+  .category {
+    width: 15%;
+  }
+  .item-name {
+    width: 40%;
+  }
+  .code{
+    width: 17%;
+  }
+  .price {
+    width: 17%;
+  }
       .backimg0{
         position: absolute;
-        top:43%;
+        top: 59%;
         background-color: var(--gray-3);
         width: 100%;
-        height: 35%;
+        height: 48%;
       }
       .jodalbtn{cursor: pointer;
         z-index: 1;
@@ -245,6 +291,40 @@ width: 189px;
     <div style="max-width: 1513px; margin: auto; width: 100%; height: 100%; position: absolute;">
       <a class="jodalbtn" href="https://www.google.com" >구글</a>
     </div>
+  </div>
+
+  <div>
+    <h2 style="color: var(--gray-main); text-align: center; font-weight: 700; margin-top: 400px; height: 78px; margin-bottom: 20px;
+    font-size: 34px; ">
+      제3자 단가계약 정보</h2>
+    <h2 style="color: var(--gray-main); text-align: start; font-weight: 700; width: 100%; max-width: 1513px; margin: auto;
+    font-size: 31px; ">
+      영상반출관리</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="category">분류</th>
+          <th class="item-name">한글품목명</th>
+          <th class="code">물품분류번호</th>
+          <th class="code">물품식별번호</th>
+          <th class="price">조달가</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">통신소프트웨어</td>
+          <td>
+            통신소프트웨어, 애나, ACRM-0001 v1.0, 영상모니터링솔루션, License
+          </td>
+          <td>43232902</td>
+          <td>25825223</td>
+          <td>2,200만원</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <a class="jodal-link" href="#">조달청 홈페이지 바로가기</a>
   </div>
 
   <div style="display: flex; margin-top: 200px;">
