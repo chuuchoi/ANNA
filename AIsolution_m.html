@@ -11,12 +11,18 @@
     <link rel="stylesheet" href="accreditation_m.css"/>
     <link rel="stylesheet" href="header_m.css"/>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="verification_m.css"/>
     <!-- AOS애니메이션 제거 -->
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
 
     <style>
+      .menubtns{
+        width: 352px;
+        gap: 4px;
+      }
   .menubtns .deco{
     transform: translateX(240px);
   }
@@ -29,34 +35,53 @@
   .menubtns:has(.b3:hover) .deco{
     transform: translate(160px);
   }
-    .backimg0{
-      position: absolute;
-      top:26.3%;
-      background-color: var(--gray-3);
-      width: 100%;
-      height: 73.7%;
-    }
-    [class^="copybtn"]{
-      cursor: pointer;
-      z-index: 1;
-      position: absolute;
-      width: 8.2%;
-      height: 0.33%;
-      border: none;
-      background: transparent;
-    }
-    .copybtn0{
-      top: 92.54%;
-      left: 35.8%
-    }
-    .copybtn1{
-      top: 92.54%;
-      left: 68.8%;
-    }
-    .copybtn2{
-      top: 95.45%;
-      left: 48.32%;
-    }
+  
+  .jodal-link{
+  display: block;
+  margin: 20px auto 76px;
+  width: 175px;
+  height: 44px;
+  border: 1px solid var(--gray-30);
+  border-radius: 8px;
+  color: var(--gray-30);
+  padding: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center; align-content: center;
+}
+
+table {
+  margin: auto;
+  font-size: 10px;
+  color: var(--gray-70);
+  max-width: 444px;
+  width: calc(100% - 48px);
+  border-collapse: collapse;
+  margin-top: 4px;
+}
+  th, td {
+    padding: 4px;
+    text-align: center;
+    border-bottom: 1px solid var(--gray-20);
+    vertical-align: center;
+  }
+  th {
+    border-top: 2px solid var(--gray-main);
+    font-weight: bold;
+  }
+  .category {
+    width: 15%;
+  }
+  .item-name {
+    width: 40%;
+  }
+  .code{
+    width: 17%;
+  }
+  .price {
+    width: 17%;
+  }
     </style>
 </head>
 <body>
@@ -88,36 +113,71 @@
 
   <div class="vct">
     <!-- <video src="resources/bgv.mp4" autoplay muted loop></video> -->
-    <img src="resources/m2bg.png"></img>
+    <img src="resources/m3bg.png"></img>
     <span style="user-select: none; color: white; font-size: 27px; font-weight: 700;  margin-bottom: 52px;">
-      기술검증</span>
+      AI 위험상황 인식예측 솔루션</span>
     <div class="menubtns" style="margin-bottom: 32px;">
       <!-- <div class="deco"></div> -->
-      <a class="b1" href="./verification_m.html"><span style="text-align: center; line-height:136%;">블록체인 스마트 컨트랙트<br/>보안 검사(Audit)</span></a>
-      <a style="cursor: default; color: var(--gray-main); background-color: white; border-radius: 5px;">인공지능 기술 검증</a>
+      <a style="cursor: default; color: #292929; background-color: white; border-radius: 5px;"><span style="text-align: center; line-height:136%;">영상분석<br/>솔루션</span></a>
+      <a class="b1" href="./AIsolution1.html"><span style="text-align: center; line-height:136%;">군중밀집감지솔루션</span></a>
+      <a class="b2" href="./AIsolution2.html"><span style="text-align: center; line-height:136%;">산불연기감지솔루션</span></a>
+      <a class="b3" href="./AIsolution3.html"><span style="text-align: center; line-height:136%;">산업안전관리솔루션</span></a>
+      <a class="b4" href="./AIsolution4.html"><span style="text-align: center; line-height:136%;">고객사례</span></a>
     </div>
   </div>
 
+
   <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
-    <h2 style="text-align: center; color: var(--gray-main); font-weight: 800; font-size: calc(22 * ( min(100vw, 512px)  / 375)); margin: 32px 0px 0px 0px;">인공지능 기술 검증</h2>
-    <div style="width: 100%; max-width: 512px; margin: auto; margin-top: 24px; position: relative;">
-      <img src="resources/m3s2_im0_m.png" width="100%">
-      <button class="copybtn0" onclick="copyToClipboard(event,'minjong.kim@byanna.io')"></button>
-      <button class="copybtn1" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
-      <button class="copybtn2" onclick="copyToClipboard(event,'shlee@byanna.io')"></button>
+    <!-- <h2 style="text-align: center; color: var(--gray-main); font-weight: 800; font-size: calc(22 * ( min(100vw, 512px)  / 375)); margin: 32px 0px 0px 0px;">인공지능 기술 검증</h2> -->
+    <div style="width: 100%; max-width: 512px; margin: auto; position: relative;">
+      <img src="resources/m4s0_im0_m.png" width="100%">
     </div>
-    <!-- <div class="download-btns resize-scale" style="position: absolute; bottom: 1.4%; transform-origin: bottom;">
-      <a href="./accreditation.html">브로셔 다운로드</a>
-      <a >검증 문의 및 신청</a>
-    </div> -->
   </div>
+
+  <div>
+    <!-- <h2 style="color: var(--gray-main); text-align: center; font-weight: 700; margin-top: 400px; height: 78px; margin-bottom: 20px;
+    font-size: 34px; ">
+      제3자 단가계약 정보</h2> -->
+    <h2 style="text-align: center; color: var(--gray-main); font-weight: 800; font-size: calc(16 * ( min(100vw, 512px)  / 375));
+     margin-top: 10px;">
+      제3자 단가계약 정보</h2>
+    <h2 style="color: var(--gray-main); text-align: start; font-weight: 700; font-size: calc(12 * ( min(100vw, 512px)  / 375));
+     width: calc(100% - 48px); max-width: 444px; margin: auto;">
+      영상반출관리</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="category">분류</th>
+          <th class="item-name">한글품목명</th>
+          <th class="code">물품분류번호</th>
+          <th class="code">물품식별번호</th>
+          <th class="price">조달가</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">통신소프트웨어</td>
+          <td>
+            통신소프트웨어, 애나, ACRM-0001 v1.0, 영상모니터링솔루션, License
+          </td>
+          <td>43232902</td>
+          <td>25825223</td>
+          <td>2,200만원</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <a class="jodal-link" href="#">조달청 홈페이지 바로가기</a>
+  </div>
+
   
-  <div style="display: flex; margin-top: -84px;">
+  <div style="display: flex; ">
     <div class="contractcont" >
       <img src="resources/aboutim3_1.png" width="100%" height="100%">
       <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
         <div class="cmw">
-          <span class="contract" style="user-select: none; margin-left: 20px;">브로셔 다운로드</span>
+          <span class="contract" style="user-select: none; margin-left: 20px;">고객 사례</span>
           <a class="morebtn" href="./test1.html" style="margin-right: 8px;">
             <svg width="36" height="25" viewBox="0 0 98 25" preserveAspectRatio="xMinYMax meet" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
@@ -130,7 +190,7 @@
       <img src="resources/aboutim3_2.png" width="100%" height="100%">
       <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
         <div class="cmw">
-          <span class="contract" style="user-select: none; margin-left: 20px;">검증 문의 및 신청</span>
+          <span class="contract" style="user-select: none; margin-left: 20px;">솔루션 문의 및 신청</span>
           <a class="morebtn" href="./test1.html" style="margin-right: 8px;">
             <svg width="36" height="25" viewBox="0 0 98 25" preserveAspectRatio="xMinYMax meet" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
@@ -166,45 +226,20 @@
 
   <script src="about.js"></script>
   <script>
-async function copyToClipboard(e, str) {
-  try {
-    await navigator.clipboard.writeText(str)
-    e.target.style.background = 'center / 100% 100% url(resources/copied.png)';
-    setTimeout(() => {
-      e.target.style.background = 'transparent';
-    }, 800);
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-  function scaleOnResize(){
-    let w = Math.max(window.visualViewport.width, 320);
-    console.log(window.visualViewport.width)
-    w = Math.min(w, 512);
-    let ratio = w / 512;
-    Array.from(document.querySelectorAll(".resize-scale")).forEach(element => {
-      element.style.scale = `${ratio}`;
-    });
-  }
-  window.addEventListener("resize",scaleOnResize)
-  window.onload=()=>{//HTML + CSS + JS + 이미지 등 모든 리소스 로드 완료
-    scaleOnResize()
-  }
 
 const mediaMobile = window.matchMedia("(min-width: 769px)");
 
 function handleDeviceChange() {
   if (mediaMobile.matches) {
-    window.location.href = "./verification1.html";
+    window.location.href = "./AIsolution.html";
   }
 }
 
 // 초기 실행 (페이지 로드 시)
-handleDeviceChange();
+// handleDeviceChange();
 
 // 화면 크기 변경 시 감지
-mediaMobile.addEventListener("change", handleDeviceChange);
+// mediaMobile.addEventListener("change", handleDeviceChange);
   </script>
 
 </body>

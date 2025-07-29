@@ -18,20 +18,93 @@
         top: 0%;
         background-color: var(--gray-3);
         width: 100%;
-        height: 55.33%;
+        height: 100%;
       }
       .jodalbtn{cursor: pointer;
         z-index: 1;
         position: absolute;
-        top: 45%;
-        left: 39.8%;
+        top: 81.3%;
+        left: 38.7%;
         background-color: white;
-        width: 20.5%;
-        height: 3.04%;
+        width: 22.6%;
+        height: 5.44%;
         border-radius: 15px;
         border: 1px solid red;
         opacity: 0;
       }
+
+    .non-accordion {
+      width: 614px;
+      height: fit-content;
+      background: #f8f8f8;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      overflow: hidden;
+    }
+    .non-accordion-header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--gray-main);
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .accordion {
+      width: 614px;
+      height: fit-content;
+      background: #f8f8f8;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .accordion-header {
+      padding: 22px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--gray-main);
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .icon {
+      transition: transform 0.3s ease;
+    }
+    .accordion.active .icon {
+      transform: rotate(180deg);
+    }
+    .panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.1s ease;
+      padding: 0 32px;
+      color: var(--gray-50);
+      font-size: 20px;
+      font-weight: 500;
+    }
+    .accordion.active .panel {
+      max-height: 888px; /* 충분히 큰 값으로 설정 */
+      padding-bottom: 0px;
+    }
+    ul {
+      margin: 0;
+      padding-bottom: 20px;
+      padding-left: 20px;
+    }
+    li {
+      margin: 6px 0;
+    }
+    .subtext {
+      color: var(--gray-30);
+      font-size: 18px;
+    }
+    .flxb0{display: flex; justify-content: center; gap:154px;}
+    @media screen and (max-width:1740px) {
+      .flxb0{gap:80px}
+    }
     </style>
 </head>
 <body>
@@ -67,7 +140,164 @@
     <img src="resources/CSpage_im0.png" width="100%" style="max-width: 1513px; z-index: 1;">
     <div class="backimg0"></div>
     <div style="max-width: 1513px; margin: auto; width: 100%; height: 100%; position: absolute;">
-      <a class="jodalbtn" href="https://www.google.com" >구글</a>
+      <a class="jodalbtn" href="#" >구글</a>
+    </div>
+  </div>
+
+  <div>
+    <h2 style="color: var(--gray-main); text-align: center; font-weight: 700; margin-top: 200px; height: 78px; margin-bottom: 20px;
+    font-size: 33px; ">
+      시험성적서 발급 절차</h2>
+    <div class="flxb0">
+
+      <div>
+        <div class="accordion">
+        <div class="accordion-header">
+          <span>접수 및 상담</span>
+          <svg class="icon" width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.999998L14 12L27 1" stroke="#888" stroke-width="2"/>
+</svg>
+
+
+        </div>
+        <div class="panel">
+          <ul>
+            <li>시험 안내 / 상담</li>
+            <li>시험 세부내용 협의 <span class="subtext">(시험 환경/시험 대상 및 범위/시험 방법)</span></li>
+            <li>수수료 산정 및 견적서 발송</li>
+          </ul>
+        </div>
+        </div>
+        <svg style="margin-inline:auto; display:block; margin-bottom:16px" width="20" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.3755 12.0641C11.6041 12.7949 10.3959 12.7949 9.62451 12.0641L1.14368 4.02962C-0.168833 2.78619 0.711183 0.577712 2.51917 0.577712L19.4808 0.577714C21.2888 0.577714 22.1688 2.78619 20.8563 4.02962L12.3755 12.0641Z" fill="#9E9E9E"/>
+          </svg>
+          
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>시험 계약</span>
+            <svg class="icon" width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.999998L14 12L27 1" stroke="#888" stroke-width="2"/>
+</svg>
+
+
+          </div>
+          <div class="panel">
+            <ul>
+              <li>구비서류 최종확인</li>
+              <li>시험진행 세부내용 협의 <span class="subtext">(시험범위 및 방법 등)</span></li>
+              <li>계약 체결</li>
+            </ul>
+          </div>
+        </div>
+        <svg style="margin-inline:auto; display:block; margin-bottom:16px" width="20" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.3755 12.0641C11.6041 12.7949 10.3959 12.7949 9.62451 12.0641L1.14368 4.02962C-0.168833 2.78619 0.711183 0.577712 2.51917 0.577712L19.4808 0.577714C21.2888 0.577714 22.1688 2.78619 20.8563 4.02962L12.3755 12.0641Z" fill="#9E9E9E"/>
+          </svg>
+          
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>시험 진행</span>
+            <svg class="icon" width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.999998L14 12L27 1" stroke="#888" stroke-width="2"/>
+</svg>
+
+
+          </div>
+          <div class="panel">
+            <ul>
+              <li>소프트웨어 시험 진행</li>
+              <li>결함 및 보완사항 통보</li>
+              <li>회귀 시험</li>
+            </ul>
+          </div>
+        </div>
+        <svg style="margin-inline:auto; display:block; margin-bottom:16px" width="20" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.3755 12.0641C11.6041 12.7949 10.3959 12.7949 9.62451 12.0641L1.14368 4.02962C-0.168833 2.78619 0.711183 0.577712 2.51917 0.577712L19.4808 0.577714C21.2888 0.577714 22.1688 2.78619 20.8563 4.02962L12.3755 12.0641Z" fill="#9E9E9E"/>
+          </svg>
+          
+        <div class="non-accordion">
+          <div class="non-accordion-header">
+            <span>시험결과 분석 및 시험성적서 작성</span>
+          </div>
+        </div>
+        <svg style="margin-inline:auto; display:block; margin-bottom:16px" width="20" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.3755 12.0641C11.6041 12.7949 10.3959 12.7949 9.62451 12.0641L1.14368 4.02962C-0.168833 2.78619 0.711183 0.577712 2.51917 0.577712L19.4808 0.577714C21.2888 0.577714 22.1688 2.78619 20.8563 4.02962L12.3755 12.0641Z" fill="#9E9E9E"/>
+          </svg>
+          
+        <div class="non-accordion">
+          <div class="non-accordion-header" style="flex-direction: column; gap: 10px;">
+            <img src="./resources/certcopy.png" width="143px"/>
+            <span>성적서 발행</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column;">
+        <div  style="background-color: transparent; width: 10px; height: 0px; flex: 1;"></div>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>시험신청서 작성 및 제출</span>
+            <svg class="icon" width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.999998L14 12L27 1" stroke="#888" stroke-width="2"/>
+</svg>
+
+
+          </div>
+          <div class="panel">
+            <ul>
+              <li>시험신청서</li>
+              <li>제품 및 관련 문서 <span class="subtext">(제품설명서/사용자 매뉴얼 등)</span></li>
+              <li>개인정보이용동의서</li>
+            </ul>
+          </div>
+        </div>
+        <svg style="margin-inline:auto; display:block; margin-bottom:16px" width="20" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.3755 12.0641C11.6041 12.7949 10.3959 12.7949 9.62451 12.0641L1.14368 4.02962C-0.168833 2.78619 0.711183 0.577712 2.51917 0.577712L19.4808 0.577714C21.2888 0.577714 22.1688 2.78619 20.8563 4.02962L12.3755 12.0641Z" fill="#9E9E9E"/>
+          </svg>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>시험 준비</span>
+            <svg class="icon" width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.999998L14 12L27 1" stroke="#888" stroke-width="2"/>
+</svg>
+
+
+          </div>
+          <div class="panel">
+            <ul>
+              <li>수수료 협의 및 입금</li>
+              <li>시험환경 구축 지원</li>
+            </ul>
+          </div>
+        </div>
+        <svg style="margin-inline:auto; display:block; margin-bottom:16px" width="20" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.3755 12.0641C11.6041 12.7949 10.3959 12.7949 9.62451 12.0641L1.14368 4.02962C-0.168833 2.78619 0.711183 0.577712 2.51917 0.577712L19.4808 0.577714C21.2888 0.577714 22.1688 2.78619 20.8563 4.02962L12.3755 12.0641Z" fill="#9E9E9E"/>
+          </svg>
+        <div class="accordion">
+          <div class="accordion-header">
+            <span>결함 및 보완사항 리뷰</span>
+            <svg class="icon" width="28" height="14" viewBox="0 0 28 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 0.999998L14 12L27 1" stroke="#888" stroke-width="2"/>
+</svg>
+
+
+          </div>
+          <div class="panel">
+            <ul>
+              <li>결함 및 이슈 리뷰</li>
+              <li>보완 사항 해결</li>
+            </ul>
+          </div>
+        </div>
+        <svg style="margin-inline:auto; display:block; margin-bottom:16px" width="20" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.3755 12.0641C11.6041 12.7949 10.3959 12.7949 9.62451 12.0641L1.14368 4.02962C-0.168833 2.78619 0.711183 0.577712 2.51917 0.577712L19.4808 0.577714C21.2888 0.577714 22.1688 2.78619 20.8563 4.02962L12.3755 12.0641Z" fill="#9E9E9E"/>
+          </svg>
+          <div class="non-accordion">
+            <div class="non-accordion-header" style="flex-direction: column; gap: 10px;">
+              <img src="./resources/certcopy.png" width="143px"/>
+              <span>성적서 발행</span>
+            </div>
+          </div>
+      </div>
     </div>
   </div>
   
@@ -96,7 +326,7 @@
     data-aos="fa" data-aos-offset="-100" data-aos-anchor-placement="top-bottom" data-aos-once="true">
       상호 : 주식회사 애나<br/><br/>
       대표 : 김민종<br/><br/>
-      주소 : 인천광역시 연수구 컨벤시아대로 204, 인천스타트업파크 405호<br/><br/>
+      주소 : 인천광역시 연수구 컨벤시아대로 204, 인천스타트업파크 인스타1 302호<br/><br/>
       TEL : 070-7811-4803<br/><br/>
       e-mail : minjong.kim@byanna.io
     </p>
@@ -104,6 +334,7 @@
   </div>
 
   <script src="about.js"></script>
+  <script src="CSpage.js"></script>
   <script>
 
 const mediaMobile = window.matchMedia("(max-width: 768px)");

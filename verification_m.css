@@ -104,7 +104,7 @@
         }
         &>div.active{background-color: var(--gray-main); color: white;}
       }
-      #smartcontr-img{ margin-top: 20px;}
+      #smartcontr-img{margin: auto; display: block; margin-top: 20px;}
 
       .download-btns{
         display: flex; gap: 9px;

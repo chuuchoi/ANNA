@@ -11,46 +11,19 @@
     <link rel="stylesheet" href="accreditation_m.css"/>
     <link rel="stylesheet" href="header_m.css"/>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="verification_m.css"/>
     <!-- AOS애니메이션 제거 -->
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
     <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
 
     <style>
-      .backimg0{
-        position: absolute;
-        background: center / 100% 100% url(./resources/m2s0_im1.png) no-repeat;
-        top:60.7%;
-        background-color: #292929;
-        width: 100%;
-        height: 32.5%;
+      .menubtns{
+        width: 352px;
+        gap: 4px;
       }
-      .usagec{ display: none;
-        z-index: 1;
-        position: absolute;
-        background-color: red;
-        width: 100%;
-        height: 35.1%;
-        top:22.8%;
-        opacity: 0.2;
-        &>div{
-          display: flex; flex-direction: column; align-items: center;
-          gap: calc(8 * ( min(100vw, 512px)  / 375));
-          padding-left: calc(24 * ( min(100vw, 512px)  / 375));
-          padding-right: calc(24 * ( min(100vw, 512px)  / 375));
-          margin: auto;
-          background-color: #292929;
-          width: 100%;
-          height: 100%;
-          max-width: 512px;
-        }
-      }
-      .usagec .card{
-        background-color: aqua;
-        width: 100%;
-        border-radius: 15px;
-        border: 1px solid red;
-        flex: 1;
-      }
+
     </style>
 </head>
 <body>
@@ -67,6 +40,11 @@
   <div class="headerwrapper">
     <div class="header" >
       <img src="resources/logo.svg" width="70" style="cursor: pointer; -webkit-user-drag: none;" onclick="window.location.href='/'"/>
+      <!-- <span style="color: white;">회사소개</span>
+      <a href="./test1.html">종합성능 시험평가</a>
+      <a href="./test2.html">기술검증</a>
+      <a href="./test1.html">연구개발</a>
+      <a href="./test.html">고객지원</a> -->
       <div class="header-drawer" onclick="toggleHM()">
         <div></div>
         <div></div>
@@ -77,43 +55,58 @@
 
   <div class="vct">
     <!-- <video src="resources/bgv.mp4" autoplay muted loop></video> -->
-    <img src="resources/m1bg.png"></img>
+    <img src="resources/m3bg.png"></img>
     <span style="user-select: none; color: white; font-size: 27px; font-weight: 700;  margin-bottom: 52px;">
-      종합성능 시험평가</span>
+      AI 위험상황 인식예측 솔루션</span>
     <div class="menubtns" style="margin-bottom: 32px;">
       <!-- <div class="deco"></div> -->
-      <a style="cursor: default; color: #292929; background-color: white; border-radius: 5px;"><span style="text-align: center; line-height:136%;">시험평가<br/>소개</span></a>
-      <a class="b1" href="./accreditation1_m.html"><span style="text-align: center; line-height:136%;">종합 SW<br/>시험평가</span></a>
-      <a class="b2" href="./accreditation2_m.html"><span style="text-align: center; line-height:136%;">메타버스<br/>시험평가</span></a>
-      <a class="b3" href="./accreditation3_m.html"><span style="text-align: center; line-height:136%;">AI<br/>시험평가</span></a>
-      <a class="b4" href="./accreditation4_m.html"><span style="text-align: center; line-height:136%;">시험평가<br/>신청</span></a>
+      <a class="b1" href="./AIsolution_m.html"><span style="text-align: center; line-height:136%;">영상분석<br/>솔루션</span></a>
+      <a class="b2" href="./AIsolution1_m.html"><span style="text-align: center; line-height:136%;">군중밀집감지솔루션</span></a>
+      <a class="b3" href="./AIsolution2_m.html"><span style="text-align: center; line-height:136%;">산불연기감지솔루션</span></a>
+      <a class="b4" href="./AIsolution3_m.html"><span style="text-align: center; line-height:136%;">산업안전관리솔루션</span></a>
+      <a style="cursor: default; color: #292929; background-color: white; border-radius: 5px;"><span style="text-align: center; line-height:136%;">고객사례</span></a>
     </div>
   </div>
 
+
   <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
-    <img src="resources/m2s0_im0_m.png" width="100%" style="max-width: 512px; z-index: 1;">
-    <div class="usagec">
-      <div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+    <!-- <h2 style="text-align: center; color: var(--gray-main); font-weight: 800; font-size: calc(22 * ( min(100vw, 512px)  / 375)); margin: 32px 0px 0px 0px;">인공지능 기술 검증</h2> -->
+    <h2 style="text-align: center; color: var(--gray-main); font-weight: 800; font-size: calc(16 * ( min(100vw, 512px)  / 375));
+    margin-top: 56px;">
+     고객사 실제 설치 사례</h2>
+     <div style="display: flex; flex-direction: column; gap: 24px; width: fit-content; margin: auto; margin-bottom: 56px;">
+      <img src="resources/사례0.png" width="264px" style=" display: block;">
+      <img src="resources/사례1.png" width="264px" style=" display: block;">
+      <img src="resources/사례2.png" width="264px" style=" display: block;">
+    </div>
+  </div>
+
+  
+  <div style="display: flex;">
+    <div class="contractcont" >
+      <img src="resources/aboutim3_1.png" width="100%" height="100%">
+      <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
+        <div class="cmw">
+          <span class="contract" style="user-select: none; margin-left: 20px;">고객 사례</span>
+          <a class="morebtn" href="./test1.html" style="margin-right: 8px;">
+            <svg width="36" height="25" viewBox="0 0 98 25" preserveAspectRatio="xMinYMax meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
+            </svg>          
+          </a>
+        </div>
       </div>
     </div>
-    <div class="backimg0"></div>
-  </div>
-  
-  <div class="contractcont" >
-    <img src="resources/aboutim3.png" width="100%" height="100%">
-    <div style="z-index: 1; color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
-      <div style="width: 100%; max-width: 1920px; margin: auto; display: flex; align-items: center; justify-content: space-between;">
-        <span class="contract" style="user-select: none;">시험신청 문의 및 상담</span>
-        <a class="morebtn" href="./test1.html">
-          <svg width="100%"  viewBox="0 0 98 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
-          </svg>          
-        </a>
+    <div class="contractcont" >
+      <img src="resources/aboutim3_2.png" width="100%" height="100%">
+      <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
+        <div class="cmw">
+          <span class="contract" style="user-select: none; margin-left: 20px;">솔루션 문의 및 신청</span>
+          <a class="morebtn" href="./test1.html" style="margin-right: 8px;">
+            <svg width="36" height="25" viewBox="0 0 98 25" preserveAspectRatio="xMinYMax meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
+            </svg>          
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -143,19 +136,20 @@
 
   <script src="about.js"></script>
   <script>
+
 const mediaMobile = window.matchMedia("(min-width: 769px)");
 
 function handleDeviceChange() {
   if (mediaMobile.matches) {
-    window.location.href = "./accreditation.html";
+    window.location.href = "./AIsolution4.html";
   }
 }
 
 // 초기 실행 (페이지 로드 시)
-handleDeviceChange();
+// handleDeviceChange();
 
 // 화면 크기 변경 시 감지
-mediaMobile.addEventListener("change", handleDeviceChange);
+// mediaMobile.addEventListener("change", handleDeviceChange);
   </script>
 
 </body>
