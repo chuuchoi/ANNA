@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주식회사 애나</title>
+    <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="global.css"/>
+    <link rel="stylesheet" href="about.css"/>
+    <link rel="stylesheet" href="accreditation.css"/>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+
+    <style>
+    :root{
+      --content-max-width: 1100px;
+      --body-font: "Pretendard", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --text-color: #222;
+      --muted: #6d6d6d;
+      --accent: #111;
+    }
+    .header{background-color: #0f0f0f;}
+    body{
+      margin:0;
+      font-family: var(--body-font);
+      color:var(--text-color);
+      background: #fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.7;
+    }
+
+    /* headerwrapper / footer 는 기존 프로젝트에서 사용하므로 비워둘 수 있게 유지 */
+    .headerwrapper{ /* 빈 자리 - 기존 header가 들어올 공간 */
+      width:100%;
+    }
+
+    /* main content */
+    .privacy-container{
+      max-width: var(--content-max-width);
+      margin: 148px auto 96px;
+      padding: 0 24px;
+    }
+
+    .privacy-title{
+      text-align:center;
+      font-size:36px;
+      font-weight:800;
+      margin: 18px 0 34px;
+      letter-spacing:-0.02em;
+      color:var(--accent);
+    }
+
+    .intro{
+      background: transparent;
+      border-radius:6px;
+      padding: 18px 22px;
+      color:var(--muted);
+      margin-bottom:28px;
+      font-size:16px;
+    }
+
+    .important {
+      font-weight:700;
+      color:#111;
+      margin-bottom:12px;
+    }
+
+    .divider {
+      height:1px;
+      background:#eee;
+      margin: 36px 0;
+      border-radius:1px;
+    }
+
+    section.policy-section{
+      margin-bottom:36px;
+    }
+    section.policy-section h3{
+      margin:0 0 14px;
+      font-size:20px;
+      font-weight:700;
+      color:var(--accent);
+    }
+    section.policy-section p,
+    section.policy-section li,
+    section.policy-section td{
+      font-size:16px;
+      color:var(--text-color);
+    }
+
+    ol.main-list {
+      counter-reset: item;
+      margin: 0 0 8px 0;
+      padding-left: 24px;
+    }
+    ol.main-list > li {
+      margin: 18px 0;
+    }
+
+    .sub-list { padding-left: 20px; margin-top:8px; }
+
+    /* 표 스타일 (보유기간 등) */
+    .retention-table{
+      width:100%;
+      border-collapse:collapse;
+      margin: 14px 0 6px;
+      font-size:15px;
+    }
+    .retention-table th, .retention-table td{
+      border:1px solid #eee;
+      padding:12px 14px;
+      text-align:left;
+      vertical-align:center;
+    }
+    .retention-table th{
+      background:#fafafa;
+      font-weight:700;
+      width:180px;
+    }
+
+    /* 요청서 (form) 스타일 */
+    .request-form{
+      border:1px solid #eee;
+      border-radius:6px;
+      padding:18px;
+      margin-top:18px;
+      background:#fff;
+    }
+    .request-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px 20px;
+      margin-bottom:12px;
+    }
+    .request-grid .full { grid-column: 1 / -1; }
+    .field {
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      font-size:15px;
+      color:var(--muted);
+    }
+    .field input, .field textarea, .field select{
+      padding:10px;
+      border:1px solid #ddd;
+      border-radius:6px;
+      font-size:15px;
+    }
+    .checkbox-list { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+
+    .muted-note{ color: var(--muted); font-size:14px; margin-top:8px; }
+
+    /* footer placeholder (실제 footer는 기존 프로젝트의 .footer 사용) */
+    .footer{
+      width:100%;
+    }
+
+  section {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .sub-list {
+    list-style: none;
+    padding-left: 1.5em;
+  }
+  .sub-list .num {
+    font-weight: 600;
+    margin-right: 0.4em;
+  }
+
+  .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-image {
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1024px; /* 크기 조정 가능 */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  background: #fff;
+  display: none;
+  z-index: 50;
+}
+
+.tooltip:hover .tooltip-image {
+  display: block;
+}
+
+.tooltip-image::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+}
+
+    /* 반응형 */
+    @media (max-width:900px){
+      .privacy-title{ font-size:28px; margin-top:8px; }
+      .request-grid{ grid-template-columns: 1fr; }
+      .retention-table th{ width: 36%; }
+      .privacy-container{ padding: 0 18px; margin: 24px auto 48px; }
+    }
+
+    @media (max-width:420px){
+      .privacy-title{ font-size:22px; }
+    }
+
+    </style>
+</head>
+<body>
+  <div class="headerwrapper">
+    <div class="header" >
+      <img src="resources/logo.svg" width="130" style="cursor: pointer; -webkit-user-drag: none;" onclick="window.location.href='/'"/>
+      <a href="./about.html">회사소개</a>
+      <a href="./accreditation.html">종합성능 시험평가</a>
+      <a href="./verification.html">기술검증</a>
+      <a href="./AIsolution.html">AI 위험상황 인식예측 솔루션</a>
+      <a href="./CSpage.html">고객지원</a>
+      <div style="position: absolute; right: 38px; width: 70px; height: 70px; display: flex; flex-direction: column; gap: 7px; align-items: center; justify-content: center;">
+        <div style="width: 45px; height: 1px; background-color: white;"></div>
+        <div style="width: 45px; height: 1px; background-color: white;"></div>
+        <div style="width: 45px; height: 1px; background-color: white;"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 여기에 본문 삽입 -->
+  <main class="privacy-container" role="main" aria-labelledby="privacy-heading">
+
+    <h1 id="privacy-heading" class="privacy-title">개인정보처리방침</h1>
+
+    <div class="intro">
+      <div class="important">주식회사 애나 개인정보 처리방침</div>
+      <p>
+        &lt;주식회사 애나&gt;는 정보주체의 자유와 권리 보호를 위해 「개인정보 보호법」 및 관계 법령이 정한 바를 준수하여,
+        적법하게 개인정보를 처리하고 안전하게 관리하고 있습니다. 이에 「개인정보 보호법」 제30조에 따라
+        정보주체에게 개인정보 처리에 관한 절차 및 기준을 안내하고, 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록
+        하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
+      </p>
+    </div>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- 1. 처리목적 -->
+    <section class="policy-section" id="purpose">
+      <h3>1. 개인정보의 처리목적</h3>
+
+      <p>
+        1.1. &lt;주식회사 애나&gt;은(는) 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의
+        용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등
+        필요한 조치를 이행할 예정입니다.
+      </p>
+
+      <!-- <ol class="main-list">
+        <li>
+          서비스 제공 및 회원관리: 회원식별, 가입의사 확인, 본인인증, 서비스 이용에 따른 상담 및 안내
+        </li>
+        <li>
+          민원처리: 민원인의 신원 확인, 사실조사를 위한 연락·통지, 처리결과 통보 등
+        </li>
+        <li>
+          통계 및 마케팅: 서비스 개선 및 마케팅 활동을 위한 통계적 분석(단, 개인정보를 식별할 수 없는 형태로 이용)
+        </li>
+      </ol> -->
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- 2. 처리 및 보유기간 -->
+    <section class="policy-section" id="retention">
+      <h3>2. 개인정보의 처리 및 보유 기간</h3>
+
+      <p>
+        2.1. &lt;주식회사 애나&gt;는 법령에 따른 개인정보 이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은
+        개인정보 이용기간 내에서 개인정보를 처리합니다.
+      </p>
+
+      <p>2.2. 각각의 개인정보 처리·보유 기간 및 항목은 다음과 같습니다.</p>
+
+      <table class="retention-table" aria-describedby="retention-desc">
+        <thead>
+          <tr>
+            <th>운영근거</th>
+            <th>내용</th>
+            <th>수집항목</th>
+            <th>보유기간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 전자상거래 등에서의 소비자 보호에 관한 법률: 여러 하위 항목 -->
+          <tr>
+            <td rowspan="5">전자상거래 등에서의<br/>소비자 보호에 관한 법률</td>
+            <td>관계 법령 위반에 따른 수사·조사 등이 진행 중인 경우</td>
+            <td>[필수] 이름, 전화번호, 이메일 주소</td>
+            <td>수사·조사 종료 시까지</td>
+          </tr>
+          <tr>
+            <td>홈페이지 이용에 따른 채권·채무관계 잔존 시</td>
+            <td>[필수] 이름, 전화번호, 이메일 주소</td>
+            <td>채권·채무관계 정산 시까지</td>
+          </tr>
+          <tr>
+            <td>표시·광고에 관한 기록</td>
+            <td>관련 기록</td>
+            <td>6개월</td>
+          </tr>
+          <tr>
+            <td>계약 또는 청약철회, 대금결제, 재화 등의 공급기록</td>
+            <td>거래 및 결제 관련 기록</td>
+            <td>5년</td>
+          </tr>
+          <tr>
+            <td>소비자 불만 또는 분쟁처리에 관한 기록</td>
+            <td>불만·분쟁 관련 기록</td>
+            <td>3년</td>
+          </tr>
+
+          <!-- 정보통신망 이용촉진 및 정보보호 등에 관한 법률 -->
+          <tr>
+            <td>정보통신망 이용촉진 및<br/>정보보호 등에 관한 법률</td>
+            <td>본인확인에 관한 기록</td>
+            <td>[필수] 이름, 전화번호, 이메일주소</td>
+            <td>6개월</td>
+          </tr>
+
+          <!-- 통신비밀보호법 -->
+          <tr>
+            <td>통신비밀보호법</td>
+            <td>방문에 관한 기록</td>
+            <td>접속 IP 정보, 쿠키, 방문기록, 서비스 이용기록 등</td>
+            <td>3개월</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p id="retention-desc" class="muted-note">
+        ※ 상기 표는 예시 항목으로, 실제 수집항목·보유기간은 서비스별·처리목적별로 달라질 수 있습니다.
+      </p>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- 3. 제3자 제공 -->
+    <section id="privacy-3">
+      <h2>3. 개인정보 제3자 제공에 관한 사항</h2>
+      <p>
+        3.1. &lt;주식회사 애나&gt;은(는) 정보주체의 개인정보를 개인정보의 처리 목적에서 명시한 범위 내에서만 처리하며,
+        정보주체의 동의, 법률의 특별한 규정 등 「개인정보 보호법」 제17조 및 제18조에 해당하는 경우에만 개인정보를
+        제3자에게 제공하고 그 이외에는 정보주체의 개인정보를 제3자에게 제공하지 않습니다.
+      </p>
+      <ol class="sub-list">
+        <li><span class="num">3.1.1.</span> 정보주체로부터 별도의 동의를 받는 경우</li>
+        <li><span class="num">3.1.2.</span> 법률에 특별한 규정이 있는 경우</li>
+        <li><span class="num">3.1.3.</span> 정보주체 또는 법정대리인이 의사표시를 할 수 없는 상태에 있거나 주소불명 등으로 사전 동의를 받을 수 없는 경우로서 명백히 정보주체 또는 제3자의 급박한 생명, 신체, 재산의 이익을 위하여 필요하다고 인정되는 경우</li>
+        <li><span class="num">3.1.4.</span> 개인정보를 목적 외의 용도로 이용하거나 이를 제3자에게 제공하지 아니하면 다른 법률에서 정하는 소관 업무를 수행할 수 없는 경우로서 보호위원회의 심의·의결을 거친 경우</li>
+        <li><span class="num">3.1.5.</span> 조약, 그 밖의 국제협정의 이행을 위하여 외국정부 또는 국제기구에 제공하기 위하여 필요한 경우</li>
+        <li><span class="num">3.1.6.</span> 범죄의 수사와 공소의 제기 및 유지를 위하여 필요한 경우</li>
+        <li><span class="num">3.1.7.</span> 법원의 재판업무 수행을 위하여 필요한 경우</li>
+        <li><span class="num">3.1.8.</span> 형 및 감호, 보호처분의 집행을 위하여 필요한 경우</li>
+      </ol>
+    
+      <p>3.2. &lt;주식회사 애나&gt;은(는) 원활한 서비스 제공을 위해 다음의 경우 정보주체의 동의를 얻어 필요 최소한의 범위로만 제공합니다.</p>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- 4. 권리·의무 및 행사방법 -->
+    <section id="privacy-4">
+      <h2>4. 정보주체와 법정대리인의 권리·의무 및 행사방법</h2>
+      <p>
+        4.1. 정보주체는 &lt;주식회사 애나&gt;에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구 등의 권리를 행사할 수 있습니다.
+        ※ 만 14세 미만 아동에 관한 개인정보의 열람등 요구는 법정대리인이 직접 해야 하며, 만 14세 이상의 미성년자인 정보주체는
+        정보주체의 개인정보에 관하여 미성년자 본인이 권리를 행사하거나 법정대리인을 통하여 권리를 행사할 수도 있습니다.
+      </p>
+      <p>4.2. 권리 행사는 &lt;주식회사 애나&gt;에 대해 「개인정보 보호법」 시행령 제41조 제1항에 따라 서면, 전자우편 등을 통하여 하실 수 있으며, &lt;주식회사 애나&gt;은(는) 이에 대해 지체없이 조치하겠습니다.</p>
+      <p>4.3. 권리 행사는 정보주체의 법정대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수 있습니다. 이 경우 「개인정보 처리 방법에 관한 고시」 별지 제11호 서식에 따른 위임장을 제출하셔야 합니다.</p>
+      <p>4.4. 개인정보 열람 및 처리정지 요구는 「개인정보 보호법」 제35조 제4항, 제37조 제2항에 의하여 정보주체의 권리가 제한 될 수 있습니다.</p>
+      <p>4.5. 개인정보의 정정 및 삭제 요구는 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.</p>
+      <p>4.6. &lt;주식회사 애나&gt;은(는) 정보주체 권리에 따른 열람의 요구, 정정·삭제의 요구, 처리 정지의 요구 시 열람 등 요구를 한 자가 본인이거나 정당한 대리인인지를 확인합니다.</p>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+    
+    <section id="privacy-5">
+      <h2>5. 개인정보의 파기 절차 및 방법</h2>
+      <p>5.1. &lt;주식회사 애나&gt;은(는) 개인정보 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.</p>
+      <p>5.2. 정보주체로부터 동의받은 개인정보 처리목적이 달성되었음 에도 불구하고 다른 법령에 따라 개인정보를 계속 보존하여야 하는 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다.</p>
+      <p>5.3. 개인정보 파기의 절차 및 방법은 다음과 같습니다.</p>
+      <ol class="sub-list">
+        <li><span class="num">5.3.1.</span> 파기절차 : &lt;주식회사 애나&gt;은(는) 파기 사유가 발생한 개인정보를 선정하고, &lt;주식회사 애나&gt;은(는) 의 개인정보 보호책임자의 승인을 받아 개인정보를 파기합니다.</li>
+        <li><span class="num">5.3.2.</span> 파기방법 : &lt;주식회사 애나&gt;은(는) 전자적 파일 형태로 기록·저장된 개인정보는 기록을 재생할 수 없도록 파기하며, 종이 문서에 기록·저장된 개인정보는 분쇄기로 분쇄 하거나 소각하여 파기합니다.</li>
+      </ol>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+    
+    <section id="privacy-6">
+      <h2>6. 개인정보의 안정성 확보조치</h2>
+      <p>6.1. &lt;주식회사 애나&gt;은(는) 개인정보 안정성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
+      <ol class="sub-list">
+        <li><span class="num">6.1.1.</span> 관리적 조치 : 내부 관리계획 수립·시행, 정기적 직원 교육, 전담조직 운영</li>
+        <li><span class="num">6.1.2.</span> 기술적 조치 : 개인정보처리시스템에 대한 등의 접근 권한의 관리, 인터넷망 차단 조치, 개인정보의 암호화</li>
+        <li><span class="num">6.1.3.</span> 물리적 조치 : 개발실, 자료보관실 등의 접근통제</li>
+      </ol>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+    
+    <section id="privacy-7">
+      <h2>7. 개인정보 보호책임자</h2>
+      <p>7.1. &lt;주식회사 애나&gt;은(는) 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자 와 개인정보 보호담당자 를 지정하고 있습니다.</p>
+    
+      <p>[개인정보 보호책임자]<br>
+      - 성명 : <br>- 소속 : <br>- 직급 : <br>- 연락처 :</p>
+    
+      <p>[개인정보 보호담당자]<br>
+      - 성명 : <br>- 소속 : <br>- 직급 : <br>- 연락처 :</p>
+    
+      <p>7.2. 정보주체는 &lt;주식회사 애나&gt;의 서비스(또는 사업)을 이용하시면서 발생한 모든 개인정보보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자 및 개인정보 보호담당자로 문의할 수 있습니다. &lt;주식회사 애나&gt;은(는) 정보주체의 문의에 대해 지체없이 답변 및 처리해드릴 것입니다.</p>
+    
+      <p>7.3. 기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.</p>
+      <ul>
+        <li>개인정보 침해신고센터 : <a href="https://privacy.kisa.or.kr">privacy.kisa.or.kr</a> / 118</li>
+        <li>개인정보 분쟁조정위원회 : <a href="https://www.kopico.go.kr">www.kopico.go.kr</a> / 1833-6972</li>
+        <li>대검찰청 사이버수사과 : <a href="https://www.spo.go.kr">www.spo.go.kr</a> / 1301</li>
+        <li>경찰청 사이버안전국 : <a href="https://cyberbureau.police.go.kr">cyberbureau.police.go.kr</a> / 182</li>
+      </ul>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+    
+    <section id="privacy-8">
+      <h2>8. 개인정보 열람, 정정 삭제, 처리·정지 청구 처리 절차</h2>
+      <ol class="sub-list">
+        <li><span class="num">8.1.</span> 개인정보 열람, 정정 삭제, 처리·정지 청구가 있을 경우 개인정보 보호책임자 및 개인정보 보호담당자는 오프라인 또는 전자우편을 통해 개인정보 열람, 정정 삭제, 처리·정지 요구서를 접수합니다.</li>
+        <li><span class="num">8.2.</span> 개인정보 보호책임자 및 개인정보 보호담당자는 청구 주체 확인 및 개인정보 열람, 개인정보 정정·삭제·처리정지 범위를 확인합니다.</li>
+        <li><span class="num">8.3.</span> 개인정보 보호책임자 및 개인정보 보호담당자는 열람 제한사항 및 개인정보 정정 삭제, 처리·정지 제한사항을 확인한 후 개인정보 보호책임자 및 침해사고 처리책임자의 승인 후 열람 결정(허용/제한/연기)통지 또는 열람 거부 통지, 정정·삭제·처리정지 결과 통지를 이메일 또는 서면으로 통지합니다.</li>
+        <li><span class="num">8.4.</span> 통지 후 열람이 허용된 경우 개인정보 보호책임자 및 개인정보 보호담당자 입회하에 열람을 진행합니다.</li>
+      </ol>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+    
+    <section id="privacy-9">
+      <h2>9. 개인정보의 추가적인 이용·제공 판단기준</h2>
+      <p>9.1. &lt;주식회사 애나&gt;는 「개인정보 보호법」 시행령 제14조의2에 따른 사항을 고려하여 정보주체의 동의없이 개인정보를 추가적으로 이용·제공할 수 있습니다. 이에 따라 &lt;주식회사 애나&gt;은 정보주체의 동의 없이 추가적인 이용·제공을 하기 위해서는 다음 각 호의 사항으로 판단합니다.</p>
+      <ol class="sub-list">
+        <li><span class="num">9.1.1.</span> 개인정보를 추가적으로 이용·제공하려는 목적이 당초 수집 목적과 관련성이 있는지 여부</li>
+        <li><span class="num">9.1.2.</span> 개인정보를 수집한 정황 또는 처리 관행에 비추어볼 때 추가적인 이용·제공에 대한 예측 가능성이 있는지 여부</li>
+        <li><span class="num">9.1.3.</span> 개인정보의 추가적인 이용·제공이 정보 주체의 이익을 부당하게 침해하는지 여부</li>
+        <li><span class="num">9.1.4.</span> 가명 처리 또는 암호화 등 안전성 확보에 필요한 조치를 하였는지 여부</li>
+      </ol>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+    
+    <section id="privacy-10">
+      <h2>10. 개인정보 처리방침 변경</h2>
+      <p>10.1. 이 개인정보 처리방침은 보고일부터 적용되며, 개인정보 보호법 시행령 개정에 따라서 개인정보 처리방침에 반영할 것이며 차후 민원발생에 대한 대응방안 개선도 지속적인 내부 점검으로 변경해 나갈 것입니다. 업로드로 인한 이전의 개인정보 처리방침은 내부적으로 보관할 예정이며 필요시 &lt;주식회사 애나&gt; 기타 문의 사항에 열람요청 시 내부적으로 정보주체 대상 여부를 판단하여 열람하도록 지원합니다.</p>
+      <p>10.2. 이 개인정보 처리방침은 <strong>2025.10.27.</strong>부터 적용됩니다.</p>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <div style="display: flex; justify-content: center; gap: 100px;">
+      <div class="tooltip">
+        <span class="tooltip-trigger" style="border: 1px solid #eee; cursor: default; padding: 10px 20px; border-radius: 8px;">
+          개인정보(열람·정정·삭제·처리정지) 요구서
+        </span>
+        <img src="resources/req.png" alt="요구서 이미지" class="tooltip-image" />
+      </div>
+      <div class="tooltip">
+        <span class="tooltip-trigger" style="border: 1px solid #eee; cursor: default; padding: 10px 20px; border-radius: 8px;">
+          개인정보 열람, 정정·삭제, 처리정지 청구 절차
+        </span>
+        <img src="resources/process.png" alt="청구 절차 이미지" class="tooltip-image" />
+      </div>
+      
+    </div>
+    <!-- 요청서 양식 (간단한 출력용 폼) -->
+    <!-- <section class="policy-section" id="request-form">
+      <h3>개인정보(열람·정정·삭제·처리정지) 요구서</h3>
+
+      <div class="request-form" aria-labelledby="request-form">
+        <div class="request-grid">
+          <div class="field">
+            <label>접수번호</label>
+            <input type="text" placeholder="(관리용)" />
+          </div>
+          <div class="field">
+            <label>접수일</label>
+            <input type="date" />
+          </div>
+
+          <div class="field full">
+            <label>요구인(정보주체) 성명</label>
+            <input type="text" placeholder="성명" />
+          </div>
+
+          <div class="field">
+            <label>전화번호</label>
+            <input type="text" placeholder="전화번호" />
+          </div>
+
+          <div class="field">
+            <label>생년월일</label>
+            <input type="text" placeholder="YYYY-MM-DD" />
+          </div>
+
+          <div class="field full">
+            <label>주소</label>
+            <input type="text" placeholder="주소" />
+          </div>
+
+          <div class="field full">
+            <label>요구내용 (해당 항목에 체크 및 상세기재)</label>
+            <div class="checkbox-list">
+              <label><input type="checkbox" /> 열람</label>
+              <label><input type="checkbox" /> 개인정보 항목 및 내용</label>
+              <label><input type="checkbox" /> 수집·이용 목적</label>
+              <label><input type="checkbox" /> 보유 및 이용기간</label>
+              <label><input type="checkbox" /> 제3자 제공 현황</label>
+              <label><input type="checkbox" /> 정정·삭제</label>
+              <label><input type="checkbox" /> 처리정지</label>
+            </div>
+            <textarea rows="4" placeholder="정정·삭제·처리정지 등 요청 사유를 구체적으로 적어주세요."></textarea>
+          </div>
+        </div>
+
+        <p class="muted-note">※ 작성 방법: 대리인이 요구인일 때에만 '대리인'란을 작성하시고, 정당한 위임이 필요합니다.</p>
+      </div>
+
+    </section> -->
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <p style="color:var(--muted); text-align:right; font-size:14px; margin-top:20px;">
+      주식회사 애나
+    </p>
+
+  </main>
+  
+
+  <div class="footer">
+    <div class="upbtn" style="margin-top: 54px;" onclick="(()=>{window.scroll({top:0,left:0,behavior:'smooth'})})()">
+      <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.70711 0.721326C8.31658 0.330801 7.68342 0.330801 7.29289 0.721326L0.928932 7.08529C0.538408 7.47581 0.538408 8.10898 0.928932 8.4995C1.31946 8.89002 1.95262 8.89002 2.34315 8.4995L8 2.84265L13.6569 8.4995C14.0474 8.89002 14.6805 8.89002 15.0711 8.4995C15.4616 8.10898 15.4616 7.47581 15.0711 7.08529L8.70711 0.721326ZM9 18.5713L9 1.42843L7 1.42843L7 18.5713L9 18.5713Z" fill="white"/>
+      </svg>          
+    </div>
+    <img src="resources/logo.svg" width="160" style="user-select: none; -webkit-user-drag: none; margin-top: 55px;"/>
+    <p style="color: #D6D6D6; text-align: center; line-height: 74.6%; margin: 32px 0px 41px 0px;"
+    data-aos="fa" data-aos-offset="-100" data-aos-anchor-placement="top-bottom" data-aos-once="true">
+      상호 : 주식회사 애나<br/><br/>
+      대표 : 김민종<br/><br/>
+      주소 : 인천광역시 연수구 컨벤시아대로 204, 인천스타트업파크 인스타1 302호<br/><br/>
+      TEL : 070-7811-4803<br/><br/>
+      e-mail : minjong.kim@byanna.io
+    </br></br></br>
+    <a href="./PrivacyPolicy.html" style="text-decoration: none; color: #D6D6D6; font-weight: bold;">개인정보처리방침</a>
+    </p>
+    <p style="color: #757575; user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
+  </div>
+
+  <!-- 스크롤시 header 색상 -->
+  <!-- <script src="about.js"></script> -->
+  <script>
+const mediaMobile = window.matchMedia("(max-width: 768px)");
+
+function handleDeviceChange() {
+  if (mediaMobile.matches) {
+    window.location.href = "./accreditation_m.html";
+  }
+}
+
+// 초기 실행 (페이지 로드 시)
+handleDeviceChange();
+
+// 화면 크기 변경 시 감지
+mediaMobile.addEventListener("change", handleDeviceChange);
+  </script>
+
+</body>
+</html>
