@@ -184,6 +184,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 1024px; /* 크기 조정 가능 */
+  max-width: 75vw;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
@@ -212,8 +213,8 @@
     @media (max-width:900px){
       .privacy-title{ font-size:28px; margin-top:8px; }
       .request-grid{ grid-template-columns: 1fr; }
-      .retention-table th{ width: 36%; }
-      .privacy-container{ padding: 0 18px; margin: 24px auto 48px; }
+      /* .retention-table th{ width: 36%; } */
+      .privacy-container{ padding: 0 18px; margin: 124px auto 8px; }
     }
 
     @media (max-width:420px){
@@ -589,10 +590,10 @@ function handleDeviceChange() {
 }
 
 // 초기 실행 (페이지 로드 시)
-handleDeviceChange();
+// handleDeviceChange();
 
 // 화면 크기 변경 시 감지
-mediaMobile.addEventListener("change", handleDeviceChange);
+// mediaMobile.addEventListener("change", handleDeviceChange);
   </script>
 
 </body>
