@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주식회사 애나</title>
+    <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="global.css"/>
+    <link rel="stylesheet" href="about.css"/>
+    <link rel="stylesheet" href="accreditation.css"/>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+
+    <style>
+  .menubtns .deco{
+    transform: translateX(calc(300% + 60px));
+  }
+
+
+  /* LLM 데이터 품질 평가 전용 스타일 */
+  .llm-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: white;
+  }
+
+  .llm-section {
+    margin-bottom: 50px;
+  }
+
+  .llm-section h2 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #34495e;
+    font-weight: normal;
+  }
+
+  .llm-section h3 {
+    font-size: 1.4em;
+    color: #34495e;
+    margin: 30px 0 20px 0;
+    font-weight: normal;
+  }
+
+  .llm-section p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .standards-box {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 5px;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .standards-title {
+    color: #2c3e50;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .highlight-box {
+    background-color: #ecf0f1;
+    padding: 25px;
+    border-left: 4px solid #3498db;
+    margin: 30px 0;
+  }
+
+  .highlight-box h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+  }
+
+  .highlight-box ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .highlight-box li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .highlight-box li::before {
+    content: "•";
+    color: #3498db;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .evaluation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+  }
+
+  .eval-category {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+  }
+
+  .eval-category h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+
+  .category-type {
+    background-color: #3498db;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .eval-category p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+  }
+
+  .service-item {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+  }
+
+  .service-item h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+
+  .service-item p {
+    font-size: 0.9em;
+    margin-bottom: 0;
+  }
+
+  .process-list {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 5px;
+    margin: 30px 0;
+  }
+
+  .process-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #3498db;
+    position: relative;
+  }
+
+  .process-number {
+    background-color: #3498db;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    position: absolute;
+    left: -12px;
+    top: 20px;
+  }
+
+  .process-item h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    font-size: 1.1em;
+  }
+
+  .process-item p {
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-size: 0.9em;
+  }
+
+  .certificate-section {
+    background-color: #e8f4f8;
+    padding: 30px;
+    border-radius: 5px;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .certificate-section h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+
+  .certificate-section p {
+    color: #555;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .llm-content {
+      padding: 20px 15px;
+    }
+    
+    .evaluation-grid, .services-list {
+      grid-template-columns: 1fr;
+    }
+  }
+    </style>
+</head>
+<body>
+  <div class="headerwrapper">
+    <div class="header" >
+      <img src="resources/logo.svg" width="130" style="cursor: pointer; -webkit-user-drag: none;" onclick="window.location.href='/'"/>
+      <a href="./about.html">회사소개</a>
+      <span style="color: white;">종합성능 시험평가</span>
+      <a href="./verification.html">기술검증</a>
+      <a href="./AIsolution.html">AI 위험상황 인식예측 솔루션</a>
+      <a href="./CSpage.html">고객지원</a>
+      <div style="position: absolute; right: 38px; width: 70px; height: 70px; display: flex; flex-direction: column; gap: 7px; align-items: center; justify-content: center;">
+        <div style="width: 45px; height: 1px; background-color: white;"></div>
+        <div style="width: 45px; height: 1px; background-color: white;"></div>
+        <div style="width: 45px; height: 1px; background-color: white;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vct">
+    <!-- <video src="resources/bgv.mp4" autoplay muted loop></video> -->
+    <img src="resources/m1bg.png"></img>
+    <span style="user-select: none; color: white; font-size: 70px; font-weight: 700;  margin-bottom: 180px;">
+      종합성능 시험평가</span>
+    <div class="menubtns" style="margin-bottom: 63px;">
+      <div class="deco"></div>
+      <a class="b0" href="./accreditation.html">시험평가 소개</a>
+      <a class="b1" href="./accreditation1.html">종합 SW 시험평가</a>
+      <a class="b2" href="./accreditation3.html">AI 시험평가</a>
+      <a class="b3" style="cursor: default; color: #292929; background-color: white; border-radius: 8px;">LLM 데이터 품질 평가</a>
+      <a class="b4" href="./LLM_Model_Eval.html">LLM 모델 성능 평가</a>
+      <a class="b5" href="./accreditation4.html">시험평가 신청</a>
+    </div>
+  </div>
+
+  <div class="llm-content">
+    <span  style="font-size: 54px; font-weight: 800; color: var(--gray-main); display: block; text-align: center; margin-top: 100px; margin-bottom: 80px;">
+      LLM 데이터 품질 평가</span>
+    <div class="llm-section">
+      <h2>서비스 개요</h2>
+      <p>대규모 언어모델(LLM)의 성능은 학습 데이터의 품질에 직접적으로 의존합니다. "Garbage in, Garbage out"이라는 말처럼, 저품질 데이터로 학습된 모델은 편향되고 부정확한 결과를 생성할 수 있습니다. 주식회사 애나는 LLM 학습에 사용되는 데이터의 품질을 체계적으로 평가하여, 신뢰할 수 있는 AI 모델 개발을 지원합니다.</p>
+      
+      <div class="standards-box">
+        <div class="standards-title">표준 기반 평가 체계</div>
+        <p>주식회사 애나는 <strong>ISO/IEC 25024 (데이터 품질 측정)</strong> 국제 표준과 <strong>한국지능정보사회진흥원(NIA) 발간 "AI 데이터 품질관리 가이드라인 v3.5"</strong>를 준용하여 체계적이고 객관적인 데이터 품질 평가를 수행합니다. 이를 통해 국내외 표준에 부합하는 신뢰할 수 있는 평가 결과를 제공합니다.</p>
+      </div>
+      
+      <div class="highlight-box">
+        <h4>데이터 품질이 중요한 이유</h4>
+        <ul>
+          <li>편향된 데이터는 차별적이고 공정하지 못한 AI 시스템을 만듭니다</li>
+          <li>부정확한 데이터는 잘못된 정보를 학습시켜 신뢰성을 떨어뜨립니다</li>
+          <li>불완전한 데이터는 모델의 일반화 능력을 제한합니다</li>
+          <li>노이즈가 많은 데이터는 학습 효율성을 크게 저하시킵니다</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="llm-section">
+      <h2>데이터 품질 평가 항목</h2>
+      <p>데이터 유형에 따라 차별화된 평가 방법론을 적용합니다. 정형 데이터에는 ISO/IEC 25024 표준을, 비정형 데이터에는 NIA의 생성형AI 데이터 품질관리 가이드라인을 기반으로 평가합니다.</p>
+      
+      <h3>정형 데이터: ISO/IEC 25024 기반 평가</h3>
+      <p><strong>적용 대상:</strong> 정형화된 메타데이터, 구조화된 라벨링 정보, 데이터베이스 형태의 학습 데이터</p>
+      
+      <div class="evaluation-grid">
+        <div class="eval-category">
+          <div class="category-type">ISO/IEC 25024</div>
+          <h4>정확성 (Accuracy)</h4>
+          <p>구조화된 데이터의 사실적 정확성, 수치 데이터의 정밀도, 참조 무결성 평가</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">ISO/IEC 25024</div>
+          <h4>완전성 (Completeness)</h4>
+          <p>필수 필드 누락 여부, 데이터 커버리지 분석, 필수 속성값 존재 여부 확인</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">ISO/IEC 25024</div>
+          <h4>일관성 (Consistency)</h4>
+          <p>데이터 간 모순 검출, 표기법 통일성, 형식 및 구조 일관성 검증</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">ISO/IEC 25024</div>
+          <h4>신뢰성 (Credibility)</h4>
+          <p>데이터 출처의 신뢰도, 검증 가능성, 권위 있는 소스 여부 평가</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">ISO/IEC 25024</div>
+          <h4>최신성 (Currentness)</h4>
+          <p>데이터의 시의성, 업데이트 주기, 정보의 유효성 평가</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">ISO/IEC 25024</div>
+          <h4>접근성 (Accessibility)</h4>
+          <p>데이터 접근 용이성, 가용성, 검색 가능성 평가</p>
+        </div>
+      </div>
+
+      <h3>비정형 데이터: NIA 생성형AI 데이터 품질관리 가이드 기반 평가</h3>
+      <p><strong>적용 대상:</strong> 텍스트, 음성, 이미지, 영상 등 LLM 학습용 비정형 데이터</p>
+      
+      <div class="evaluation-grid">
+        <div class="eval-category">
+          <div class="category-type">NIA v3.5</div>
+          <h4>내용 품질 (Content Quality)</h4>
+          <p>텍스트 내용의 의미적 정확성, 문맥적 일관성, 언어적 자연스러움 평가</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">NIA v3.5</div>
+          <h4>다양성 (Diversity)</h4>
+          <p>도메인 분포 분석, 언어적 다양성, 문화적 대표성, 주제 커버리지 평가</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">NIA v3.5</div>
+          <h4>편향성 (Bias)</h4>
+          <p>성별, 인종, 연령, 지역별 편향 분석, 사회적 고정관념 검출, 공정성 평가</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">NIA v3.5</div>
+          <h4>안전성 (Safety)</h4>
+          <p>유해 콘텐츠 포함도, 폭력성, 선정성, 차별적 표현 등 위험 요소 평가</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">NIA v3.5</div>
+          <h4>프라이버시 보호 (Privacy Protection)</h4>
+          <p>개인식별정보(PII) 검출, 민감정보 식별, 개인정보 노출 위험도 평가</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">NIA v3.5</div>
+          <h4>중복도 (Duplication)</h4>
+          <p>완전 중복 및 유사 중복 검출, 데이터 중복률 측정, 중복 제거 전략 제안</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">NIA v3.5</div>
+          <h4>노이즈 수준 (Noise Level)</h4>
+          <p>무의미한 텍스트 식별, 스팸 및 저품질 콘텐츠 검출, 신호 대 잡음비 분석</p>
+        </div>
+        <div class="eval-category">
+          <div class="category-type">NIA v3.5</div>
+          <h4>언어적 품질 (Linguistic Quality)</h4>
+          <p>문법적 정확성, 맞춤법, 구문 구조의 적절성, 언어 변이 분석</p>
+        </div>
+      </div>
+
+      <h3>멀티모달 데이터 특화 평가</h3>
+      <p><strong>NIA 가이드라인 v3.5 멀티모달 데이터 기준 준용:</strong> 텍스트, 음성, 이미지 등 두 가지 이상의 모달리티를 결합한 데이터의 일관성, 상호 보완성, 동기화 품질 평가</p>
+    </div>
+
+    <div class="llm-section">
+      <h2>주요 평가 서비스</h2>
+      <div class="services-list">
+        <div class="service-item">
+          <h4>웹 크롤링 데이터 검증</h4>
+          <p>인터넷에서 수집된 대규모 텍스트 데이터의 품질 평가. 웹 특성상 포함될 수 있는 스팸, 광고, 저품질 콘텐츠를 식별하고 필터링합니다.</p>
+        </div>
+        <div class="service-item">
+          <h4>도서·문헌 데이터 품질 평가</h4>
+          <p>디지털화된 도서, 논문, 뉴스 기사 등의 품질 검증. OCR 오류, 메타데이터 정확성, 저작권 이슈 등을 종합적으로 점검합니다.</p>
+        </div>
+        <div class="service-item">
+          <h4>대화형 데이터 분석</h4>
+          <p>챗봇 학습용 대화 데이터의 자연스러움, 문맥 일관성, 응답 적절성을 평가하여 고품질 대화 모델 구축을 지원합니다.</p>
+        </div>
+        <div class="service-item">
+          <h4>전문 도메인 데이터 검증</h4>
+          <p>의료, 법률, 금융 등 전문 분야 데이터의 정확성과 전문성을 해당 분야 전문가와 함께 검증합니다.</p>
+        </div>
+        <div class="service-item">
+          <h4>다국어 데이터 품질 평가</h4>
+          <p>한국어를 포함한 다양한 언어 데이터의 번역 품질, 문화적 적절성, 언어별 특성 반영도를 평가합니다.</p>
+        </div>
+        <div class="service-item">
+          <h4>합성 데이터 검증</h4>
+          <p>AI로 생성된 합성 데이터의 현실성, 다양성, 편향성을 평가하여 실제 데이터와의 균형점을 찾습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="llm-section">
+      <h2>데이터 품질 평가 프로세스</h2>
+      <div class="process-list">
+        <div class="process-item">
+          <div class="process-number">1</div>
+          <h4>데이터 수집 및 전처리</h4>
+          <p>평가 대상 데이터셋을 안전하게 수집하고, 기본적인 전처리 작업을 통해 분석 가능한 형태로 변환합니다.</p>
+        </div>
+        <div class="process-item">
+          <div class="process-number">2</div>
+          <h4>자동화 품질 검사</h4>
+          <p>AI 기반 자동화 도구를 활용하여 대규모 데이터의 기본적인 품질 지표를 빠르게 측정하고 이상치를 식별합니다.</p>
+        </div>
+        <div class="process-item">
+          <div class="process-number">3</div>
+          <h4>전문가 수동 검증</h4>
+          <p>언어학, 해당 도메인 전문가들이 샘플링된 데이터를 직접 검토하여 자동화로 놓칠 수 있는 미묘한 품질 이슈를 발견합니다.</p>
+        </div>
+        <div class="process-item">
+          <div class="process-number">4</div>
+          <h4>통계적 분석 및 시각화</h4>
+          <p>데이터 분포, 편향성 패턴, 품질 트렌드 등을 통계적으로 분석하고 이해하기 쉬운 시각화 자료로 제공합니다.</p>
+        </div>
+        <div class="process-item">
+          <div class="process-number">5</div>
+          <h4>개선 방안 제시</h4>
+          <p>발견된 품질 이슈에 대한 구체적인 해결 방안과 데이터 정제 가이드라인을 제공합니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="llm-section">
+      <h2>평가 결과 및 보고서</h2>
+      
+      <div class="certificate-section">
+        <h3>공인 시험기관의 시험 성적서</h3>
+        <p>ISO/IEC 25024 표준과 NIA AI 데이터 품질관리 가이드라인에 부합하는 평가를 완료한 데이터셋에 대해서는 <strong>공인 시험기관의 시험 성적서</strong>를 발급합니다. 이는 객관적이고 공정한 시험 평가를 통해 데이터 품질이 검증되었음을 증명하는 공식 문서로, 국내외 표준 기준에 따른 신뢰성 있는 품질 평가 결과를 제공합니다.</p>
+      </div>
+
+      <h3>종합 데이터 품질 보고서</h3>
+      <p>데이터셋의 전반적인 품질 현황을 한눈에 파악할 수 있는 대시보드 형태의 보고서를 제공합니다. ISO/IEC 25024의 주특성별 점수와 NIA 가이드라인 기준 평가 결과, 주요 발견사항, 위험 요소, 개선 우선순위 등을 명확하게 정리합니다.</p>
+
+      <h3>세부 분석 리포트</h3>
+      <div class="services-list">
+        <div class="service-item">
+          <h4>ISO/IEC 25024 기준 품질 지표 분석</h4>
+          <p>정확성, 완전성, 일관성, 신뢰성, 최신성, 접근성 등 국제 표준의 각 주특성별 상세 측정 결과와 개선 방안</p>
+        </div>
+        <div class="service-item">
+          <h4>NIA 가이드라인 기준 AI 특화 분석</h4>
+          <p>편향성, 다양성, 윤리적 적절성 등 AI 데이터 특화 평가 항목에 대한 상세 분석과 권고사항</p>
+        </div>
+        <div class="service-item">
+          <h4>표준 준수 현황 보고서</h4>
+          <p>국제 표준 및 국내 가이드라인 준수 수준 평가와 미흡한 부분에 대한 구체적 개선 방안</p>
+        </div>
+        <div class="service-item">
+          <h4>리스크 평가서</h4>
+          <p>데이터 사용 시 예상되는 위험 요소와 완화 전략, 규제 준수 방안 제안</p>
+        </div>
+      </div>
+
+      <h3>지속적 모니터링</h3>
+      <p>데이터가 지속적으로 업데이트되는 경우, 정기적인 품질 모니터링 서비스를 통해 새로 추가되는 데이터의 품질을 지속적으로 관리하고 표준 준수 수준을 유지할 수 있습니다.</p>
+    </div>
+
+    <div class="llm-section">
+      <h2>적용 사례</h2>
+      <div class="services-list">
+        <div class="service-item">
+          <h4>대화형 AI 개발</h4>
+          <p>고객 서비스 챗봇을 위한 대화 데이터 품질 검증으로 자연스럽고 도움이 되는 응답 품질 확보</p>
+        </div>
+        <div class="service-item">
+          <h4>의료 AI 시스템</h4>
+          <p>의료 문서 및 진료 기록 데이터의 정확성과 개인정보 보호 수준 검증</p>
+        </div>
+        <div class="service-item">
+          <h4>교육용 AI 튜터</h4>
+          <p>교육 콘텐츠 데이터의 정확성, 적절성, 연령별 적합성 평가</p>
+        </div>
+        <div class="service-item">
+          <h4>다국어 번역 서비스</h4>
+          <p>병렬 번역 코퍼스의 번역 품질과 문화적 적절성 검증</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="contractcont" >
+    <img src="resources/aboutim3.png" width="100%" height="100%">
+    <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
+      <div class="cmw">
+        <span class="contract" style="user-select: none;">시험신청 문의 및 상담</span>
+        <a class="morebtn" href="./test1.html">
+          <svg width="98" height="25" viewBox="0 0 98 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
+          </svg>          
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="upbtn" style="margin-top: 54px;" onclick="(()=>{window.scroll({top:0,left:0,behavior:'smooth'})})()">
+      <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.70711 0.721326C8.31658 0.330801 7.68342 0.330801 7.29289 0.721326L0.928932 7.08529C0.538408 7.47581 0.538408 8.10898 0.928932 8.4995C1.31946 8.89002 1.95262 8.89002 2.34315 8.4995L8 2.84265L13.6569 8.4995C14.0474 8.89002 14.6805 8.89002 15.0711 8.4995C15.4616 8.10898 15.4616 7.47581 15.0711 7.08529L8.70711 0.721326ZM9 18.5713L9 1.42843L7 1.42843L7 18.5713L9 18.5713Z" fill="white"/>
+      </svg>          
+    </div>
+    <img src="resources/logo.svg" width="160" style="user-select: none; -webkit-user-drag: none; margin-top: 55px;"/>
+    <p style="color: #D6D6D6; text-align: center; line-height: 74.6%; margin: 32px 0px 41px 0px;"
+    data-aos="fa" data-aos-offset="-100" data-aos-anchor-placement="top-bottom" data-aos-once="true">
+      상호 : 주식회사 애나<br/><br/>
+      대표 : 김민종<br/><br/>
+      주소 : 인천광역시 연수구 컨벤시아대로 204, 인천스타트업파크 인스타1 302호<br/><br/>
+      TEL : 070-7811-4803<br/><br/>
+      e-mail : minjong.kim@byanna.io
+    </br></br></br>
+    <a href="./PrivacyPolicy.html" style="text-decoration: none; color: #D6D6D6; font-weight: bold;">개인정보처리방침</a>
+    </p>
+    <p style="color: #757575; user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
+  </div>
+
+  <script src="about.js"></script>
+  <script>
+const mediaMobile = window.matchMedia("(max-width: 768px)");
+
+function handleDeviceChange() {
+  if (mediaMobile.matches) {
+    window.location.href = "./accreditation1_m.html";
+  }
+}
+
+// 초기 실행 (페이지 로드 시)
+// handleDeviceChange();
+
+// 화면 크기 변경 시 감지
+// mediaMobile.addEventListener("change", handleDeviceChange);
+  </script>
+
+</body>
+</html>
