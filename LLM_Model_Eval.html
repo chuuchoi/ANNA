@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주식회사 애나</title>
+    <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="global.css"/>
+    <link rel="stylesheet" href="about.css"/>
+    <link rel="stylesheet" href="accreditation.css"/>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
+    <style>
+.menubtns .deco{
+    transform: translateX(calc(400% + 80px));
+}
+        /* CSS for LLM Model Evaluation content and menu styling */
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Pretendard', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #1976D2;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #1976D2;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            background: #e3f2fd;
+            padding: 20px;
+            border-left: 4px solid #1976D2;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .services-grid, .capability-areas, .benchmark-grid, .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-card, .capability-card, .benchmark-item, .metric-card, .contact-item {
+            background: #f8fbff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e3f2fd;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover, .capability-card:hover, .benchmark-item:hover, .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h4, .capability-card h4, .benchmark-item h5, .metric-card h5 {
+            color: #1976D2;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .capability-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .capability-list li {
+            background: #f0f8ff;
+            margin: 8px 0;
+            padding: 12px;
+            border-left: 3px solid #1976D2;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .benchmark-item .category {
+            background: #cfe2f3;
+            color: #0b5394;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .evaluation-process {
+            background: #f8fbff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .process-step {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1976D2;
+            position: relative;
+        }
+
+        .step-number {
+            background: #1976D2;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: absolute;
+            left: -17.5px;
+            top: 20px;
+        }
+
+        .process-step h4 {
+            color: #1976D2;
+            margin-bottom: 10px;
+            padding-left: 25px;
+        }
+
+        .process-step p {
+            padding-left: 25px;
+            margin-bottom: 0;
+        }
+
+        .metrics-section h3 {
+            color: #1976D2;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 5px;
+        }
+
+        .contact-info {
+            background: #004d99;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info h3 {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: none;
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+  <div class="headerwrapper">
+    <div class="header" >
+      <img src="resources/logo.svg" width="130" style="cursor: pointer; -webkit-user-drag: none;" onclick="window.location.href='/'"/>
+      <a href="./about.html">회사소개</a>
+      <span style="color: white;">종합성능 시험평가</span>
+      <a href="./verification.html">기술검증</a>
+      <a href="./AIsolution.html">AI 위험상황 인식예측 솔루션</a>
+      <a href="./CSpage.html">고객지원</a>
+      <div style="position: absolute; right: 38px; width: 70px; height: 70px; display: flex; flex-direction: column; gap: 7px; align-items: center; justify-content: center;">
+        <div style="width: 45px; height: 1px; background-color: white;"></div>
+        <div style="width: 45px; height: 1px; background-color: white;"></div>
+        <div style="width: 45px; height: 1px; background-color: white;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vct">
+    <img src="resources/m1bg.png"></img>
+    <span style="user-select: none; color: white; font-size: 70px; font-weight: 700;  margin-bottom: 180px;">
+      종합성능 시험평가</span>
+    <div class="menubtns" style="margin-bottom: 63px;">
+      <div class="deco"></div>
+      <a class="b0" href="./accreditation.html">시험평가 소개</a>
+      <a class="b1" href="./accreditation1.html">종합 SW 시험평가</a>
+      <a class="b2" href="./accreditation3.html">AI 시험평가</a>
+      <a class="b3" href="./LLM_Data_Eval.html">LLM 데이터 품질 평가</a>
+      <a class="b4" style="cursor: default; color: #292929; background-color: white; border-radius: 8px;">LLM 모델 성능 평가</a>
+      <a class="b5" href="./accreditation4.html">시험평가 신청</a>
+    </div>
+  </div>
+
+  <div class="content-container">
+    <span  style="font-size: 54px; font-weight: 800; color: var(--gray-main); display: block; text-align: center; margin-top: 116px; margin-bottom: 60px;">
+        LLM 모델 성능 평가</span>
+    <div class="section">
+        <h2>LLM 모델 성능 평가 서비스</h2>
+        <p>대규모 언어모델(LLM)의 성능 평가는 단순한 정확도 측정을 넘어 언어 이해, 추론, 생성, 안전성 등 다각도의 종합적인 능력을 평가해야 합니다. 주식회사 애나는 국제적으로 인정받는 벤치마크와 자체 개발한 한국어 특화 평가 방법론을 통해 LLM의 실제 성능을 정확하게 측정합니다.</p>
+        
+        <div class="highlight">
+            <strong>왜 LLM 성능 평가가 중요한가요?</strong><br>
+            • 모델의 실제 능력과 한계를 객관적으로 파악할 수 있습니다<br>
+            • 서비스 적용 전 위험 요소를 사전에 발견하고 대응할 수 있습니다<br>
+            • 다른 모델과의 비교를 통해 최적의 선택을 할 수 있습니다<br>
+            • 모델 개선 방향과 우선순위를 명확히 설정할 수 있습니다
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>핵심 평가 영역</h2>
+        <div class="capability-areas">
+            <div class="capability-card">
+                <h4>언어 이해 (Language Understanding)</h4>
+                <ul class="capability-list">
+                    <li>독해 능력 및 문맥 파악</li>
+                    <li>의미적 유사성 판단</li>
+                    <li>함의 관계 추론</li>
+                    <li>감정 및 의도 분석</li>
+                </ul>
+            </div>
+            <div class="capability-card">
+                <h4>추론 능력 (Reasoning)</h4>
+                <ul class="capability-list">
+                    <li>논리적 추론 및 연역적 사고</li>
+                    <li>수학적 문제 해결</li>
+                    <li>상식 추론 및 세상 지식</li>
+                    <li>인과관계 파악</li>
+                </ul>
+            </div>
+            <div class="capability-card">
+                <h4>텍스트 생성 (Text Generation)</h4>
+                <ul class="capability-list">
+                    <li>유창성 및 일관성</li>
+                    <li>창의성 및 다양성</li>
+                    <li>지시사항 따르기</li>
+                    <li>형식적 정확성</li>
+                </ul>
+            </div>
+            <div class="capability-card">
+                <h4>전문 지식 (Domain Knowledge)</h4>
+                <ul class="capability-list">
+                    <li>과학, 기술, 의료 지식</li>
+                    <li>인문학 및 사회과학</li>
+                    <li>법률 및 규제 이해</li>
+                    <li>비즈니스 및 경제</li>
+                </ul>
+            </div>
+            <div class="capability-card">
+                <h4>안전성 (Safety)</h4>
+                <ul class="capability-list">
+                    <li>유해 콘텐츠 생성 방지</li>
+                    <li>편향성 및 공정성</li>
+                    <li>프라이버시 보호</li>
+                    <li>오정보 생성 방지</li>
+                </ul>
+            </div>
+            <div class="capability-card">
+                <h4>다국어 능력 (Multilingual)</h4>
+                <ul class="capability-list">
+                    <li>한국어 특화 성능</li>
+                    <li>언어 간 번역 품질</li>
+                    <li>문화적 맥락 이해</li>
+                    <li>코드 스위칭 처리</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>표준 벤치마크 테스트</h2>
+        <p>국제적으로 인정받는 표준 벤치마크와 한국어 특화 평가셋을 활용하여 객관적인 성능 측정을 수행합니다.</p>
+        
+        <div class="benchmark-grid">
+            <div class="benchmark-item">
+                <div class="category">종합 평가</div>
+                <h5>MMLU (Massive Multitask Language Understanding)</h5>
+                <p>57개 과목에 걸친 종합적인 지식과 추론 능력 평가</p>
+            </div>
+            <div class="benchmark-item">
+                <div class="category">한국어 특화</div>
+                <h5>KLUE (Korean Language Understanding Evaluation)</h5>
+                <p>한국어 자연어 이해 능력 종합 평가</p>
+            </div>
+            <div class="benchmark-item">
+                <div class="category">추론 능력</div>
+                <h5>Big-Bench</h5>
+                <p>복잡한 추론과 문제 해결 능력 평가</p>
+            </div>
+            <div class="benchmark-item">
+                <div class="category">수학 능력</div>
+                <h5>GSM8K / MATH</h5>
+                <p>초등학교부터 대학 수준의 수학 문제 해결 능력</p>
+            </div>
+            <div class="benchmark-item">
+                <div class="category">코딩 능력</div>
+                <h5>HumanEval / MBPP</h5>
+                <p>프로그래밍 코드 생성 및 디버깅 능력</p>
+            </div>
+            <div class="benchmark-item">
+                <div class="category">안전성</div>
+                <h5>TruthfulQA / HONEST</h5>
+                <p>진실성, 편향성, 유해성 평가</p>
+            </div>
+            <div class="benchmark-item">
+                <div class="category">독해 능력</div>
+                <h5>SQuAD / QuAC</h5>
+                <p>기계 독해 및 질의응답 성능</p>
+            </div>
+            <div class="benchmark-item">
+                <div class="category">상식 추론</div>
+                <h5>CommonsenseQA / PIQA</h5>
+                <p>일상적 상식과 물리적 상호작용 이해</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>평가 방법론</h2>
+        <div class="evaluation-process">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h4>모델 분석 및 평가 계획 수립</h4>
+                <p>평가 대상 모델의 특성, 용도, 예상 성능 수준을 분석하여 맞춤형 평가 계획을 수립합니다.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h4>표준 벤치마크 실행</h4>
+                <p>MMLU, KLUE 등 국제 표준 벤치마크를 통해 기본 성능을 측정하고 다른 모델과 비교 분석합니다.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h4>전문 도메인별 평가</h4>
+                <p>의료, 법률, 과학 등 특정 전문 분야에서의 성능을 도메인 전문가와 함께 평가합니다.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h4>인간 평가자 기반 품질 검증</h4>
+                <p>전문 평가자들이 모델 출력의 품질, 적절성, 유용성을 직접 평가하여 정성적 성능을 검증합니다.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <h4>안전성 및 견고성 테스트</h4>
+                <p>적대적 공격, 편향된 프롬프트, 유해 콘텐츠 유도 등에 대한 모델의 방어 능력을 검증합니다.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">6</div>
+                <h4>종합 분석 및 보고서 작성</h4>
+                <p>모든 평가 결과를 종합하여 모델의 강점, 약점, 개선 방향을 제시하는 상세 보고서를 작성합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>성능 측정 지표</h2>
+        <div class="metrics-section">
+            <h3>정량적 지표</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h5>정확도 (Accuracy)</h5>
+                    <p>정답률 기반 성능 측정</p>
+                </div>
+                <div class="metric-card">
+                    <h5>BLEU/ROUGE</h5>
+                    <p>텍스트 생성 품질 평가</p>
+                </div>
+                <div class="metric-card">
+                    <h5>BERTScore</h5>
+                    <p>의미적 유사성 기반 평가</p>
+                </div>
+                <div class="metric-card">
+                    <h5>Perplexity</h5>
+                    <p>언어 모델의 예측 정확성</p>
+                </div>
+                <div class="metric-card">
+                    <h5>F1-Score</h5>
+                    <p>정밀도와 재현율의 조화평균</p>
+                </div>
+                <div class="metric-card">
+                    <h5>Toxicity Score</h5>
+                    <p>유해 콘텐츠 생성 비율</p>
+                </div>
+            </div>
+
+            <h3>정성적 지표</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>유창성 (Fluency)</h4>
+                    <p>자연스럽고 읽기 쉬운 텍스트 생성 능력</p>
+                </div>
+                <div class="service-card">
+                    <h4>일관성 (Coherence)</h4>
+                    <p>논리적 흐름과 문맥 유지 능력</p>
+                </div>
+                <div class="service-card">
+                    <h4>관련성 (Relevance)</h4>
+                    <p>질문이나 지시사항에 대한 적절한 응답</p>
+                </div>
+                <div class="service-card">
+                    <h4>창의성 (Creativity)</h4>
+                    <p>독창적이고 다양한 아이디어 생성</p>
+                </div>
+                <div class="service-card">
+                    <h4>도움성 (Helpfulness)</h4>
+                    <p>사용자에게 실질적인 도움이 되는 정도</p>
+                </div>
+                <div class="service-card">
+                    <h4>정직성 (Honesty)</h4>
+                    <p>불확실한 상황에서의 솔직한 답변</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>평가 결과 및 보고서</h2>
+        <h3>공인 시험기관의 시험 성적서</h3>
+        <p>종합적인 성능 평가를 완료한 LLM에 대해서는 <strong>공인 시험기관의 시험 성적서</strong>를 발급합니다. 이는 객관적이고 공정한 시험 평가를 통해 모델 성능이 검증되었음을 증명하는 공식 문서로, 국제 벤치마크 기준에 따른 신뢰성 있는 성능 평가 결과를 제공합니다.</p>
+
+        <h3>종합 성능 평가 보고서</h3>
+        <p>모델의 전반적인 성능을 한눈에 파악할 수 있는 대시보드 형태의 보고서를 제공합니다. 각 능력 영역별 점수, 벤치마크 순위, 경쟁 모델 대비 성능, 주요 강점과 약점 등을 시각적으로 정리합니다.</p>
+
+        <h3>세부 분석 리포트</h3>
+        <div class="services-grid">
+            <div class="service-card">
+                <h4>벤치마크별 상세 성능 분석</h4>
+                <p>MMLU, KLUE 등 각 벤치마크별 세부 성능과 개선이 필요한 영역 분석</p>
+            </div>
+            <div class="service-card">
+                <h4>능력별 강점/약점 분석</h4>
+                <p>언어 이해, 추론, 생성, 안전성 등 각 능력 영역별 상세 평가 결과</p>
+            </div>
+            <div class="service-card">
+                <h4>경쟁 모델 비교 분석</h4>
+                <p>주요 경쟁 모델과의 성능 비교 및 차별화 포인트 분석</p>
+            </div>
+            <div class="service-card">
+                <h4>실사용 시나리오 테스트</h4>
+                <p>실제 서비스 환경에서의 성능과 사용자 만족도 평가</p>
+            </div>
+            <div class="service-card">
+                <h4>안전성 및 편향성 리포트</h4>
+                <p>유해 콘텐츠 생성, 편향성, 공정성 등 안전성 관련 종합 평가</p>
+            </div>
+            <div class="service-card">
+                <h4>성능 개선 권고사항</h4>
+                <p>발견된 약점에 대한 구체적인 개선 방향과 최적화 전략 제안</p>
+            </div>
+        </div>
+        <p style="margin-top: 20px;">모델이 업데이트되거나 서비스 환경이 변화하는 경우, 정기적인 성능 재평가를 통해 일관된 품질을 유지하고 성능 변화를 추적할 수 있습니다.</p>
+    </div>
+    
+    <div class="section">
+        <h2>적용 분야별 특화 평가</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h4>고객 서비스 ChatBot</h4>
+                <p>대화의 자연스러움, 문제 해결 능력, 고객 만족도 중심 평가</p>
+            </div>
+            <div class="service-card">
+                <h4>교육용 AI 튜터</h4>
+                <p>교육 콘텐츠 정확성, 설명 능력, 학습자 수준별 적응성 평가</p>
+            </div>
+            <div class="service-card">
+                <h4>의료 AI 어시스턴트</h4>
+                <p>의학 지식 정확성, 안전성, 전문가 수준의 추론 능력 평가</p>
+            </div>
+            <div class="service-card">
+                <h4>법률 문서 분석</h4>
+                <p>법률 용어 이해, 법리 적용, 문서 해석의 정확성 평가</p>
+            </div>
+            <div class="service-card">
+                <h4>창작 및 콘텐츠 생성</h4>
+                <p>창의성, 독창성, 문체의 다양성, 장르별 특성 반영 평가</p>
+            </div>
+            <div class="service-card">
+                <h4>번역 및 다국어 서비스</h4>
+                <p>번역 정확성, 문화적 맥락 이해, 언어별 특성 반영도 평가</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section contact-info">
+        <h3>LLM 모델 성능 평가 서비스 문의</h3>
+        <p>객관적이고 종합적인 성능 평가로 최적의 AI 모델을 선택하세요</p>
+        <div class="contact-details">
+            <div class="contact-item">
+                <strong>전화 상담</strong><br>
+                02-XXXX-XXXX
+            </div>
+            <div class="contact-item">
+                <strong>이메일 문의</strong><br>
+                model-eval@theannacompany.com
+            </div>
+            <div class="contact-item">
+                <strong>온라인 상담</strong><br>
+                평일 09:00 - 18:00
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="contractcont" >
+    <img src="resources/aboutim3.png" width="100%" height="100%">
+    <div style="color: white; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-between;">
+      <div class="cmw">
+        <span class="contract" style="user-select: none;">시험신청 문의 및 상담</span>
+        <a class="morebtn" href="./test1.html">
+          <svg width="98" height="25" viewBox="0 0 98 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 24H95L69.5874 1" stroke="white" stroke-width="2"/>
+          </svg>          
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="upbtn" style="margin-top: 54px;" onclick="(()=>{window.scroll({top:0,left:0,behavior:'smooth'})})()">
+      <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.70711 0.721326C8.31658 0.330801 7.68342 0.330801 7.29289 0.721326L0.928932 7.08529C0.538408 7.47581 0.538408 8.10898 0.928932 8.4995C1.31946 8.89002 1.95262 8.89002 2.34315 8.4995L8 2.84265L13.6569 8.4995C14.0474 8.89002 14.6805 8.89002 15.0711 8.4995C15.4616 8.10898 15.4616 7.47581 15.0711 7.08529L8.70711 0.721326ZM9 18.5713L9 1.42843L7 1.42843L7 18.5713L9 18.5713Z" fill="white"/>
+      </svg>          
+    </div>
+    <img src="resources/logo.svg" width="160" style="user-select: none; -webkit-user-drag: none; margin-top: 55px;"/>
+    <p style="color: #D6D6D6; text-align: center; line-height: 74.6%; margin: 32px 0px 41px 0px;"
+    data-aos="fa" data-aos-offset="-100" data-aos-anchor-placement="top-bottom" data-aos-once="true">
+      상호 : 주식회사 애나<br/><br/>
+      대표 : 김민종<br/><br/>
+      주소 : 인천광역시 연수구 컨벤시아대로 204, 인천스타트업파크 인스타1 302호<br/><br/>
+      TEL : 070-7811-4803<br/><br/>
+      e-mail : minjong.kim@byanna.io
+    </br></br></br>
+    <a href="./PrivacyPolicy.html" style="text-decoration: none; color: #D6D6D6; font-weight: bold;">개인정보처리방침</a>
+    </p>
+    <p style="color: #757575; user-select: none;">Copyright &copy; ANNA Inc. All rights reserved.</p>
+  </div>
+
+  <script src="about.js"></script>
+  <script>
+const mediaMobile = window.matchMedia("(max-width: 768px)");
+
+function handleDeviceChange() {
+  if (mediaMobile.matches) {
+    window.location.href = "./accreditation6_m.html";
+  }
+}
+
+// 초기 실행 (페이지 로드 시)
+// handleDeviceChange();
+
+// 화면 크기 변경 시 감지
+// mediaMobile.addEventListener("change", handleDeviceChange);
+  </script>
+
+</body>
+</html>

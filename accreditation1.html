@@ -11,21 +11,9 @@
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css" />
 
     <style>
-  .menubtns .deco{
-    transform: translateX(214px);
-  }
-  .menubtns:has(.b1:hover) .deco{
-    transform: translate(0px);
-  }
-  .menubtns:has(.b2:hover) .deco{
-    transform: translate(428px);
-  }
-  .menubtns:has(.b3:hover) .deco{
-    transform: translate(642px);
-  }
-  .menubtns:has(.b4:hover) .deco{
-    transform: translate(856px);
-  }
+.menubtns .deco{
+  transform: translate(calc(100% + 20px));
+}
     </style>
 </head>
 <body>
@@ -52,11 +40,12 @@
       종합성능 시험평가</span>
     <div class="menubtns" style="margin-bottom: 63px;">
       <div class="deco"></div>
-      <a class="b1" href="./accreditation.html">시험평가 소개</a>
-      <a style="cursor: default; color: #292929; background-color: white; border-radius: 8px;">종합 SW 시험평가</a>
-      <a class="b2" href="./accreditation2.html">메타버스 시험평가</a>
-      <a class="b3" href="./accreditation3.html">AI 시험평가</a>
-      <a class="b4" href="./accreditation4.html">시험평가 신청</a>
+      <a class="b0" href="./accreditation.html">시험평가 소개</a>
+      <a class="b1" style="cursor: default; color: #292929; background-color: white; border-radius: 8px;">종합 SW 시험평가</a>
+      <a class="b2" href="./accreditation3.html">AI 시험평가</a>
+      <a class="b3" href="./LLM_Data_Eval.html">LLM 데이터 품질 평가</a>
+      <a class="b4" href="./LLM_Model_Eval.html">LLM 모델 성능 평가</a>
+      <a class="b5" href="./accreditation4.html">시험평가 신청</a>
     </div>
   </div>
 

@@ -1,18 +1,27 @@
 .menubtns{
-  width: 1071px;
+  width: 1239px;
 }
 .menubtns .deco{
-  width:196px;
+  width:187.17px;
+}
+.menubtns .deco{
+  transform: translate(0);
+}
+.menubtns:has(.b0:hover) .deco{
+  transform: translate(0);
 }
 .menubtns:has(.b1:hover) .deco{
-  transform: translate(214px);
+  transform: translate(calc(100% + 20px));
 }
 .menubtns:has(.b2:hover) .deco{
-  transform: translate(428px);
+  transform: translate(calc(200% + 40px));
 }
 .menubtns:has(.b3:hover) .deco{
-  transform: translate(642px);
+  transform: translate(calc(300% + 60px));
 }
 .menubtns:has(.b4:hover) .deco{
-  transform: translate(856px);
+  transform: translate(calc(400% + 80px));
+}
+.menubtns:has(.b5:hover) .deco{
+  transform: translate(calc(500% + 100px));
 }
